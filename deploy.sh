@@ -8,7 +8,7 @@ echo "🚀 RealTime Data System Deployment"
 echo "=================================="
 
 # Configuration
-REPO_URL=""  # Will be set after GitHub setup
+REPO_URL="https://github.com/toshan121/RealTimeData.git"
 PROJECT_DIR="RealTimeData"
 SERVICE_NAME="realtime-data-system"
 

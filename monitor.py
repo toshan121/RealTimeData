@@ -6,7 +6,6 @@ Just the essentials with Rich + Click
 import time
 import subprocess
 import psutil
-from datetime import datetime
 
 import click
 from rich.console import Console
@@ -21,29 +20,29 @@ def check_service(name, test_func):
     """Simple service checker."""
     try:
         return test_func()
-    except:
+    except Exception:
         return f"{name}: DOWN"
 
 
 def get_status():
     """Get all status info quickly."""
     status = {}
-    
+
     # Redis
     try:
         import redis
         r = redis.Redis(host='localhost', port=6380, socket_connect_timeout=1)
         r.ping()
         status['redis'] = "UP"
-    except:
+    except Exception:
         status['redis'] = "DOWN"
-    
+
     # ClickHouse
     try:
         import clickhouse_connect
         ch = clickhouse_connect.get_client(
-            host='localhost', 
-            port=8123, 
+            host='localhost',
+            port=8123,
             database='l2_market_data',
             username='l2_user',
             password='l2_secure_pass',
@@ -51,31 +50,33 @@ def get_status():
         )
         ch.query("SELECT 1")
         status['clickhouse'] = "UP"
-    except:
+    except Exception:
         status['clickhouse'] = "DOWN"
-    
+
     # Kafka
     try:
         from kafka import KafkaConsumer
-        KafkaConsumer(bootstrap_servers='localhost:9092', consumer_timeout_ms=1000)
+        KafkaConsumer(bootstrap_servers='localhost:9092',
+                      consumer_timeout_ms=1000)
         status['kafka'] = "UP"
-    except:
+    except Exception:
         status['kafka'] = "DOWN"
-    
+
     # Recording process
     status['recording'] = "DOWN"
     try:
         for proc in psutil.process_iter(['pid', 'cmdline']):
             try:
-                if 'start_495_stock_recording.py' in ' '.join(proc.info['cmdline'] or []):
+                cmdline = ' '.join(proc.info['cmdline'] or [])
+                if 'start_495_stock_recording.py' in cmdline:
                     status['recording'] = f"UP (PID: {proc.info['pid']})"
                     break
-            except:
+            except Exception:
                 pass
     except Exception:
         # Handle case where psutil itself fails
         status['recording'] = "DOWN"
-    
+
     return status
 
 
@@ -84,12 +85,12 @@ def make_table():
     table = Table(title="System Status")
     table.add_column("Service")
     table.add_column("Status")
-    
+
     status = get_status()
     for service, state in status.items():
         color = "green" if "UP" in state else "red"
         table.add_row(service.title(), Text(state, style=color))
-    
+
     return table
 
 
@@ -105,7 +106,7 @@ def watch(refresh):
     """Live monitoring."""
     console.print("Press Ctrl+C to exit")
     try:
-        with Live(make_table(), refresh_per_second=1/refresh) as live:
+        with Live(make_table(), refresh_per_second=1 / refresh) as live:
             while True:
                 time.sleep(refresh)
                 live.update(make_table())
@@ -135,13 +136,14 @@ def stop():
     killed = 0
     for proc in psutil.process_iter(['pid', 'cmdline']):
         try:
-            if 'start_495_stock_recording.py' in ' '.join(proc.info['cmdline'] or []):
+            cmdline = ' '.join(proc.info['cmdline'] or [])
+            if 'start_495_stock_recording.py' in cmdline:
                 proc.terminate()
                 console.print(f"[green]Stopped PID {proc.info['pid']}[/green]")
                 killed += 1
-        except:
+        except Exception:
             pass
-    
+
     if killed == 0:
         console.print("[yellow]Nothing to stop[/yellow]")
 
@@ -152,11 +154,11 @@ def test():
     import sys
     status = get_status()
     all_up = all("UP" in state for state in status.values())
-    
+
     for service, state in status.items():
         color = "green" if "UP" in state else "red"
         console.print(f"{service}: [{color}]{state}[/{color}]")
-    
+
     if all_up:
         console.print("[green]All services OK[/green]")
         sys.exit(0)
