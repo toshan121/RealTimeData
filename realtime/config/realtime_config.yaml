@@ -1,0 +1,129 @@
+# Real-time Trading Infrastructure Configuration
+
+# IQFeed Configuration
+iqfeed:
+  host: "127.0.0.1"
+  ports:
+    level1: 5009
+    level2: 9200
+    history: 9100
+    admin: 9300
+  protocol_version: "6.2"
+  
+# Data Collection
+data_collection:
+  # File-based storage (future: switch to DB)
+  base_dir: "/home/tcr1n15/PycharmProjects/RealTimeData/data"
+  tick_dir: "ticks"
+  l1_dir: "l1"
+  l2_dir: "l2"
+  
+  # Data retention (hours)
+  retention_hours: 168  # 1 week
+  
+  # Batch sizes for performance
+  batch_size: 1000
+  flush_interval_seconds: 5
+
+# Kafka Configuration  
+kafka:
+  bootstrap_servers: ["localhost:9092"]
+  topics:
+    ticks: "realtime-ticks"
+    l1_quotes: "realtime-l1"
+    l2_quotes: "realtime-l2" 
+    metrics: "system-metrics"
+  
+  # Performance settings
+  batch_size: 16384
+  linger_ms: 5
+  acks: 1
+  
+# Redis Configuration
+redis:
+  host: "localhost"
+  port: 6380
+  db: 0
+  
+  # Key namespaces
+  namespaces:
+    metrics: "realtime:metrics"
+    latency: "realtime:latency"
+    network: "realtime:network"
+    tickers: "realtime:tickers"
+  
+  # TTL for real-time data (seconds)
+  ttl_seconds: 3600
+
+# SQLite Configuration (for historical metrics)
+sqlite:
+  db_path: "/home/tcr1n15/PycharmProjects/RealTimeData/data/metrics.db"
+  
+# Monitoring
+monitoring:
+  # Latency thresholds (milliseconds)
+  latency_warning_ms: 10
+  latency_critical_ms: 50
+  
+  # Network monitoring
+  network_check_interval_seconds: 30
+  max_message_rate_per_second: 10000
+  
+  # Health checks
+  health_check_interval_seconds: 60
+
+# Scaling Configuration (Hedge Fund Level)
+scaling:
+  # Multi-threading
+  max_worker_threads: 8
+  
+  # Load balancing
+  enable_load_balancing: true
+  max_tickers_per_process: 250  # 4 processes for 1000 tickers
+  
+  # Circuit breaker
+  enable_circuit_breaker: true
+  failure_threshold: 5
+  recovery_timeout_seconds: 30
+  
+  # Memory management
+  max_memory_mb: 2048
+  gc_interval_seconds: 300
+
+# Replay Configuration
+replay:
+  # Speed controls
+  default_speed_multiplier: 1.0
+  max_speed_multiplier: 100.0
+  
+  # Data sources
+  data_sources:
+    - "historical"
+    - "recorded"
+  
+  # Comparison metrics
+  enable_comparison: true
+  comparison_tolerance_ms: 5
+
+# Dashboard Configuration
+dashboard:
+  streamlit:
+    port: 8501
+    host: "0.0.0.0"
+    
+  # Update intervals (seconds)
+  refresh_intervals:
+    metrics: 1
+    latency: 0.5
+    network: 5
+    
+# Ticker Lists
+ticker_management:
+  # Default lists
+  small_test_list: 10
+  medium_test_list: 100
+  full_production_list: 1000
+  
+  # Dynamic subscription
+  enable_dynamic_subscription: true
+  subscription_batch_size: 50

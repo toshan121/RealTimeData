@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  iqfeed:
+    image: jaikumarm/iqfeed:v62025-w10
+    container_name: iqfeed
+    ports:
+      # IQFeed ports - bind to all interfaces (0.0.0.0) for LAN access
+      - "0.0.0.0:5009:5009"   # Admin port
+      - "0.0.0.0:9100:9100"   # Level 1 port
+      - "0.0.0.0:9200:9200"   # Level 2 / Lookup port
+      - "0.0.0.0:9300:9300"   # History port
+      - "0.0.0.0:9400:9400"   # News port
+      - "0.0.0.0:8088:8080"   # HTTP API proxy
+      - "0.0.0.0:5901:5900"   # VNC port (for debugging)
+    environment:
+      # IQFeed credentials from your .env
+      IQFEED_PRODUCT_ID: "IQFEED_DIAGNOSTICS"
+      IQFEED_LOGIN: "523093"
+      IQFEED_PASSWORD: "40997223"
+      # Wine display settings
+      DISPLAY: ":1"
+      TZ: "America/New_York"
+    volumes:
+      # Log directories
+      - ./logs/iqfeed:/root/DTN/IQFeed
+      - ./logs/distdnnd:/var/log/distdnnd
+      # Config persistence
+      - ./data/iqfeed:/root/.wine/drive_c/users/root/Application Data/DTN/IQFeed
+    healthcheck:
+      test: ["CMD", "python3", "/root/is_iqfeed_running.py"]
+      interval: 60s
+      timeout: 30s
+      retries: 3
+      start_period: 5m
+    restart: unless-stopped
+    # Increase shared memory for Wine
+    shm_size: '2gb'
+    # Required for Wine to work properly
+    security_opt:
+      - seccomp:unconfined
+    networks:
+      - iqfeed-network
+
+  # Optional: Auto-restart unhealthy containers
+  autoheal:
+    image: willfarrell/autoheal:latest
+    container_name: iqfeed-autoheal
+    restart: always
+    environment:
+      AUTOHEAL_CONTAINER_LABEL: all
+      AUTOHEAL_INTERVAL: 30
+      AUTOHEAL_START_PERIOD: 300
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - iqfeed-network
+
+networks:
+  iqfeed-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16

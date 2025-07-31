@@ -1,0 +1,713 @@
+{% extends 'base.html' %}
+
+{% block title %}Professional Trading Charts - {{ block.super }}{% endblock %}
+
+{% block extra_head %}
+<!-- TradingView Lightweight Charts -->
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+<style>
+    /* Bloomberg Terminal Inspired Dark Theme */
+    body {
+        background-color: #000000;
+        color: #ffffff;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    }
+
+    .professional-header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border-bottom: 2px solid #333;
+        padding: 15px 0;
+        margin-bottom: 20px;
+    }
+
+    .chart-container {
+        background-color: #0a0a0a;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .chart-controls {
+        background-color: #1a1a1a;
+        border: 1px solid #444;
+        border-radius: 6px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .symbol-selector {
+        background-color: #2a2a2a;
+        color: #ffffff;
+        border: 1px solid #555;
+        border-radius: 4px;
+        padding: 8px 12px;
+        font-family: inherit;
+    }
+
+    .timeframe-btn {
+        background-color: #2a2a2a;
+        color: #ffffff;
+        border: 1px solid #555;
+        border-radius: 4px;
+        padding: 6px 12px;
+        margin: 2px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .timeframe-btn:hover {
+        background-color: #3a3a3a;
+        border-color: #666;
+    }
+
+    .timeframe-btn.active {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #ffffff;
+    }
+
+    .status-indicator {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    .status-connected { background-color: #28a745; }
+    .status-disconnected { background-color: #dc3545; }
+    .status-warning { background-color: #ffc107; }
+
+    .price-display {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Courier New', monospace;
+    }
+
+    .price-up { color: #00ff00; }
+    .price-down { color: #ff0000; }
+    .price-unchanged { color: #ffffff; }
+
+    .market-stats {
+        background-color: #1a1a1a;
+        border: 1px solid #444;
+        border-radius: 6px;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .stat-item {
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 12px;
+    }
+
+    .stat-value {
+        font-weight: bold;
+        font-family: 'Courier New', monospace;
+    }
+
+    #chartContainer {
+        height: 600px;
+        width: 100%;
+        background-color: #000;
+        border-radius: 4px;
+    }
+
+    .multi-chart-tabs {
+        background-color: #1a1a1a;
+        border-bottom: 1px solid #444;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .chart-tab {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #2a2a2a;
+        color: #ffffff;
+        border: 1px solid #444;
+        border-bottom: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-right: 2px;
+    }
+
+    .chart-tab:hover {
+        background-color: #3a3a3a;
+    }
+
+    .chart-tab.active {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .loading-spinner {
+        text-align: center;
+        padding: 50px;
+        color: #666;
+    }
+
+    .error-message {
+        background-color: #dc3545;
+        color: #ffffff;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+    }
+
+    .navbar {
+        background-color: #0a0a0a !important;
+        border-bottom: 1px solid #333;
+    }
+
+    .navbar-brand, .nav-link {
+        color: #ffffff !important;
+    }
+
+    .container-fluid {
+        max-width: 1400px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="professional-header">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="mb-0">
+                    <span class="status-indicator status-connected"></span>
+                    Professional Trading Charts
+                </h1>
+                <small class="text-muted">Real-time market data visualization</small>
+            </div>
+            <div class="col-md-6 text-right">
+                <div id="connectionStatus" class="mb-2">
+                    <span class="status-indicator status-connected"></span>
+                    <span id="statusText">Connected</span>
+                </div>
+                <div class="text-muted">
+                    Last Update: <span id="lastUpdate">--:--:--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <!-- Chart Controls -->
+    <div class="chart-controls">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <label for="symbolSelect" class="sr-only">Symbol</label>
+                <select id="symbolSelect" class="symbol-selector form-control">
+                    <option value="">Loading symbols...</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <div class="timeframe-buttons">
+                    <button class="timeframe-btn" data-timeframe="1m">1M</button>
+                    <button class="timeframe-btn active" data-timeframe="5m">5M</button>
+                    <button class="timeframe-btn" data-timeframe="15m">15M</button>
+                    <button class="timeframe-btn" data-timeframe="30m">30M</button>
+                    <button class="timeframe-btn" data-timeframe="1h">1H</button>
+                    <button class="timeframe-btn" data-timeframe="4h">4H</button>
+                    <button class="timeframe-btn" data-timeframe="1d">1D</button>
+                </div>
+            </div>
+            <div class="col-md-3 text-right">
+                <button id="addSymbolBtn" class="btn btn-outline-primary btn-sm">Add Symbol</button>
+                <button id="refreshBtn" class="btn btn-outline-secondary btn-sm">Refresh</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multi-Chart Tabs -->
+    <div class="multi-chart-tabs" id="chartTabs">
+        <!-- Tabs will be dynamically generated -->
+    </div>
+
+    <!-- Current Price Display -->
+    <div class="market-stats" id="marketStats">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="priceDisplay" class="price-display price-unchanged">
+                    <span id="currentSymbol">--</span>: $<span id="currentPrice">0.00</span>
+                    <span id="priceChange" class="ml-3" style="font-size: 16px;">+0.00 (0.00%)</span>
+                </div>
+            </div>
+            <div class="col-md-4 text-right">
+                <div class="stat-item">
+                    <span>Vol:</span> <span id="currentVolume" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>Bid:</span> <span id="currentBid" class="stat-value">0.00</span>
+                </div>
+                <div class="stat-item">
+                    <span>Ask:</span> <span id="currentAsk" class="stat-value">0.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Chart Container -->
+    <div class="chart-container">
+        <div id="loadingSpinner" class="loading-spinner">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading chart data...</span>
+            </div>
+            <p class="mt-3">Loading professional chart data...</p>
+        </div>
+        <div id="chartContainer" style="display: none;"></div>
+        <div id="errorMessage" style="display: none;" class="error-message"></div>
+    </div>
+
+    <!-- Chart Statistics -->
+    <div class="market-stats" id="chartStats" style="display: none;">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="stat-item">
+                    <div>Open</div>
+                    <div id="statOpen" class="stat-value">0.00</div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="stat-item">
+                    <div>High</div>
+                    <div id="statHigh" class="stat-value">0.00</div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="stat-item">
+                    <div>Low</div>
+                    <div id="statLow" class="stat-value">0.00</div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="stat-item">
+                    <div>Close</div>
+                    <div id="statClose" class="stat-value">0.00</div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="stat-item">
+                    <div>Volume</div>
+                    <div id="statVolume" class="stat-value">0</div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="stat-item">
+                    <div>Trades</div>
+                    <div id="statTrades" class="stat-value">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Symbol Modal -->
+<div class="modal fade" id="addSymbolModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Symbol to Chart</h5>
+                <button type="button" class="close text-white" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newSymbolInput">Symbol</label>
+                    <input type="text" class="form-control symbol-selector" id="newSymbolInput" 
+                           placeholder="e.g. TSLA" style="text-transform: uppercase;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="confirmAddSymbol">Add Chart</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_body %}
+<script>
+class ProfessionalTradingCharts {
+    constructor() {
+        this.chart = null;
+        this.candlestickSeries = null;
+        this.volumeSeries = null;
+        this.currentSymbol = '{{ default_symbol }}';
+        this.currentTimeframe = '{{ default_timeframe }}';
+        this.activeCharts = [this.currentSymbol];
+        this.chartData = {};
+        this.realTimeUpdateInterval = null;
+        
+        this.init();
+    }
+    
+    init() {
+        this.loadSymbols();
+        this.setupEventListeners();
+        this.createChart();
+        this.loadChartData();
+        this.startRealTimeUpdates();
+        this.updateTabs();
+    }
+    
+    async loadSymbols() {
+        try {
+            const response = await fetch('/api/charts/symbols/');
+            const data = await response.json();
+            
+            const symbolSelect = document.getElementById('symbolSelect');
+            symbolSelect.innerHTML = '';
+            
+            if (data.symbols && data.symbols.length > 0) {
+                data.symbols.forEach(symbol => {
+                    const option = document.createElement('option');
+                    option.value = symbol.symbol;
+                    option.textContent = `${symbol.symbol} (${symbol.data_points} pts)`;
+                    if (symbol.symbol === this.currentSymbol) {
+                        option.selected = true;
+                    }
+                    symbolSelect.appendChild(option);
+                });
+            } else {
+                symbolSelect.innerHTML = '<option value="">No symbols available</option>';
+            }
+        } catch (error) {
+            console.error('Failed to load symbols:', error);
+            this.showError('Failed to load available symbols');
+        }
+    }
+    
+    setupEventListeners() {
+        // Symbol selection
+        document.getElementById('symbolSelect').addEventListener('change', (e) => {
+            if (e.target.value) {
+                this.switchSymbol(e.target.value);
+            }
+        });
+        
+        // Timeframe buttons
+        document.querySelectorAll('.timeframe-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.timeframe-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                this.currentTimeframe = e.target.dataset.timeframe;
+                this.loadChartData();
+            });
+        });
+        
+        // Add symbol button
+        document.getElementById('addSymbolBtn').addEventListener('click', () => {
+            $('#addSymbolModal').modal('show');
+        });
+        
+        // Confirm add symbol
+        document.getElementById('confirmAddSymbol').addEventListener('click', () => {
+            const newSymbol = document.getElementById('newSymbolInput').value.trim().toUpperCase();
+            if (newSymbol && !this.activeCharts.includes(newSymbol)) {
+                this.activeCharts.push(newSymbol);
+                this.updateTabs();
+                $('#addSymbolModal').modal('hide');
+                document.getElementById('newSymbolInput').value = '';
+            }
+        });
+        
+        // Refresh button
+        document.getElementById('refreshBtn').addEventListener('click', () => {
+            this.loadChartData();
+        });
+    }
+    
+    createChart() {
+        const container = document.getElementById('chartContainer');
+        
+        this.chart = LightweightCharts.createChart(container, {
+            width: container.clientWidth,
+            height: 600,
+            layout: {
+                backgroundColor: '#000000',
+                textColor: '#ffffff',
+            },
+            grid: {
+                vertLines: {
+                    color: '#1a1a1a',
+                },
+                horzLines: {
+                    color: '#1a1a1a',
+                },
+            },
+            crosshair: {
+                mode: LightweightCharts.CrosshairMode.Normal,
+            },
+            rightPriceScale: {
+                borderColor: '#485c7b',
+            },
+            timeScale: {
+                borderColor: '#485c7b',
+                timeVisible: true,
+                secondsVisible: false,
+            },
+        });
+        
+        // Create candlestick series
+        this.candlestickSeries = this.chart.addCandlestickSeries({
+            upColor: '#00ff00',
+            downColor: '#ff0000',
+            borderDownColor: '#ff0000',
+            borderUpColor: '#00ff00',
+            wickDownColor: '#ff0000',
+            wickUpColor: '#00ff00',
+        });
+        
+        // Create volume series
+        this.volumeSeries = this.chart.addHistogramSeries({
+            color: '#26a69a',
+            priceFormat: {
+                type: 'volume',
+            },
+            priceScaleId: '',
+            scaleMargins: {
+                top: 0.8,
+                bottom: 0,
+            },
+        });
+        
+        // Handle resize
+        window.addEventListener('resize', () => {
+            this.chart.applyOptions({ width: container.clientWidth });
+        });
+    }
+    
+    async loadChartData() {
+        try {
+            this.showLoading();
+            
+            const response = await fetch(
+                `/api/charts/data/?symbol=${this.currentSymbol}&timeframe=${this.currentTimeframe}&limit=200`
+            );
+            const data = await response.json();
+            
+            if (data.status === 'success' && data.data.length > 0) {
+                // Format data for TradingView
+                const candlestickData = data.data.map(item => ({
+                    time: item.time,
+                    open: item.open,
+                    high: item.high,
+                    low: item.low,
+                    close: item.close,
+                }));
+                
+                const volumeData = data.data.map(item => ({
+                    time: item.time,
+                    value: item.volume,
+                    color: item.close >= item.open ? '#26a69a' : '#ef5350',
+                }));
+                
+                // Update chart
+                this.candlestickSeries.setData(candlestickData);
+                this.volumeSeries.setData(volumeData);
+                
+                // Update price display
+                const latestData = data.data[data.data.length - 1];
+                this.updatePriceDisplay(latestData);
+                this.updateChartStats(latestData);
+                
+                // Store data for real-time updates
+                this.chartData[this.currentSymbol] = data.data;
+                
+                this.hideLoading();
+                this.updateStatus('Connected', 'connected');
+                
+            } else {
+                this.showError(data.message || 'No chart data available');
+            }
+            
+        } catch (error) {
+            console.error('Failed to load chart data:', error);
+            this.showError('Failed to load chart data: ' + error.message);
+        }
+    }
+    
+    async startRealTimeUpdates() {
+        // Update every 2 seconds
+        this.realTimeUpdateInterval = setInterval(async () => {
+            try {
+                const symbolsParam = this.activeCharts.join(',');
+                const response = await fetch(`/api/charts/realtime/?symbols=${symbolsParam}`);
+                const data = await response.json();
+                
+                if (data.status === 'success' && data.data) {
+                    this.processRealTimeUpdates(data.data);
+                    this.updateLastUpdateTime();
+                }
+                
+            } catch (error) {
+                console.error('Real-time update failed:', error);
+                this.updateStatus('Connection Error', 'disconnected');
+            }
+        }, 2000);
+    }
+    
+    processRealTimeUpdates(realTimeData) {
+        // Update current symbol if data available
+        if (realTimeData[this.currentSymbol]) {
+            const tickData = realTimeData[this.currentSymbol];
+            
+            // Update price display
+            this.updateRealTimePriceDisplay(tickData);
+            
+            // Update chart if needed (could add tick-level updates here)
+            // For now, we'll just update the price display
+        }
+    }
+    
+    updatePriceDisplay(data) {
+        document.getElementById('currentSymbol').textContent = this.currentSymbol;
+        document.getElementById('currentPrice').textContent = data.close.toFixed(2);
+        
+        // Calculate change from open
+        const change = data.close - data.open;
+        const changePercent = ((change / data.open) * 100);
+        
+        const changeElement = document.getElementById('priceChange');
+        changeElement.textContent = `${change >= 0 ? '+' : ''}${change.toFixed(2)} (${changePercent.toFixed(2)}%)`;
+        
+        const priceElement = document.getElementById('priceDisplay');
+        priceElement.className = priceElement.className.replace(/price-(up|down|unchanged)/, '');
+        priceElement.classList.add(change > 0 ? 'price-up' : change < 0 ? 'price-down' : 'price-unchanged');
+    }
+    
+    updateRealTimePriceDisplay(tickData) {
+        if (tickData.price > 0) {
+            document.getElementById('currentPrice').textContent = tickData.price.toFixed(2);
+            document.getElementById('currentBid').textContent = tickData.bid.toFixed(2);
+            document.getElementById('currentAsk').textContent = tickData.ask.toFixed(2);
+            
+            // Update volume if available
+            if (tickData.size > 0) {
+                document.getElementById('currentVolume').textContent = tickData.size.toLocaleString();
+            }
+        }
+    }
+    
+    updateChartStats(data) {
+        document.getElementById('statOpen').textContent = data.open.toFixed(2);
+        document.getElementById('statHigh').textContent = data.high.toFixed(2);
+        document.getElementById('statLow').textContent = data.low.toFixed(2);
+        document.getElementById('statClose').textContent = data.close.toFixed(2);
+        document.getElementById('statVolume').textContent = data.volume.toLocaleString();
+        document.getElementById('statTrades').textContent = data.trades.toLocaleString();
+        
+        document.getElementById('chartStats').style.display = 'block';
+    }
+    
+    updateTabs() {
+        const tabsContainer = document.getElementById('chartTabs');
+        tabsContainer.innerHTML = '';
+        
+        this.activeCharts.forEach((symbol, index) => {
+            const tab = document.createElement('div');
+            tab.className = `chart-tab ${symbol === this.currentSymbol ? 'active' : ''}`;
+            tab.textContent = symbol;
+            tab.addEventListener('click', () => {
+                this.switchSymbol(symbol);
+            });
+            
+            // Add close button if more than one tab
+            if (this.activeCharts.length > 1) {
+                const closeBtn = document.createElement('span');
+                closeBtn.textContent = ' ×';
+                closeBtn.style.marginLeft = '8px';
+                closeBtn.style.cursor = 'pointer';
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.removeSymbol(symbol);
+                });
+                tab.appendChild(closeBtn);
+            }
+            
+            tabsContainer.appendChild(tab);
+        });
+    }
+    
+    switchSymbol(symbol) {
+        this.currentSymbol = symbol;
+        document.getElementById('symbolSelect').value = symbol;
+        this.loadChartData();
+        this.updateTabs();
+    }
+    
+    removeSymbol(symbol) {
+        if (this.activeCharts.length > 1) {
+            this.activeCharts = this.activeCharts.filter(s => s !== symbol);
+            
+            // Switch to first symbol if current was removed
+            if (symbol === this.currentSymbol) {
+                this.switchSymbol(this.activeCharts[0]);
+            } else {
+                this.updateTabs();
+            }
+        }
+    }
+    
+    showLoading() {
+        document.getElementById('loadingSpinner').style.display = 'block';
+        document.getElementById('chartContainer').style.display = 'none';
+        document.getElementById('errorMessage').style.display = 'none';
+    }
+    
+    hideLoading() {
+        document.getElementById('loadingSpinner').style.display = 'none';
+        document.getElementById('chartContainer').style.display = 'block';
+    }
+    
+    showError(message) {
+        document.getElementById('loadingSpinner').style.display = 'none';
+        document.getElementById('chartContainer').style.display = 'none';
+        document.getElementById('errorMessage').style.display = 'block';
+        document.getElementById('errorMessage').textContent = message;
+    }
+    
+    updateStatus(message, status) {
+        document.getElementById('statusText').textContent = message;
+        const indicator = document.querySelector('#connectionStatus .status-indicator');
+        indicator.className = `status-indicator status-${status}`;
+    }
+    
+    updateLastUpdateTime() {
+        const now = new Date();
+        document.getElementById('lastUpdate').textContent = now.toLocaleTimeString();
+    }
+    
+    destroy() {
+        if (this.realTimeUpdateInterval) {
+            clearInterval(this.realTimeUpdateInterval);
+        }
+        if (this.chart) {
+            this.chart.remove();
+        }
+    }
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    window.tradingCharts = new ProfessionalTradingCharts();
+});
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', () => {
+    if (window.tradingCharts) {
+        window.tradingCharts.destroy();
+    }
+});
+</script>
+{% endblock %}

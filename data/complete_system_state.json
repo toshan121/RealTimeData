@@ -1,0 +1,16 @@
+{
+  "symbol": "ABVX",
+  "signals": {
+    "bid_absorption": 0.756,
+    "price_creep": 0.2,
+    "dark_pool": 0.3,
+    "liquidity_sinkhole": 0.2,
+    "volatility_contraction": 0.9
+  },
+  "composite_score": 0.75,
+  "position": 0,
+  "avg_entry_price": 2.5111311866218746,
+  "l2_updates": 5000,
+  "tick_count": 100,
+  "timestamp": "2025-07-23T22:08:05.841587"
+}

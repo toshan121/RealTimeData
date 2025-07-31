@@ -1,0 +1,32 @@
+# Minimal Requirements for Clean System
+# Core TUI Dependencies
+click==8.1.7
+rich==13.7.1
+psutil==5.9.8
+
+# Data & Database
+pandas==2.1.4
+numpy==1.26.2
+redis==5.0.7
+clickhouse-connect==0.7.0
+
+# Kafka Integration
+kafka-python==2.0.2
+
+# Numba for GPU acceleration
+numba==0.58.1
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+coverage==7.5.4
+
+# Basic utilities
+python-dotenv==1.0.0
+
+# Web server for TUI access (ttyd alternative)
+flask==3.0.0
+flask-socketio==5.3.6
+
+# Optional: Django for web dashboard
+Django==4.2.13

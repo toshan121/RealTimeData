@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1>Alert Management</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Active</h5>
+                    <h2>{{ alert_stats.total_active }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Critical</h5>
+                    <h2>{{ alert_stats.critical }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Warning</h5>
+                    <h2>{{ alert_stats.warning }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Info</h5>
+                    <h2>{{ alert_stats.info }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header">
+            <h3>Active Alerts</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Last Triggered</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for alert in alerts %}
+                    <tr>
+                        <td>
+                            <span class="badge badge-{{ alert.level|lower }}">{{ alert.level }}</span>
+                        </td>
+                        <td>{{ alert.title }}</td>
+                        <td>{{ alert.category }}</td>
+                        <td>{{ alert.last_triggered|date:"Y-m-d H:i:s" }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" onclick="acknowledgeAlert('{{ alert.id }}')">Acknowledge</button>
+                            <button class="btn btn-sm btn-success" onclick="resolveAlert('{{ alert.id }}')">Resolve</button>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">No active alerts</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+function acknowledgeAlert(alertId) {
+    fetch(`/api/alerts/${alertId}/action/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: 'action=acknowledge'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('Alert acknowledged');
+            location.reload();
+        }
+    });
+}
+
+function resolveAlert(alertId) {
+    const notes = prompt('Resolution notes (optional):');
+    fetch(`/api/alerts/${alertId}/action/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: `action=resolve&notes=${encodeURIComponent(notes || '')}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert('Alert resolved');
+            location.reload();
+        }
+    });
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
+{% endblock %}

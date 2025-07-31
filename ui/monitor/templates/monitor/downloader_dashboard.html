@@ -1,0 +1,531 @@
+{% extends "monitor/base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .dashboard-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .stat-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .status-pending { background: #fef3c7; color: #92400e; }
+    .status-running { background: #dbeafe; color: #1e40af; }
+    .status-completed { background: #d1fae5; color: #065f46; }
+    .status-failed { background: #fee2e2; color: #991b1b; }
+    .status-cancelled { background: #f3f4f6; color: #374151; }
+    
+    .progress-bar {
+        background: #e5e7eb;
+        border-radius: 0.5rem;
+        height: 0.5rem;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        background: linear-gradient(90deg, #10b981, #059669);
+        height: 100%;
+        transition: width 0.3s ease;
+    }
+    
+    .alert-item {
+        border-left: 4px solid #ef4444;
+        background: #fef2f2;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0 0.5rem 0.5rem 0;
+    }
+    
+    .system-status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .status-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+    
+    .status-healthy { background: #10b981; }
+    .status-warning { background: #f59e0b; }
+    .status-error { background: #ef4444; }
+    
+    .job-list-item {
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        transition: all 0.2s ease;
+    }
+    
+    .job-list-item:hover {
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="h3 mb-0">{{ page_title }}</h1>
+            <p class="text-muted">Monitor and manage historical data downloads</p>
+        </div>
+    </div>
+    
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-number">{{ stats.total_jobs }}</div>
+                <div class="stat-label">Total Jobs</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="stat-number">{{ stats.active_jobs }}</div>
+                <div class="stat-label">Active Jobs</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <div class="stat-number">{{ stats.completed_jobs }}</div>
+                <div class="stat-label">Completed</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <div class="stat-number">{{ stats.failed_jobs }}</div>
+                <div class="stat-label">Failed</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="dashboard-card">
+                <h5>Quick Actions</h5>
+                <div class="d-flex gap-2">
+                    <a href="{% url 'monitor:job_submit' %}" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Submit New Job
+                    </a>
+                    <a href="{% url 'monitor:job_list' %}" class="btn btn-outline-primary">
+                        <i class="fas fa-list"></i> View All Jobs
+                    </a>
+                    <a href="{% url 'monitor:configuration_list' %}" class="btn btn-outline-secondary">
+                        <i class="fas fa-cog"></i> Manage Configurations
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- Active Jobs -->
+        <div class="col-md-8">
+            <div class="dashboard-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5>Active Jobs</h5>
+                    <a href="{% url 'monitor:job_list' %}?status=running" class="btn btn-sm btn-outline-primary">View All</a>
+                </div>
+                
+                {% if active_jobs %}
+                    <div class="job-list">
+                        {% for job in active_jobs %}
+                        <div class="job-list-item">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="mb-1">
+                                        <a href="{% url 'monitor:job_detail' job.job_id %}" class="text-decoration-none">
+                                            {{ job.name|default:job.job_id }}
+                                        </a>
+                                    </h6>
+                                    <p class="text-muted mb-2 small">
+                                        {{ job.symbol_count }} symbols • {{ job.date_count }} days • {{ job.data_types|join:", " }}
+                                    </p>
+                                    
+                                    <!-- Progress bar -->
+                                    <div class="progress-bar mb-2">
+                                        <div class="progress-fill" style="width: {{ job.progress_percentage }}%"></div>
+                                    </div>
+                                    
+                                    <div class="small text-muted">
+                                        {{ job.current_message|default:"Processing..." }}
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <span class="status-badge status-{{ job.status }}">{{ job.get_status_display }}</span>
+                                    <div class="small text-muted mt-1">
+                                        {{ job.progress_percentage|floatformat:1 }}%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="fas fa-inbox fa-3x mb-3"></i>
+                        <p>No active jobs</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- System Status & Alerts -->
+        <div class="col-md-4">
+            <!-- System Status -->
+            <div class="dashboard-card">
+                <h5>System Status</h5>
+                
+                <div class="mb-3">
+                    <div class="system-status">
+                        <div class="status-indicator {% if system_status.system_healthy %}status-healthy{% else %}status-error{% endif %}"></div>
+                        <span>{% if system_status.system_healthy %}Healthy{% else %}Issues Detected{% endif %}</span>
+                    </div>
+                </div>
+                
+                <div class="small">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>Queue Size:</span>
+                        <span>{{ system_status.queue_status.queue_size|default:0 }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>Running Jobs:</span>
+                        <span>{{ system_status.queue_status.running_jobs|default:0 }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>Active Configs:</span>
+                        <span>{{ active_configs }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Initialized:</span>
+                        <span>{% if system_status.is_initialized %}Yes{% else %}No{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Alerts -->
+            <div class="dashboard-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5>Recent Alerts</h5>
+                    {% if recent_alerts %}
+                    <span class="badge bg-danger">{{ recent_alerts|length }}</span>
+                    {% endif %}
+                </div>
+                
+                {% if recent_alerts %}
+                    <div class="alerts-list">
+                        {% for alert in recent_alerts %}
+                        <div class="alert-item">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="mb-1">{{ alert.title }}</h6>
+                                    <p class="mb-1 small">{{ alert.message|truncatechars:100 }}</p>
+                                    <div class="small text-muted">
+                                        {{ alert.created_at|timesince }} ago
+                                    </div>
+                                </div>
+                                <span class="badge bg-{{ alert.severity }}">{{ alert.get_severity_display }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-3">
+                        <i class="fas fa-check-circle fa-2x mb-2"></i>
+                        <p class="mb-0">No active alerts</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Jobs -->
+    <div class="row">
+        <div class="col-12">
+            <div class="dashboard-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5>Recent Jobs</h5>
+                    <a href="{% url 'monitor:job_list' %}" class="btn btn-sm btn-outline-primary">View All</a>
+                </div>
+                
+                {% if recent_jobs %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Job ID</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Symbols</th>
+                                <th>Progress</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for job in recent_jobs %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'monitor:job_detail' job.job_id %}" class="text-decoration-none">
+                                        {{ job.job_id }}
+                                    </a>
+                                </td>
+                                <td>{{ job.name|default:"-" }}</td>
+                                <td>
+                                    <span class="status-badge status-{{ job.status }}">
+                                        {{ job.get_status_display }}
+                                    </span>
+                                </td>
+                                <td>{{ job.symbol_count }}</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress-bar me-2" style="width: 60px;">
+                                            <div class="progress-fill" style="width: {{ job.progress_percentage }}%"></div>
+                                        </div>
+                                        <span class="small">{{ job.progress_percentage|floatformat:0 }}%</span>
+                                    </div>
+                                </td>
+                                <td class="small text-muted">{{ job.created_at|timesince }} ago</td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="{% url 'monitor:job_detail' job.job_id %}" class="btn btn-outline-primary btn-sm">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        {% if job.status == 'running' or job.status == 'pending' %}
+                                        <button class="btn btn-outline-danger btn-sm" onclick="cancelJob('{{ job.job_id }}')">
+                                            <i class="fas fa-stop"></i>
+                                        </button>
+                                        {% elif job.status == 'failed' %}
+                                        <button class="btn btn-outline-warning btn-sm" onclick="retryJob('{{ job.job_id }}')">
+                                            <i class="fas fa-redo"></i>
+                                        </button>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="fas fa-inbox fa-3x mb-3"></i>
+                        <p>No recent jobs</p>
+                        <a href="{% url 'monitor:job_submit' %}" class="btn btn-primary">Submit Your First Job</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Auto-refresh dashboard every 30 seconds
+let refreshInterval;
+
+function startAutoRefresh() {
+    refreshInterval = setInterval(function() {
+        updateSystemStatus();
+        updateActiveJobs();
+    }, 30000);
+}
+
+function updateSystemStatus() {
+    fetch('{% url "monitor:system_status_ajax" %}')
+        .then(response => response.json())
+        .then(data => {
+            // Update system status indicators
+            if (data.system_status) {
+                updateStatusIndicators(data.system_status);
+            }
+            
+            // Update stats
+            if (data.stats) {
+                updateStatsCards(data.stats);
+            }
+        })
+        .catch(error => console.error('Status update error:', error));
+}
+
+function updateActiveJobs() {
+    // Update progress bars for active jobs
+    document.querySelectorAll('.job-list-item').forEach(item => {
+        const jobLink = item.querySelector('a[href*="job_detail"]');
+        if (jobLink) {
+            const jobId = jobLink.href.split('/').pop().replace('/', '');
+            updateJobProgress(jobId, item);
+        }
+    });
+}
+
+function updateJobProgress(jobId, element) {
+    fetch(`/monitor/api/jobs/${jobId}/progress/`)
+        .then(response => response.json())
+        .then(data => {
+            const progressBar = element.querySelector('.progress-fill');
+            const statusBadge = element.querySelector('.status-badge');
+            const message = element.querySelector('.small.text-muted');
+            
+            if (progressBar) {
+                progressBar.style.width = data.progress_percentage + '%';
+            }
+            
+            if (statusBadge) {
+                statusBadge.className = 'status-badge status-' + data.status;
+                statusBadge.textContent = data.status.charAt(0).toUpperCase() + data.status.slice(1);
+            }
+            
+            if (message && data.current_message) {
+                message.textContent = data.current_message;
+            }
+        })
+        .catch(error => console.error('Progress update error:', error));
+}
+
+function updateStatusIndicators(status) {
+    const indicator = document.querySelector('.status-indicator');
+    if (indicator) {
+        indicator.className = 'status-indicator ' + (status.system_healthy ? 'status-healthy' : 'status-error');
+    }
+}
+
+function updateStatsCards(stats) {
+    // Update stat numbers
+    const statElements = {
+        'total_jobs': document.querySelector('.stat-card:nth-child(1) .stat-number'),
+        'active_jobs': document.querySelector('.stat-card:nth-child(2) .stat-number'),
+        'completed_jobs': document.querySelector('.stat-card:nth-child(3) .stat-number'),
+        'failed_jobs': document.querySelector('.stat-card:nth-child(4) .stat-number')
+    };
+    
+    Object.entries(statElements).forEach(([key, element]) => {
+        if (element && stats[key] !== undefined) {
+            element.textContent = stats[key];
+        }
+    });
+}
+
+// Job action functions
+function cancelJob(jobId) {
+    if (confirm('Are you sure you want to cancel this job?')) {
+        fetch('/monitor/api/jobs/action/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({
+                job_id: jobId,
+                action: 'cancel'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Error: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Cancel error:', error);
+            alert('Failed to cancel job');
+        });
+    }
+}
+
+function retryJob(jobId) {
+    if (confirm('Are you sure you want to retry this job?')) {
+        fetch('/monitor/api/jobs/action/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({
+                job_id: jobId,
+                action: 'retry'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Error: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Retry error:', error);
+            alert('Failed to retry job');
+        });
+    }
+}
+
+// Utility function to get CSRF token
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+// Start auto-refresh when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    startAutoRefresh();
+});
+
+// Clean up interval when leaving page
+window.addEventListener('beforeunload', function() {
+    if (refreshInterval) {
+        clearInterval(refreshInterval);
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{
+  "test_small": {
+    "description": "Small test list for development",
+    "count": 10,
+    "symbols": [
+      "AAPL", "MSFT", "GOOGL", "AMZN", "TSLA",
+      "META", "NVDA", "SPY", "QQQ", "IWM"
+    ]
+  },
+  
+  "test_medium": {
+    "description": "Medium test list for load testing", 
+    "count": 50,
+    "symbols": [
+      "AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "META", "NVDA", "NFLX", "CRM", "ADBE",
+      "INTC", "AMD", "ORCL", "IBM", "CSCO", "QCOM", "TXN", "AVGO", "MU", "LRCX",
+      "SPY", "QQQ", "IWM", "VIX", "GLD", "SLV", "TLT", "HYG", "XLF", "XLE",
+      "JPM", "BAC", "WFC", "GS", "MS", "C", "USB", "PNC", "BLK", "SCHW",
+      "JNJ", "PFE", "UNH", "CVS", "ABBV", "MRK", "LLY", "TMO", "DHR", "ABT"
+    ]
+  },
+  
+  "gappers_watchlist": {
+    "description": "Known gap-up candidates for testing",
+    "count": 7,
+    "symbols": [
+      "ABVX", "PAPL", "AMOD", "GPRO", "ANEB", "CLSD", "CIVR"
+    ]
+  },
+  
+  "production_1000": {
+    "description": "Full production ticker list (1000 symbols)",
+    "count": 1000,
+    "symbols": "AUTO_GENERATED",
+    "sources": [
+      "S&P 500",
+      "NASDAQ 100", 
+      "Russell 2000 (top 300)",
+      "ETFs (major)",
+      "Crypto ETFs",
+      "Commodity ETFs",
+      "High volume penny stocks",
+      "Gap candidates"
+    ],
+    "generation_criteria": {
+      "min_daily_volume": 1000000,
+      "min_market_cap": 100000000,
+      "exchanges": ["NYSE", "NASDAQ", "AMEX"],
+      "exclude_otc": true
+    }
+  },
+  
+  "network_stress_test": {
+    "description": "Symbols for network saturation testing",
+    "count": 20,
+    "symbols": [
+      "SPY", "QQQ", "IWM", "AAPL", "MSFT", "TSLA", "NVDA", "AMZN", "GOOGL", "META",
+      "SQQQ", "TQQQ", "SPXU", "SPXL", "TNA", "TZA", "UVXY", "VXX", "VIXY", "VIX"
+    ],
+    "reason": "High frequency, high volume symbols for max throughput testing"
+  },
+  
+  "latency_benchmark": {
+    "description": "Low latency benchmark symbols",
+    "count": 5,
+    "symbols": ["SPY", "QQQ", "AAPL", "TSLA", "ES=F"],
+    "reason": "Most liquid symbols for latency testing"
+  }
+}

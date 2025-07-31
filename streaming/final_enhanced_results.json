@@ -1,0 +1,1360 @@
+{
+  "group1": [
+    "ANEB",
+    "PAPL"
+  ],
+  "group2": [
+    "ACHV",
+    "ADIL"
+  ],
+  "results": {
+    "summary": {
+      "symbols_analyzed": [
+        "PAPL",
+        "ANEB",
+        "ADIL",
+        "ACHV"
+      ],
+      "date_range": {
+        "start": "20250721",
+        "end": "20250722"
+      },
+      "total_days": 2,
+      "temporal_sync": {
+        "aligned": true,
+        "issues": [],
+        "timestamp_ranges": {
+          "20250721": [
+            {
+              "symbol": "PAPL",
+              "start": "2025-07-21 09:30:33",
+              "end": "2025-07-21 15:59:31"
+            },
+            {
+              "symbol": "ANEB",
+              "start": "2025-07-21 09:30:01",
+              "end": "2025-07-21 16:00:00"
+            },
+            {
+              "symbol": "ADIL",
+              "start": "2025-07-21 09:30:01",
+              "end": "2025-07-21 16:00:00"
+            },
+            {
+              "symbol": "ACHV",
+              "start": "2025-07-21 09:30:00",
+              "end": "2025-07-21 16:00:00"
+            }
+          ],
+          "20250722": [
+            {
+              "symbol": "ANEB",
+              "start": "2025-07-22 09:30:00",
+              "end": "2025-07-22 16:00:00"
+            },
+            {
+              "symbol": "ADIL",
+              "start": "2025-07-22 09:30:01",
+              "end": "2025-07-22 16:00:00"
+            },
+            {
+              "symbol": "ACHV",
+              "start": "2025-07-22 09:30:00",
+              "end": "2025-07-22 16:00:00"
+            },
+            {
+              "symbol": "PAPL",
+              "start": "2025-07-22 09:30:00",
+              "end": "2025-07-22 16:00:00"
+            }
+          ]
+        }
+      }
+    },
+    "by_symbol": {
+      "PAPL": {
+        "days_analyzed": 2,
+        "daily_avg": {
+          "close": 3.435,
+          "avg_trade_size": 189.89351851851853,
+          "avg_dollar_trade_size": 597.6688026825612,
+          "avg_price": 3.3300135859534503,
+          "open": 2.68,
+          "low": 2.3275,
+          "daily_return": 0.3251514092709061,
+          "high": 4.1850000000000005,
+          "trades": 2364.5,
+          "open_close_vol_ratio": 5.4369321487855,
+          "close_strength": 0.6789052598225602,
+          "volatility": 0.927316039006582,
+          "dollar_volume": 1114433.6940249032,
+          "volume": 292980.5
+        },
+        "microstructure_avg": {
+          "avg_trade_size": 189.89351851851853,
+          "icebergs_detected": 88.5,
+          "entry_windows": 0.0,
+          "bid_absorption_count": 0.0,
+          "spreads_under_5pct": 19.5,
+          "buy_volume": 148637.5,
+          "recent_blocks": 0.0,
+          "hidden_ask_ratio": 0.0,
+          "extreme_spread_pct": 0.1710752688172043,
+          "longest_window_seconds": 20.0,
+          "absorption_ratio": 0.0,
+          "avg_entry_duration": 0.0,
+          "volume_variance": 159539.10402968677,
+          "trade_velocity": 0.0,
+          "fill_speed_seconds": 2.7958495920539197,
+          "ofi_ratio": 0.028300109649707392,
+          "avg_spread": 0.07953521126760563,
+          "hidden_bid_ratio": 0.0,
+          "block_pct": 0.0,
+          "median_fill_size": 24.0,
+          "sell_volume": 132713.0,
+          "avg_entry_liquidity": 0.0,
+          "suspicious_size_pct": 0.0,
+          "spread_std": 0.05944329677570257,
+          "depth_imbalance": 0.0,
+          "ask_absorption_count": 0.0,
+          "total_depth": 0.0,
+          "min_spread_pct": 500.31967213114757,
+          "spreads_under_2pct": 1.0,
+          "shortest_window_seconds": 20.0,
+          "tick_count": 2364.5,
+          "fill_probability_1000": 0.0,
+          "crossed_market_pct": 0.0,
+          "odd_lot_pct": 0.6528481012658227
+        },
+        "signal_frequency": {
+          "stealth": 0.5,
+          "stealth_BID_ABSORPTION": 0.5
+        },
+        "pregap_avg": {
+          "price_efficiency_ratio": 0.06600197943472756,
+          "min_time_between_trades": 0.0,
+          "close_30min_volume": 19235.5,
+          "iceberg_total_volume": 279216.0,
+          "quote_pullback_count": 286.0,
+          "large_trade_pct": 0.03230570300803049,
+          "morning_trade_intensity": 0.2685154248802762,
+          "price_improvement_rate": 0.4452871072589382,
+          "afternoon_trade_intensity": 0.252854358117516,
+          "poc_volume_pct": 0.24632475693871475,
+          "iceberg_levels_detected": 93.0,
+          "poc_price": 3.5,
+          "price_change_acceleration": 1.0975892991917424,
+          "trade_to_quote_ratio": 1.0,
+          "iceberg_avg_reload_time": 929.6673445473253,
+          "midday_price_variance": 0.20788802557759253,
+          "volume_concentration": 0.4823159900891826,
+          "open_30min_volume": 70226.0,
+          "trade_cluster_pct": 0.3603425026968716,
+          "trade_cluster_count": 1384.0,
+          "quote_update_frequency": 0.04534188034188034,
+          "spread_change_frequency": 0.22428694900605012,
+          "final_hour_momentum": -0.0007732141007094158,
+          "price_vs_vwap": 0.0292562772640296,
+          "spread_volatility": 0.7014146409204277,
+          "open_30min_price_variance": 0.3405021632891085,
+          "avg_time_between_trades": 37.19452727693019,
+          "afternoon_volume_surge": 0.732298235810649,
+          "vwap_premium": 0.02999998875625929,
+          "final_hour_trade_intensity": 0.151489835700362,
+          "hidden_trade_pct": 0.9152987613992105,
+          "close_30min_price_variance": 0.02534966205862769,
+          "price_acceleration": 0.0005544427088313586,
+          "midday_volume": 134838.0,
+          "time_between_trades_std": 50.811620533887286,
+          "avg_price_change_per_trade": 0.14456767448893681,
+          "p90_trade_size": 567.6000000000001,
+          "at_midpoint_rate": 0.046153846153846156
+        },
+        "prediction": {
+          "total_enter_signals": 36,
+          "total_high_confidence": 36,
+          "avg_best_confidence": 0.3547110594654275,
+          "days_with_signals": 1,
+          "afternoon_signal_rate": 1.0
+        },
+        "l2_confidence_avg": 0.6000000000000001,
+        "data_quality": {
+          "valid_days": 2,
+          "total_issues": 0
+        }
+      },
+      "ANEB": {
+        "days_analyzed": 2,
+        "daily_avg": {
+          "close": 1.87,
+          "avg_trade_size": 41.59923428565187,
+          "avg_dollar_trade_size": 75.53616104218628,
+          "avg_price": 1.8144653626949936,
+          "open": 1.71,
+          "low": 1.63,
+          "daily_return": 0.09444444444444439,
+          "high": 1.9475,
+          "trades": 473.0,
+          "open_close_vol_ratio": 2.0306608938963957,
+          "close_strength": 0.7696969696969695,
+          "volatility": 0.43724505555258375,
+          "dollar_volume": 36244.42654282503,
+          "volume": 19675.0
+        },
+        "microstructure_avg": {
+          "avg_trade_size": 41.59923428565187,
+          "icebergs_detected": 15.5,
+          "entry_windows": 0.0,
+          "bid_absorption_count": 0.0,
+          "spreads_under_5pct": 47.5,
+          "buy_volume": 10077.0,
+          "recent_blocks": 0.0,
+          "hidden_ask_ratio": 0.0,
+          "extreme_spread_pct": 0.454218285928344,
+          "longest_window_seconds": 43.0,
+          "absorption_ratio": 0.0,
+          "avg_entry_duration": 0.0,
+          "volume_variance": 47040.99948893371,
+          "trade_velocity": 0.0,
+          "fill_speed_seconds": 6.838766270514998,
+          "ofi_ratio": 0.1191550241494985,
+          "avg_spread": 0.12641222427963483,
+          "hidden_bid_ratio": 0.0,
+          "block_pct": 0.0,
+          "median_fill_size": 5.5,
+          "sell_volume": 9590.5,
+          "avg_entry_liquidity": 0.0,
+          "suspicious_size_pct": 0.0,
+          "spread_std": 0.05299161598460932,
+          "depth_imbalance": 0.0,
+          "ask_absorption_count": 0.0,
+          "total_depth": 0.0,
+          "min_spread_pct": 3.0599755201958416,
+          "spreads_under_2pct": 0.0,
+          "shortest_window_seconds": 43.0,
+          "tick_count": 473.0,
+          "fill_probability_1000": 0.0,
+          "crossed_market_pct": 0.0,
+          "odd_lot_pct": 0.705
+        },
+        "signal_frequency": {},
+        "pregap_avg": {
+          "price_efficiency_ratio": 0.016204806453196427,
+          "min_time_between_trades": 0.0,
+          "close_30min_volume": 7091.0,
+          "iceberg_total_volume": 18310.5,
+          "quote_pullback_count": 12.5,
+          "large_trade_pct": 0.005814357958954325,
+          "morning_trade_intensity": 0.03393240619423567,
+          "price_improvement_rate": 0.4012739715643916,
+          "afternoon_trade_intensity": 0.015525460028503264,
+          "poc_volume_pct": 0.43941736463575404,
+          "iceberg_levels_detected": 18.0,
+          "poc_price": 1.825,
+          "price_change_acceleration": 1.268759207337356,
+          "trade_to_quote_ratio": 1.0,
+          "iceberg_avg_reload_time": 1157.899677159997,
+          "midday_price_variance": 0.0019908501875789473,
+          "volume_concentration": 0.9114369997302767,
+          "open_30min_volume": 4356.5,
+          "trade_cluster_pct": 0.3159812021072797,
+          "trade_cluster_count": 148.5,
+          "quote_update_frequency": 0.002137711718869929,
+          "spread_change_frequency": 0.12327883766355391,
+          "final_hour_momentum": -0.001260406679797071,
+          "price_vs_vwap": 0.03995563863380541,
+          "spread_volatility": 0.40906040486099665,
+          "avg_time_between_trades": 28.844821599616857,
+          "afternoon_volume_surge": 0.9902601907247062,
+          "open_30min_price_variance": 0.006489085812164785,
+          "vwap_premium": 0.04178180149685103,
+          "final_hour_trade_intensity": 0.02384744305025691,
+          "price_acceleration": -0.004706612295635831,
+          "hidden_trade_pct": 0.8936879565461697,
+          "close_30min_price_variance": 0.0008976367434377504,
+          "midday_volume": 7433.5,
+          "time_between_trades_std": 55.402264638186175,
+          "avg_price_change_per_trade": 0.054215135895032796,
+          "p90_trade_size": 87.5,
+          "at_midpoint_rate": 0.07406685508235064
+        },
+        "prediction": {
+          "total_enter_signals": 0,
+          "total_high_confidence": 0,
+          "avg_best_confidence": 0.0,
+          "days_with_signals": 0,
+          "afternoon_signal_rate": 0.0
+        },
+        "l2_confidence_avg": 0.7,
+        "data_quality": {
+          "valid_days": 2,
+          "total_issues": 0
+        }
+      },
+      "ADIL": {
+        "days_analyzed": 2,
+        "daily_avg": {
+          "close": 0.48985,
+          "avg_trade_size": 1125.9583254861784,
+          "avg_dollar_trade_size": 519.9761890001556,
+          "avg_price": 0.4660824658977509,
+          "open": 0.48740000000000006,
+          "low": 0.40065,
+          "daily_return": 0.013695376016260127,
+          "high": 0.5224,
+          "trades": 2730.5,
+          "open_close_vol_ratio": 0.42071641825208117,
+          "close_strength": 0.7569987649238368,
+          "volatility": 0.13929084122134372,
+          "dollar_volume": 1416841.5250987895,
+          "volume": 3067518.5
+        },
+        "microstructure_avg": {
+          "avg_trade_size": 1125.9583254861784,
+          "icebergs_detected": 127.5,
+          "entry_windows": 0.0,
+          "bid_absorption_count": 0.0,
+          "spreads_under_5pct": 100.0,
+          "buy_volume": 1501712.5,
+          "recent_blocks": 0.0,
+          "hidden_ask_ratio": 0.0,
+          "extreme_spread_pct": 0.03363970588235294,
+          "longest_window_seconds": 550.0,
+          "absorption_ratio": 0.0,
+          "avg_entry_duration": 0.0,
+          "volume_variance": 34062788.804524764,
+          "trade_velocity": 0.0,
+          "fill_speed_seconds": 5.095493395493396,
+          "ofi_ratio": 0.050583953334562656,
+          "avg_spread": 0.007180734830525962,
+          "hidden_bid_ratio": 0.0,
+          "block_pct": 0.0,
+          "median_fill_size": 150.0,
+          "sell_volume": 1524771.0,
+          "avg_entry_liquidity": 0.0,
+          "suspicious_size_pct": 0.0001840942562592047,
+          "spread_std": 0.006382122622150184,
+          "depth_imbalance": 0.0,
+          "ask_absorption_count": 0.0,
+          "total_depth": 0.0,
+          "min_spread_pct": 0.5970074291095595,
+          "spreads_under_2pct": 61.5,
+          "shortest_window_seconds": 41.0,
+          "tick_count": 2730.5,
+          "fill_probability_1000": 0.0,
+          "crossed_market_pct": 0.0,
+          "odd_lot_pct": 0.145
+        },
+        "signal_frequency": {
+          "stealth": 0.5,
+          "stealth_BID_ABSORPTION": 0.5
+        },
+        "pregap_avg": {
+          "price_efficiency_ratio": 0.01469247996543115,
+          "min_time_between_trades": 0.0,
+          "close_30min_volume": 458172.0,
+          "iceberg_total_volume": 3038738.0,
+          "quote_pullback_count": 164.0,
+          "large_trade_pct": 0.16941286456209628,
+          "morning_trade_intensity": 0.20398192429354028,
+          "price_improvement_rate": 0.4233783798690441,
+          "afternoon_trade_intensity": 0.09064751331302479,
+          "poc_volume_pct": 0.5727831029611061,
+          "iceberg_levels_detected": 12.0,
+          "poc_price": 0.475,
+          "price_change_acceleration": 0.47161836069051594,
+          "trade_to_quote_ratio": 1.0,
+          "iceberg_avg_reload_time": 42.797914547127085,
+          "midday_price_variance": 9.48610422957827e-05,
+          "volume_concentration": 0.9181569932303288,
+          "open_30min_volume": 1709581.0,
+          "trade_cluster_pct": 0.6173260629003293,
+          "trade_cluster_count": 1682.5,
+          "quote_update_frequency": 0.02837039868204293,
+          "spread_change_frequency": 0.24193517018262978,
+          "final_hour_momentum": 0.000346091137856077,
+          "price_vs_vwap": 0.0662515757623387,
+          "spread_volatility": 0.8875054439651968,
+          "avg_time_between_trades": 8.067607488160082,
+          "afternoon_volume_surge": 0.4040919696769482,
+          "open_30min_price_variance": 0.0009312123050494226,
+          "vwap_premium": 0.06787421657610522,
+          "final_hour_trade_intensity": 0.14085561551781667,
+          "price_acceleration": 0.0008286417706330218,
+          "hidden_trade_pct": 0.8525713162864562,
+          "close_30min_price_variance": 6.459072062917037e-05,
+          "midday_volume": 678598.0,
+          "time_between_trades_std": 22.940004531763787,
+          "avg_price_change_per_trade": 0.0027434131139987676,
+          "p90_trade_size": 2206.7999999999984,
+          "at_midpoint_rate": 0.09906471198655412
+        },
+        "prediction": {
+          "total_enter_signals": 0,
+          "total_high_confidence": 0,
+          "avg_best_confidence": 0.0,
+          "days_with_signals": 0,
+          "afternoon_signal_rate": 0.0
+        },
+        "l2_confidence_avg": 0.8,
+        "data_quality": {
+          "valid_days": 2,
+          "total_issues": 0
+        }
+      },
+      "ACHV": {
+        "days_analyzed": 2,
+        "daily_avg": {
+          "close": 2.6550000000000002,
+          "avg_trade_size": 172.66057358423728,
+          "avg_dollar_trade_size": 455.03100848332167,
+          "avg_price": 2.635467606333135,
+          "open": 2.6799999999999997,
+          "low": 2.5875000000000004,
+          "daily_return": -0.009321526530498555,
+          "high": 2.725,
+          "trades": 4855.5,
+          "open_close_vol_ratio": 0.5003233374695965,
+          "close_strength": 0.4854111405835537,
+          "volatility": 0.02498046570987973,
+          "dollar_volume": 2213066.120914894,
+          "volume": 839863.0
+        },
+        "microstructure_avg": {
+          "avg_trade_size": 172.66057358423728,
+          "icebergs_detected": 42.0,
+          "entry_windows": 0.0,
+          "bid_absorption_count": 0.0,
+          "spreads_under_5pct": 100.0,
+          "buy_volume": 459711.0,
+          "recent_blocks": 0.0,
+          "hidden_ask_ratio": 0.0,
+          "extreme_spread_pct": 0.0,
+          "longest_window_seconds": 54.5,
+          "absorption_ratio": 0.0,
+          "avg_entry_duration": 0.0,
+          "volume_variance": 981138.8559065119,
+          "trade_velocity": 0.0,
+          "fill_speed_seconds": 4.8963813167543435,
+          "ofi_ratio": 0.11746648488362676,
+          "avg_spread": 0.011149394678247465,
+          "hidden_bid_ratio": 0.0,
+          "block_pct": 0.0,
+          "median_fill_size": 90.0,
+          "sell_volume": 361281.0,
+          "avg_entry_liquidity": 0.0,
+          "suspicious_size_pct": 0.0,
+          "spread_std": 0.005127681110081305,
+          "depth_imbalance": 0.0,
+          "ask_absorption_count": 0.0,
+          "total_depth": 0.0,
+          "min_spread_pct": 0.3759398496240521,
+          "spreads_under_2pct": 100.0,
+          "shortest_window_seconds": 54.5,
+          "tick_count": 4855.5,
+          "fill_probability_1000": 0.0,
+          "crossed_market_pct": 0.0,
+          "odd_lot_pct": 0.41500000000000004
+        },
+        "signal_frequency": {
+          "stealth": 1.0,
+          "stealth_BID_ABSORPTION": 1.0
+        },
+        "pregap_avg": {
+          "price_efficiency_ratio": 0.0028240844024165898,
+          "min_time_between_trades": 0.0,
+          "close_30min_volume": 118072.0,
+          "iceberg_total_volume": 837345.5,
+          "quote_pullback_count": 44.0,
+          "large_trade_pct": 0.01774480220232536,
+          "morning_trade_intensity": 0.22649560460399104,
+          "price_improvement_rate": 0.1725712164939959,
+          "afternoon_trade_intensity": 0.23630094714180888,
+          "poc_volume_pct": 0.5926311048208939,
+          "iceberg_levels_detected": 13.5,
+          "poc_price": 2.625,
+          "price_change_acceleration": 0.5122767857142903,
+          "trade_to_quote_ratio": 1.0,
+          "iceberg_avg_reload_time": 42.32277164031551,
+          "midday_price_variance": 0.0001592929600951514,
+          "volume_concentration": 0.9967759257938522,
+          "open_30min_volume": 259157.0,
+          "trade_cluster_pct": 0.6115978492513705,
+          "trade_cluster_count": 2991.5,
+          "quote_update_frequency": 0.010720036589473849,
+          "spread_change_frequency": 0.049193026406720144,
+          "final_hour_momentum": 4.32667902790434e-05,
+          "price_vs_vwap": 0.005915460735779313,
+          "spread_volatility": 0.4247195744889767,
+          "avg_time_between_trades": 4.901119701944367,
+          "afternoon_volume_surge": 0.5198159520898211,
+          "open_30min_price_variance": 0.0005325093890138106,
+          "vwap_premium": 0.005506246476357707,
+          "final_hour_trade_intensity": 0.3117494138600789,
+          "price_acceleration": 0.00017143231749015356,
+          "hidden_trade_pct": 0.9788126196569062,
+          "close_30min_price_variance": 7.029421536963353e-05,
+          "midday_volume": 350032.5,
+          "time_between_trades_std": 12.562163291668181,
+          "avg_price_change_per_trade": 0.005279529251672767,
+          "p90_trade_size": 200.0,
+          "at_midpoint_rate": 0.26939824592600237
+        },
+        "prediction": {
+          "total_enter_signals": 0,
+          "total_high_confidence": 0,
+          "avg_best_confidence": 0.0,
+          "days_with_signals": 0,
+          "afternoon_signal_rate": 0.0
+        },
+        "l2_confidence_avg": 0.8,
+        "data_quality": {
+          "valid_days": 2,
+          "total_issues": 0
+        }
+      }
+    },
+    "portfolio": {
+      "total_volume": 4220037.0,
+      "total_dollar_volume": 4780585.766581412,
+      "avg_spread": 0.056069391264003475,
+      "avg_odd_lot_pct": 0.47946202531645565,
+      "symbols_count": 4
+    },
+    "comparison": {
+      "metric_variances": {
+        "daily_avg.volume": {
+          "variance": 1437271553818.5625,
+          "coefficient_of_variation": 1.1363526987081354
+        },
+        "daily_avg.volatility": {
+          "variance": 0.12169802723938829,
+          "coefficient_of_variation": 0.9127290683310022
+        },
+        "microstructure_avg.avg_spread": {
+          "variance": 0.0024766664215603463,
+          "coefficient_of_variation": 0.8875808365683212
+        },
+        "microstructure_avg.odd_lot_pct": {
+          "variance": 0.049237577111039876,
+          "coefficient_of_variation": 0.4628008217421872
+        },
+        "microstructure_avg.entry_windows": {
+          "variance": 0.0,
+          "coefficient_of_variation": 0
+        },
+        "microstructure_avg.longest_window_seconds": {
+          "variance": 49082.546875,
+          "coefficient_of_variation": 1.3276153536239728
+        },
+        "pregap_avg.final_hour_momentum": {
+          "variance": 4.080590132336016e-07,
+          "coefficient_of_variation": 0
+        },
+        "pregap_avg.afternoon_volume_surge": {
+          "variance": 0.049857215584016935,
+          "coefficient_of_variation": 0.3374874484521306
+        },
+        "prediction.total_enter_signals": {
+          "variance": 243.0,
+          "coefficient_of_variation": 1.7320508075688774
+        },
+        "prediction.avg_best_confidence": {
+          "variance": 0.023591237945078634,
+          "coefficient_of_variation": 1.732050807568877
+        }
+      },
+      "outliers": {
+        "PAPL": [
+          "high_odd_lots"
+        ],
+        "ANEB": [
+          "high_odd_lots"
+        ]
+      },
+      "highest_spread_symbol": "ANEB"
+    },
+    "timestamp": "2025-07-25T00:13:45.205317"
+  },
+  "comparison": [
+    {
+      "metric": "microstructure_avg_spread_std",
+      "group1_mean": 0.05621745638015595,
+      "group2_mean": 0.005754901866115745,
+      "effect_size": 21.71617673492031,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_trade_cluster_pct",
+      "group1_mean": 0.33816185240207564,
+      "group2_mean": 0.61446195607585,
+      "effect_size": -17.47153223249333,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_iceberg_avg_reload_time",
+      "group1_mean": 1043.7835108536613,
+      "group2_mean": 42.5603430937213,
+      "effect_size": 12.407885405393047,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_price_change_acceleration",
+      "group1_mean": 1.183174253264549,
+      "group2_mean": 0.4919475732024031,
+      "effect_size": 11.112695368128728,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_time_between_trades_std",
+      "group1_mean": 53.10694258603673,
+      "group2_mean": 17.751083911715984,
+      "effect_size": 8.812374816440489,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_avg_time_between_trades",
+      "group1_mean": 33.019674438273526,
+      "group2_mean": 6.4843635950522245,
+      "effect_size": 8.404648190392779,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_spreads_under_5pct",
+      "group1_mean": 33.5,
+      "group2_mean": 100.0,
+      "effect_size": -6.7175144212722016,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_final_hour_momentum",
+      "group1_mean": -0.0010168103902532433,
+      "group2_mean": 0.0001946789640675602,
+      "effect_size": -5.9734822910404475,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_spreads_under_2pct",
+      "group1_mean": 0.5,
+      "group2_mean": 80.75,
+      "effect_size": -5.8936298446424225,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_avg_spread",
+      "group1_mean": 0.10297371777362023,
+      "group2_mean": 0.009165064754386713,
+      "effect_size": 5.6399741112686685,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_median_fill_size",
+      "group1_mean": 14.75,
+      "group2_mean": 120.0,
+      "effect_size": -4.741273596020551,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_odd_lot_pct",
+      "group1_mean": 0.6789240506329113,
+      "group2_mean": 0.28,
+      "effect_size": 4.10314998675507,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_afternoon_volume_surge",
+      "group1_mean": 0.8612792132676776,
+      "group2_mean": 0.4619539608833847,
+      "effect_size": 3.994840531699866,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_midday_volume",
+      "group1_mean": 71135.75,
+      "group2_mean": 514315.25,
+      "effect_size": -3.5570195224133205,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_poc_volume_pct",
+      "group1_mean": 0.3428710607872344,
+      "group2_mean": 0.582707103891,
+      "effect_size": -3.4947128626506534,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_volatility",
+      "group1_mean": 0.6822805472795829,
+      "group2_mean": 0.08213565346561172,
+      "effect_size": 3.373168351832665,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_avg_price_change_per_trade",
+      "group1_mean": 0.0993914051919848,
+      "group2_mean": 0.004011471182835767,
+      "effect_size": 2.984630922817066,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_extreme_spread_pct",
+      "group1_mean": 0.31264677737277413,
+      "group2_mean": 0.01681985294117647,
+      "effect_size": 2.9344934948402512,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_open_close_vol_ratio",
+      "group1_mean": 3.733796521340948,
+      "group2_mean": 0.4605198778608388,
+      "effect_size": 2.7172519204685464,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_dollar_volume",
+      "group1_mean": 575339.0602838641,
+      "group2_mean": 1814953.8230068418,
+      "effect_size": -2.615906806768431,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_daily_return",
+      "group1_mean": 0.20979792685767523,
+      "group2_mean": 0.002186924742880786,
+      "effect_size": 2.532701341540912,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_trade_cluster_count",
+      "group1_mean": 766.25,
+      "group2_mean": 2337.0,
+      "effect_size": -2.468217881290148,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_buy_volume",
+      "group1_mean": 79357.25,
+      "group2_mean": 980711.75,
+      "effect_size": -2.4253037606122008,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_trades",
+      "group1_mean": 1418.75,
+      "group2_mean": 3793.0,
+      "effect_size": -2.3605109067329333,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_tick_count",
+      "group1_mean": 1418.75,
+      "group2_mean": 3793.0,
+      "effect_size": -2.3605109067329333,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_close_30min_volume",
+      "group1_mean": 13163.25,
+      "group2_mean": 288122.0,
+      "effect_size": -2.2852262134636065,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_iceberg_total_volume",
+      "group1_mean": 148763.25,
+      "group2_mean": 1938041.75,
+      "effect_size": -2.282950504248445,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_volume",
+      "group1_mean": 156327.75,
+      "group2_mean": 1953690.75,
+      "effect_size": -2.265106193899336,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_sell_volume",
+      "group1_mean": 71151.75,
+      "group2_mean": 943026.0,
+      "effect_size": -2.1077448588918832,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_at_midpoint_rate",
+      "group1_mean": 0.0601103506180984,
+      "group2_mean": 0.18423147895627823,
+      "effect_size": -2.0339306902693455,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_open_30min_volume",
+      "group1_mean": 37291.25,
+      "group2_mean": 984369.0,
+      "effect_size": -1.8449655468954227,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_final_hour_trade_intensity",
+      "group1_mean": 0.08766863937530946,
+      "group2_mean": 0.2263025146889478,
+      "effect_size": -1.8383224227084047,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_price_efficiency_ratio",
+      "group1_mean": 0.041103392943961994,
+      "group2_mean": 0.00875828218392387,
+      "effect_size": 1.7871122774188137,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_shortest_window_seconds",
+      "group1_mean": 31.5,
+      "group2_mean": 47.75,
+      "effect_size": -1.7234044861398907,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_volume_concentration",
+      "group1_mean": 0.6968764949097297,
+      "group2_mean": 0.9574664595120905,
+      "effect_size": -1.6894831865679645,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_iceberg_levels_detected",
+      "group1_mean": 55.5,
+      "group2_mean": 12.75,
+      "effect_size": 1.6118811171130822,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_avg_trade_size",
+      "group1_mean": 115.7463764020852,
+      "group2_mean": 649.3094495352078,
+      "effect_size": -1.5642641201041039,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_avg_trade_size",
+      "group1_mean": 115.7463764020852,
+      "group2_mean": 649.3094495352078,
+      "effect_size": -1.5642641201041039,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_longest_window_seconds",
+      "group1_mean": 31.5,
+      "group2_mean": 302.25,
+      "effect_size": -1.5438405223843097,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_close_30min_price_variance",
+      "group1_mean": 0.01312364940103272,
+      "group2_mean": 6.744246799940195e-05,
+      "effect_size": 1.5102441763043006,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_volume_variance",
+      "group1_mean": 103290.05175931024,
+      "group2_mean": 17521963.830215637,
+      "effect_size": -1.4892595925971155,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_open_30min_price_variance",
+      "group1_mean": 0.17349562455063663,
+      "group2_mean": 0.0007318608470316166,
+      "effect_size": 1.4629647766954696,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_midday_price_variance",
+      "group1_mean": 0.10493943788258574,
+      "group2_mean": 0.00012707700119546705,
+      "effect_size": 1.4398163036897884,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_min_spread_pct",
+      "group1_mean": 251.6898238256717,
+      "group2_mean": 0.48647363936680577,
+      "effect_size": 1.4288515721713815,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_suspicious_size_pct",
+      "group1_mean": 0.0,
+      "group2_mean": 9.204712812960235e-05,
+      "effect_size": -1.4142135623730951,
+      "significant": "True"
+    },
+    {
+      "metric": "prediction_total_enter_signals",
+      "group1_mean": 18.0,
+      "group2_mean": 0.0,
+      "effect_size": 1.4142135623730951,
+      "significant": "True"
+    },
+    {
+      "metric": "prediction_total_high_confidence",
+      "group1_mean": 18.0,
+      "group2_mean": 0.0,
+      "effect_size": 1.4142135623730951,
+      "significant": "True"
+    },
+    {
+      "metric": "prediction_afternoon_signal_rate",
+      "group1_mean": 0.5,
+      "group2_mean": 0.0,
+      "effect_size": 1.414213562373095,
+      "significant": "True"
+    },
+    {
+      "metric": "prediction_avg_best_confidence",
+      "group1_mean": 0.17735552973271376,
+      "group2_mean": 0.0,
+      "effect_size": 1.414213562373095,
+      "significant": "True"
+    },
+    {
+      "metric": "prediction_days_with_signals",
+      "group1_mean": 0.5,
+      "group2_mean": 0.0,
+      "effect_size": 1.414213562373095,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_price_improvement_rate",
+      "group1_mean": 0.4232805394116649,
+      "group2_mean": 0.29797479818152,
+      "effect_size": 1.3918415833262041,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_price_acceleration",
+      "group1_mean": -0.002076084793402236,
+      "group2_mean": 0.0005000370440615877,
+      "effect_size": -1.3742829209894234,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_large_trade_pct",
+      "group1_mean": 0.019060030483492408,
+      "group2_mean": 0.09357883338221082,
+      "effect_size": -1.3689606095782103,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_high",
+      "group1_mean": 3.06625,
+      "group2_mean": 1.6237,
+      "effect_size": 1.2995251817797642,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_p90_trade_size",
+      "group1_mean": 327.55000000000007,
+      "group2_mean": 1203.3999999999992,
+      "effect_size": -1.2005632473839685,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_poc_price",
+      "group1_mean": 2.6625,
+      "group2_mean": 1.55,
+      "effect_size": 1.1545305026422394,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_close",
+      "group1_mean": 2.6525,
+      "group2_mean": 1.5724250000000002,
+      "effect_size": 1.1435049025272022,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_avg_price",
+      "group1_mean": 2.572239474324222,
+      "group2_mean": 1.5507750361154429,
+      "effect_size": 1.0917482726885142,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_close_strength",
+      "group1_mean": 0.7243011147597649,
+      "group2_mean": 0.6212049527536952,
+      "effect_size": 1.018292850139468,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_icebergs_detected",
+      "group1_mean": 52.0,
+      "group2_mean": 84.75,
+      "effect_size": -0.8239401111744854,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_avg_dollar_trade_size",
+      "group1_mean": 336.6024818623738,
+      "group2_mean": 487.50359874173864,
+      "effect_size": -0.8111902753523412,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_morning_trade_intensity",
+      "group1_mean": 0.15122391553725592,
+      "group2_mean": 0.21523876444876566,
+      "effect_size": -0.76831301764059,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_open",
+      "group1_mean": 2.1950000000000003,
+      "group2_mean": 1.5836999999999999,
+      "effect_size": 0.7211508120263973,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_low",
+      "group1_mean": 1.97875,
+      "group2_mean": 1.4940750000000003,
+      "effect_size": 0.59722635659803,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_spread_volatility",
+      "group1_mean": 0.5552375228907122,
+      "group2_mean": 0.6561125092270867,
+      "effect_size": -0.5212274897416932,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_quote_pullback_count",
+      "group1_mean": 149.25,
+      "group2_mean": 104.0,
+      "effect_size": 0.4285245154851652,
+      "significant": "False"
+    },
+    {
+      "metric": "pregap_avg_spread_change_frequency",
+      "group1_mean": 0.173782893334802,
+      "group2_mean": 0.14556409829467495,
+      "effect_size": 0.36678663626966573,
+      "significant": "False"
+    },
+    {
+      "metric": "pregap_avg_afternoon_trade_intensity",
+      "group1_mean": 0.13418990907300962,
+      "group2_mean": 0.16347423022741683,
+      "effect_size": -0.2974523853348251,
+      "significant": "False"
+    },
+    {
+      "metric": "microstructure_avg_ofi_ratio",
+      "group1_mean": 0.07372756689960294,
+      "group2_mean": 0.08402521910909472,
+      "effect_size": -0.25816955855779217,
+      "significant": "False"
+    },
+    {
+      "metric": "pregap_avg_quote_update_frequency",
+      "group1_mean": 0.023739796030375133,
+      "group2_mean": 0.01954521763575839,
+      "effect_size": 0.2542089668115688,
+      "significant": "False"
+    },
+    {
+      "metric": "pregap_avg_hidden_trade_pct",
+      "group1_mean": 0.9044933589726901,
+      "group2_mean": 0.9156919679716813,
+      "effect_size": -0.24730654125949908,
+      "significant": "False"
+    },
+    {
+      "metric": "microstructure_avg_fill_speed_seconds",
+      "group1_mean": 4.817307931284459,
+      "group2_mean": 4.99593735612387,
+      "effect_size": -0.12481797838234336,
+      "significant": "False"
+    },
+    {
+      "metric": "pregap_avg_price_vs_vwap",
+      "group1_mean": 0.03460595794891751,
+      "group2_mean": 0.036083518249059005,
+      "effect_size": -0.06820083361654854,
+      "significant": "False"
+    },
+    {
+      "metric": "pregap_avg_vwap_premium",
+      "group1_mean": 0.03589089512655516,
+      "group2_mean": 0.036690231526231465,
+      "effect_size": -0.03562040617428622,
+      "significant": "False"
+    },
+    {
+      "metric": "microstructure_avg_absorption_ratio",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_ask_absorption_count",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_avg_entry_duration",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_avg_entry_liquidity",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_bid_absorption_count",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_block_pct",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_crossed_market_pct",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_depth_imbalance",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_entry_windows",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_fill_probability_1000",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_hidden_ask_ratio",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_hidden_bid_ratio",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_recent_blocks",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_total_depth",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "microstructure_avg_trade_velocity",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "pregap_avg_min_time_between_trades",
+      "group1_mean": 0.0,
+      "group2_mean": 0.0,
+      "effect_size": 0,
+      "significant": false
+    },
+    {
+      "metric": "pregap_avg_trade_to_quote_ratio",
+      "group1_mean": 1.0,
+      "group2_mean": 1.0,
+      "effect_size": 0,
+      "significant": false
+    }
+  ],
+  "top_discriminators": [
+    {
+      "metric": "microstructure_avg_spread_std",
+      "group1_mean": 0.05621745638015595,
+      "group2_mean": 0.005754901866115745,
+      "effect_size": 21.71617673492031,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_trade_cluster_pct",
+      "group1_mean": 0.33816185240207564,
+      "group2_mean": 0.61446195607585,
+      "effect_size": -17.47153223249333,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_iceberg_avg_reload_time",
+      "group1_mean": 1043.7835108536613,
+      "group2_mean": 42.5603430937213,
+      "effect_size": 12.407885405393047,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_price_change_acceleration",
+      "group1_mean": 1.183174253264549,
+      "group2_mean": 0.4919475732024031,
+      "effect_size": 11.112695368128728,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_time_between_trades_std",
+      "group1_mean": 53.10694258603673,
+      "group2_mean": 17.751083911715984,
+      "effect_size": 8.812374816440489,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_avg_time_between_trades",
+      "group1_mean": 33.019674438273526,
+      "group2_mean": 6.4843635950522245,
+      "effect_size": 8.404648190392779,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_spreads_under_5pct",
+      "group1_mean": 33.5,
+      "group2_mean": 100.0,
+      "effect_size": -6.7175144212722016,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_final_hour_momentum",
+      "group1_mean": -0.0010168103902532433,
+      "group2_mean": 0.0001946789640675602,
+      "effect_size": -5.9734822910404475,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_spreads_under_2pct",
+      "group1_mean": 0.5,
+      "group2_mean": 80.75,
+      "effect_size": -5.8936298446424225,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_avg_spread",
+      "group1_mean": 0.10297371777362023,
+      "group2_mean": 0.009165064754386713,
+      "effect_size": 5.6399741112686685,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_median_fill_size",
+      "group1_mean": 14.75,
+      "group2_mean": 120.0,
+      "effect_size": -4.741273596020551,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_odd_lot_pct",
+      "group1_mean": 0.6789240506329113,
+      "group2_mean": 0.28,
+      "effect_size": 4.10314998675507,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_afternoon_volume_surge",
+      "group1_mean": 0.8612792132676776,
+      "group2_mean": 0.4619539608833847,
+      "effect_size": 3.994840531699866,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_midday_volume",
+      "group1_mean": 71135.75,
+      "group2_mean": 514315.25,
+      "effect_size": -3.5570195224133205,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_poc_volume_pct",
+      "group1_mean": 0.3428710607872344,
+      "group2_mean": 0.582707103891,
+      "effect_size": -3.4947128626506534,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_volatility",
+      "group1_mean": 0.6822805472795829,
+      "group2_mean": 0.08213565346561172,
+      "effect_size": 3.373168351832665,
+      "significant": "True"
+    },
+    {
+      "metric": "pregap_avg_avg_price_change_per_trade",
+      "group1_mean": 0.0993914051919848,
+      "group2_mean": 0.004011471182835767,
+      "effect_size": 2.984630922817066,
+      "significant": "True"
+    },
+    {
+      "metric": "microstructure_avg_extreme_spread_pct",
+      "group1_mean": 0.31264677737277413,
+      "group2_mean": 0.01681985294117647,
+      "effect_size": 2.9344934948402512,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_open_close_vol_ratio",
+      "group1_mean": 3.733796521340948,
+      "group2_mean": 0.4605198778608388,
+      "effect_size": 2.7172519204685464,
+      "significant": "True"
+    },
+    {
+      "metric": "daily_avg_dollar_volume",
+      "group1_mean": 575339.0602838641,
+      "group2_mean": 1814953.8230068418,
+      "effect_size": -2.615906806768431,
+      "significant": "True"
+    }
+  ]
+}

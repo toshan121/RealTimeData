@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "description": "Initial 50 stocks for testing, expand to 2000 for production",
+  "symbols": [
+    "AAPL", "MSFT", "GOOGL", "AMZN", "META",
+    "TSLA", "NVDA", "JPM", "JNJ", "V",
+    "PG", "UNH", "HD", "MA", "DIS",
+    "PYPL", "BAC", "ADBE", "NFLX", "XOM",
+    "VZ", "PFE", "KO", "CMCSA", "CVX",
+    "PEP", "TMO", "ABBV", "WMT", "CSCO",
+    "MRK", "ACN", "COST", "NKE", "AVGO",
+    "ABT", "MDT", "WFC", "LLY", "MCD",
+    "TXN", "DHR", "UPS", "NEE", "BMY",
+    "PM", "QCOM", "LOW", "UNP", "AMT"
+  ],
+  "filters": {
+    "min_avg_volume": 1000000,
+    "min_price": 5.0,
+    "max_price": 1000.0,
+    "exchanges": ["NYSE", "NASDAQ"]
+  },
+  "notes": "Expand symbols array to 2000 stocks meeting filter criteria for production use"
+}

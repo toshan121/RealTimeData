@@ -1,0 +1,222 @@
+{
+  "gappers": [
+    {
+      "symbol": "ABVX",
+      "is_gapper": true,
+      "gap_percent": 554.3,
+      "bars_analyzed": 92,
+      "metrics": {
+        "price_trend": 1.214574898785417,
+        "volume_trend": 122.67074184098215,
+        "volatility_contraction": 0,
+        "price_volatility": 1.8114047450803854,
+        "volume_price_ratio": 100.99891078240931,
+        "recent_volume": 3467504.5,
+        "recent_price": 10.0
+      },
+      "signals": {
+        "stealth_accumulation": 0.9275438101967846,
+        "mm_withdrawal": 0,
+        "ofi_momentum": 1.0,
+        "iceberg_detection": 0.8572137908477299,
+        "depth_asymmetry": 0.6214574898785417
+      },
+      "overall_signal": 0.7036866446581368,
+      "data_period": "2025-03-11 to 2025-07-22"
+    },
+    {
+      "symbol": "ANEB",
+      "is_gapper": true,
+      "gap_percent": 77.3,
+      "bars_analyzed": 92,
+      "metrics": {
+        "price_trend": 14.374999999999998,
+        "volume_trend": -29.634556146737605,
+        "volatility_contraction": 0,
+        "price_volatility": 6.1678136178663765,
+        "volume_price_ratio": -2.0615343406426163,
+        "recent_volume": 20102,
+        "recent_price": 1.83
+      },
+      "signals": {
+        "stealth_accumulation": 0,
+        "mm_withdrawal": 0,
+        "ofi_momentum": 0,
+        "iceberg_detection": 0.7308009235879748,
+        "depth_asymmetry": 0.9435907308877063
+      },
+      "overall_signal": 0.25115874817135214,
+      "data_period": "2025-03-11 to 2025-07-22"
+    },
+    {
+      "symbol": "PAPL",
+      "is_gapper": true,
+      "gap_percent": 62.9,
+      "bars_analyzed": 46,
+      "metrics": {
+        "price_trend": 75.0,
+        "volume_trend": 739.6793553949201,
+        "volatility_contraction": 0,
+        "price_volatility": 19.33590571178898,
+        "volume_price_ratio": 9.862391405265601,
+        "recent_volume": 506461,
+        "recent_price": 3.5
+      },
+      "signals": {
+        "stealth_accumulation": 0.6,
+        "mm_withdrawal": 0,
+        "ofi_momentum": 0.9862391405265601,
+        "iceberg_detection": 1.0907936507936509,
+        "depth_asymmetry": 1.0
+      },
+      "overall_signal": 0.7101788327506877,
+      "data_period": "2025-05-15 to 2025-07-22"
+    },
+    {
+      "symbol": "RNAZ",
+      "is_gapper": true,
+      "gap_percent": 40.5,
+      "bars_analyzed": 92,
+      "metrics": {
+        "price_trend": 0.693333333333328,
+        "volume_trend": -45.01691229765644,
+        "volatility_contraction": 0,
+        "price_volatility": 3.064704501741629,
+        "volume_price_ratio": -64.92823889085113,
+        "recent_volume": 18206,
+        "recent_price": 9.44
+      },
+      "signals": {
+        "stealth_accumulation": 0,
+        "mm_withdrawal": 0,
+        "ofi_momentum": 0,
+        "iceberg_detection": 1.0907845753289347,
+        "depth_asymmetry": 0
+      },
+      "overall_signal": 0.1636176862993402,
+      "data_period": "2025-03-11 to 2025-07-22"
+    },
+    {
+      "symbol": "OFAL",
+      "is_gapper": true,
+      "gap_percent": 35.8,
+      "bars_analyzed": 42,
+      "metrics": {
+        "price_trend": -13.06532663316583,
+        "volume_trend": 384.37614849362654,
+        "volatility_contraction": 0,
+        "price_volatility": 7.263040906508762,
+        "volume_price_ratio": 29.419559057781417,
+        "recent_volume": 2958833.5,
+        "recent_price": 1.73
+      },
+      "signals": {
+        "stealth_accumulation": 0.7094783637396496,
+        "mm_withdrawal": 0,
+        "ofi_momentum": 1.0,
+        "iceberg_detection": 1.1132352941176469,
+        "depth_asymmetry": 0.5
+      },
+      "overall_signal": 0.6693548850525594,
+      "data_period": "2025-05-21 to 2025-07-22"
+    },
+    {
+      "symbol": "UAVS",
+      "is_gapper": true,
+      "gap_percent": 34.4,
+      "bars_analyzed": 92,
+      "metrics": {
+        "price_trend": 45.2054794520548,
+        "volume_trend": 295.8993254471876,
+        "volatility_contraction": 0,
+        "price_volatility": 17.43603719125903,
+        "volume_price_ratio": 6.545651744740815,
+        "recent_volume": 25364331.5,
+        "recent_price": 2.12
+      },
+      "signals": {
+        "stealth_accumulation": 0.6,
+        "mm_withdrawal": 0,
+        "ofi_momentum": 0.6545651744740815,
+        "iceberg_detection": 1.6293572734048345,
+        "depth_asymmetry": 1.0
+      },
+      "overall_signal": 0.7080448846292455,
+      "data_period": "2025-03-11 to 2025-07-22"
+    },
+    {
+      "symbol": "BNR",
+      "is_gapper": true,
+      "gap_percent": 33.8,
+      "bars_analyzed": 92,
+      "metrics": {
+        "price_trend": 26.66739130434783,
+        "volume_trend": 58.81935088793632,
+        "volatility_contraction": 0,
+        "price_volatility": 10.461879330919572,
+        "volume_price_ratio": 2.205665721729086,
+        "recent_volume": 32419,
+        "recent_price": 5.8267
+      },
+      "signals": {
+        "stealth_accumulation": 0.6,
+        "mm_withdrawal": 0,
+        "ofi_momentum": 0.2205665721729086,
+        "iceberg_detection": 0.8705021788496434,
+        "depth_asymmetry": 1.0
+      },
+      "overall_signal": 0.4857169698706737,
+      "data_period": "2025-03-11 to 2025-07-22"
+    }
+  ],
+  "controls": [
+    {
+      "symbol": "RIOT",
+      "is_gapper": false,
+      "gap_percent": 0.0,
+      "bars_analyzed": 92,
+      "metrics": {
+        "price_trend": 13.524264120922828,
+        "volume_trend": 127.52673753739141,
+        "volatility_contraction": 0,
+        "price_volatility": 4.964620409814246,
+        "volume_price_ratio": 9.42947700497065,
+        "recent_volume": 91567098,
+        "recent_price": 14.27
+      },
+      "signals": {
+        "stealth_accumulation": 0.8014151836074301,
+        "mm_withdrawal": 0,
+        "ofi_momentum": 0.942947700497065,
+        "iceberg_detection": 0.9465777158061396,
+        "depth_asymmetry": 1.0
+      },
+      "overall_signal": 0.7280773783970448,
+      "data_period": "2025-03-11 to 2025-07-22"
+    },
+    {
+      "symbol": "AMC",
+      "is_gapper": false,
+      "gap_percent": 0.0,
+      "bars_analyzed": 92,
+      "metrics": {
+        "price_trend": 10.062893081761,
+        "volume_trend": -28.585210561067022,
+        "volatility_contraction": 0,
+        "price_volatility": 4.178764195908979,
+        "volume_price_ratio": -2.840655299506037,
+        "recent_volume": 11357280,
+        "recent_price": 3.5
+      },
+      "signals": {
+        "stealth_accumulation": 0,
+        "mm_withdrawal": 0,
+        "ofi_momentum": 0,
+        "iceberg_detection": 1.0107126142624128,
+        "depth_asymmetry": 0.5298691321583162
+      },
+      "overall_signal": 0.23108726196310933,
+      "data_period": "2025-03-11 to 2025-07-22"
+    }
+  ]
+}

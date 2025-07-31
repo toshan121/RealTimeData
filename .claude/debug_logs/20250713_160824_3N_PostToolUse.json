@@ -1,0 +1,51 @@
+{
+  "session_id": "90455ff0-3384-4d80-b135-e7281200ff48",
+  "transcript_path": "/Users/toshan/.claude/projects/-Users-toshan-PycharmProjects-stk-v5/90455ff0-3384-4d80-b135-e7281200ff48.jsonl",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "TodoWrite",
+  "tool_input": {
+    "todos": [
+      {
+        "content": "Check current hook configuration and settings",
+        "status": "pending",
+        "priority": "high",
+        "id": "1"
+      },
+      {
+        "content": "Examine hook execution logs and debug output",
+        "status": "pending",
+        "priority": "high",
+        "id": "2"
+      },
+      {
+        "content": "Test hook functionality and identify issues",
+        "status": "pending",
+        "priority": "medium",
+        "id": "3"
+      }
+    ]
+  },
+  "tool_response": {
+    "oldTodos": [],
+    "newTodos": [
+      {
+        "content": "Check current hook configuration and settings",
+        "status": "pending",
+        "priority": "high",
+        "id": "1"
+      },
+      {
+        "content": "Examine hook execution logs and debug output",
+        "status": "pending",
+        "priority": "high",
+        "id": "2"
+      },
+      {
+        "content": "Test hook functionality and identify issues",
+        "status": "pending",
+        "priority": "medium",
+        "id": "3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "description": "Small-cap stocks for gap trading strategy testing",
+  "symbols": [
+    "ABVX", "PAPL", "ANEB", "ABAT", "ABOS",
+    "ACET", "ACRV", "ADVM", "AEYE", "ASRT",
+    "ACHV", "ADIL", "ACRS", "ACXP", "ADTX",
+    "AEHR", "AFMD", "AGRI", "AGIO", "AHCO",
+    "AIHS", "AIRG", "AKTS", "ALCO", "ALGS",
+    "ALNA", "ALRN", "ALRS", "ALTO", "ALVO",
+    "AMAM", "AMPE", "AMRK", "AMST", "AMTX",
+    "ANPC", "ANTE", "APDN", "APLT", "APVO",
+    "AQMS", "ARAV", "ARCB", "ARDX", "ARMP",
+    "ARTL", "ARVN", "ARWR", "ASLN", "ASMB",
+    "ASNS", "ASPS", "ASTS", "ASUR", "ATAI",
+    "ATEC", "ATER", "ATIP", "ATKR", "ATLC",
+    "ATNF", "ATOM", "ATOS", "ATPC", "ATRC",
+    "ATRO", "ATSG", "ATTO", "ATXI", "AUID",
+    "AUPH", "AURA", "AUTL", "AUVI", "AVAH",
+    "AVCO", "AVDL", "AVEO", "AVGR", "AVIR",
+    "AVNW", "AVRO", "AVTE", "AVXL", "AWRE",
+    "AXDX", "AXGN", "AXLA", "AXNX", "AXSM",
+    "AYTU", "AZRX", "BAND", "BANF", "BBGI",
+    "BBIO", "BCEL", "BCLI", "BCRX", "BDSI"
+  ],
+  "filters": {
+    "min_avg_volume": 100000,
+    "min_price": 0.5,
+    "max_price": 20.0,
+    "market_cap": "small"
+  },
+  "notes": "100 small-cap stocks prone to gap movements for testing"
+}

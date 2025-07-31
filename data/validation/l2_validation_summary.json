@@ -1,0 +1,7 @@
+{
+  "daily_bar_detection": "0/10 stocks (0%)",
+  "l2_detection": "3/3 stocks (100%)",
+  "key_insight": "Stealth accumulation is an INTRADAY microstructure pattern",
+  "requirement": "Level 2 order book data is essential",
+  "next_step": "Collect real L2 data during market hours"
+}

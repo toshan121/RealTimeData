@@ -1,0 +1,19 @@
+{
+  "timestamp": "20250724_103527",
+  "normalized_results": {
+    "gappers": {
+      "ABVX": {},
+      "ANEB": {},
+      "PAPL": {}
+    },
+    "non_gappers": {
+      "AAPL": {},
+      "MSFT": {},
+      "GOOGL": {},
+      "AMZN": {},
+      "META": {}
+    }
+  },
+  "significant_metrics": [],
+  "analysis": "multi_day_normalized_comparison"
+}

@@ -1,0 +1,57 @@
+================================================================================
+🧪 END-TO-END PIPELINE TEST REPORT
+================================================================================
+⏰ Test Duration: 84.9 seconds
+📊 Test Symbols: AAPL, TSLA, ANEB
+⚡ Stream Speed: 20.0x
+🎯 Test Result: ✅ SUCCESS
+
+📡 STREAMING STATISTICS
+-------------------------
+   Symbols processed: 1
+   Ticks sent: 6,089
+   L1 updates sent: 6,088
+   L2 updates generated: 12,176
+   Stream rate: 388.4 msg/s
+   Errors: 0
+
+📥 CAPTURE STATISTICS
+----------------------
+   Ticks processed: 6,089
+   L1 processed: 6,088
+   L2 processed: 12,176
+   ClickHouse inserts: 248
+   File writes: 24,353
+   Processing rate: 308.4 msg/s
+   Errors: 16
+
+🔍 VALIDATION SUMMARY
+--------------------
+   Overall health score: 87.5/100
+   Health status: GOOD
+   Kafka: 100.0/100
+   Clickhouse: 100.0/100
+   Files: 100.0/100
+   Consistency: 45.0/100
+   Quality: 85.0/100
+
+🔄 DATA FLOW VERIFICATION
+--------------------------
+   TICKS flow:
+      Kafka → ClickHouse: 100.0% (6,089 → 6,089)
+      Kafka → Files: 100.0% (6,089 → 6,089)
+   L1 flow:
+      Kafka → ClickHouse: 24.6% (6,088 → 1,500)
+      Kafka → Files: 100.0% (6,088 → 6,088)
+   L2 flow:
+      Kafka → ClickHouse: 977.3% (12,176 → 119,000)
+      Kafka → Files: 100.0% (12,176 → 12,176)
+
+💡 RECOMMENDATIONS
+-----------------
+   🟡 System performing well - minor optimizations recommended
+   • Review capture service error logs
+   • Investigate data consistency issues in: market_l1, market_l2
+   • Address duplicate record issues
+
+================================================================================

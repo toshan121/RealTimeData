@@ -1,0 +1,24 @@
+# Exclude deprecated and unnecessary files
+deprecated/
+htmlcov/
+.coverage
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+.venv
+env/
+venv/
+.git/
+.gitignore
+README.md
+*.md
+.DS_Store
+*.log
+logs/
+data/raw_iqfeed/
+*.csv
+examples/

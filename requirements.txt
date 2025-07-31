@@ -1,0 +1,65 @@
+# Core Dependencies
+python-dateutil==2.8.2
+pytz==2023.3
+
+# IQFeed Integration
+pyiqfeed==0.5.1
+asyncio==3.4.3
+
+# Data Processing
+numpy==1.21.6  # Compatible with older CUDA
+pandas==1.3.5
+pyarrow==12.0.0  # For parquet support
+
+# GPU Computing (CUDA 10.x compatible)
+numba==0.53.1
+cudatoolkit==10.2  # Via conda, not pip
+
+# Kafka
+kafka-python==2.0.2
+confluent-kafka==2.1.1
+
+# Redis
+redis==4.5.5
+hiredis==2.2.3  # C parser for performance
+
+# ClickHouse
+clickhouse-driver==0.2.6
+clickhouse-connect==0.6.6
+
+# Testing
+pytest==7.4.0
+pytest-asyncio==0.21.0
+pytest-cov==4.1.0
+pytest-mock==3.11.1
+
+# Logging and Configuration
+python-dotenv==1.0.0
+pyyaml==6.0
+structlog==23.1.0
+
+# Performance Monitoring
+psutil==5.9.5
+py-spy==0.3.14  # Profiling
+
+# Visualization (for analysis)
+matplotlib==3.5.3
+seaborn==0.12.2
+plotly==5.15.0
+
+# Development Tools
+black==23.7.0
+isort==5.12.0
+flake8==6.0.0
+mypy==1.4.1
+
+# Type hints
+typing-extensions==4.7.1
+
+# Additional ML (optional, CUDA 10.x compatible versions)
+# torch==1.7.1+cu102  # Install via: pip install torch==1.7.1+cu102 -f https://download.pytorch.org/whl/torch_stable.html
+# tensorflow-gpu==2.4.0  # Requires CUDA 10.1
+
+# Backtesting specific
+sortedcontainers==2.4.0  # For order book management
+attrs==23.1.0  # For clean data classes

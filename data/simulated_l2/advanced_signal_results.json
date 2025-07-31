@@ -1,0 +1,26 @@
+{
+  "ABVX": {
+    "symbol": "ABVX",
+    "updates_processed": 122524,
+    "trades_processed": 0,
+    "signals": {},
+    "composite_stealth_score": 0,
+    "signals_detected": 0
+  },
+  "PAPL": {
+    "symbol": "PAPL",
+    "updates_processed": 82499,
+    "trades_processed": 0,
+    "signals": {},
+    "composite_stealth_score": 0,
+    "signals_detected": 0
+  },
+  "ANEB": {
+    "symbol": "ANEB",
+    "updates_processed": 11516,
+    "trades_processed": 0,
+    "signals": {},
+    "composite_stealth_score": 0,
+    "signals_detected": 0
+  }
+}

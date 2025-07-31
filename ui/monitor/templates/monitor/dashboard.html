@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Production Monitor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .status-healthy { color: #28a745; }
+        .status-warning { color: #ffc107; }
+        .status-error { color: #dc3545; }
+        .metric-card { transition: all 0.3s ease; }
+        .metric-card:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .real-time-indicator { animation: pulse 2s infinite; }
+        .trading-panel { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .alert-critical { border-left: 4px solid #dc3545; }
+        .alert-warning { border-left: 4px solid #ffc107; }
+        .alert-info { border-left: 4px solid #17a2b8; }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">
+                <i class="fas fa-chart-line me-2"></i>{{ title }}
+            </span>
+            <span class="navbar-text">
+                <span class="real-time-indicator">●</span> Live Production System
+            </span>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <!-- System Status Overview -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-heartbeat me-2"></i>System Status
+                        </h5>
+                        <span class="badge {% if status.money_safe %}bg-success{% else %}bg-danger{% endif %} fs-6">
+                            {% if status.money_safe %}MONEY SAFE{% else %}MONEY AT RISK{% endif %}
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h3 class="{% if status.overall_status == 'HEALTHY' %}status-healthy{% elif status.overall_status == 'WARNING' %}status-warning{% else %}status-error{% endif %}">
+                                        {{ status.overall_status|default:"UNKNOWN" }}
+                                    </h3>
+                                    <p class="text-muted">Overall Status</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h3 class="text-primary">{{ status.system.cpu_percent|default:0|floatformat:1 }}%</h3>
+                                    <p class="text-muted">CPU Usage</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h3 class="text-info">{{ status.system.memory_percent|default:0|floatformat:1 }}%</h3>
+                                    <p class="text-muted">Memory Usage</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h3 class="text-success">{{ status.data_flow.total_messages_per_minute|default:0 }}</h3>
+                                    <p class="text-muted">Messages/Min</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Health Cards -->
+        <div class="row mb-4">
+            {% for service, details in status.services.items %}
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card metric-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="card-title">{{ service|title }}</h6>
+                            <span class="badge {% if details.status == 'HEALTHY' %}bg-success{% elif details.status == 'WARNING' %}bg-warning{% else %}bg-danger{% endif %}">
+                                {{ details.status }}
+                            </span>
+                        </div>
+                        <p class="card-text text-muted small">{{ details.description|default:"Service monitoring" }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Alerts Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-exclamation-triangle me-2"></i>Active Alerts
+                            <span class="badge bg-secondary ms-2">{{ status.alert_count|default:0 }}</span>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if status.alerts %}
+                            {% for alert in status.alerts %}
+                            <div class="alert {% if alert.level == 'CRITICAL' %}alert-critical alert-danger{% elif alert.level == 'WARNING' %}alert-warning alert-warning{% else %}alert-info alert-info{% endif %} mb-2">
+                                <strong>{{ alert.level }}</strong> - {{ alert.service }}: {{ alert.message }}
+                                <small class="float-end">{{ alert.timestamp }}</small>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle me-2"></i>No active alerts - All systems operational
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trading APIs Section -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card trading-panel text-white">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-plug me-2"></i>IQFeed API
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Real-time market data connection</p>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-light btn-sm" onclick="testIQFeed()">Test Connection</button>
+                            <span class="badge bg-light text-dark">Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card trading-panel text-white">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-exchange-alt me-2"></i>Interactive Brokers
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Trading execution interface</p>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-light btn-sm" onclick="testIB()">Test Connection</button>
+                            <span class="badge bg-light text-dark">Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WebSocket Status -->
+    <div class="position-fixed bottom-0 end-0 p-3">
+        <div id="wsStatus" class="badge bg-secondary">Connecting...</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Redis-based polling for real-time updates (more reliable than WebSockets)
+        let updateInterval;
+
+        function startRealtimeUpdates() {
+            document.getElementById('wsStatus').className = 'badge bg-success';
+            document.getElementById('wsStatus').textContent = 'Redis Live';
+            
+            updateInterval = setInterval(async function() {
+                try {
+                    const response = await fetch('/api/status/');
+                    const data = await response.json();
+                    
+                    // Update page with real-time data
+                    updateDashboard(data);
+                    
+                    document.getElementById('wsStatus').className = 'badge bg-success';
+                    document.getElementById('wsStatus').textContent = 'Redis Live';
+                } catch (error) {
+                    console.error('Update failed:', error);
+                    document.getElementById('wsStatus').className = 'badge bg-danger';
+                    document.getElementById('wsStatus').textContent = 'Error';
+                }
+            }, 5000); // Update every 5 seconds
+        }
+        
+        function updateDashboard(data) {
+            // Update overall status
+            const statusElement = document.querySelector('.status-healthy, .status-warning, .status-error');
+            if (statusElement) {
+                statusElement.textContent = data.overall_status || 'UNKNOWN';
+                statusElement.className = data.overall_status === 'HEALTHY' ? 'status-healthy' : 
+                                        data.overall_status === 'WARNING' ? 'status-warning' : 'status-error';
+            }
+            
+            // Update money safe status
+            const moneyBadge = document.querySelector('.badge.bg-success, .badge.bg-danger');
+            if (moneyBadge && data.money_safe !== undefined) {
+                moneyBadge.textContent = data.money_safe ? 'MONEY SAFE' : 'MONEY AT RISK';
+                moneyBadge.className = data.money_safe ? 'badge bg-success fs-6' : 'badge bg-danger fs-6';
+            }
+        }
+
+        // API testing functions
+        function testIQFeed() {
+            fetch('/api/iqfeed/')
+                .then(response => response.json())
+                .then(data => alert('IQFeed: ' + data.message))
+                .catch(error => alert('IQFeed Error: ' + error));
+        }
+
+        function testIB() {
+            fetch('/api/ib/')
+                .then(response => response.json())
+                .then(data => alert('IB: ' + data.message))
+                .catch(error => alert('IB Error: ' + error));
+        }
+
+        // Initialize Redis-based real-time updates
+        startRealtimeUpdates();
+        
+        // Auto-refresh page every 60 seconds as fallback
+        setInterval(function() {
+            location.reload();
+        }, 60000);
+    </script>
+</body>
+</html>

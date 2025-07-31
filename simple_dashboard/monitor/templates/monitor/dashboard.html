@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Market Data Dashboard</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #f0f0f0; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .status-box { background: white; padding: 20px; margin: 10px 0; border-radius: 5px; }
+        .status-ok { color: green; }
+        .status-error { color: red; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        .info { margin: 10px 0; padding: 10px; background: #f9f9f9; }
+        table { width: 100%; border-collapse: collapse; }
+        td, th { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+        .controls { display: flex; gap: 20px; flex-wrap: wrap; }
+        .control-section { flex: 1; min-width: 300px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Simple Market Data Dashboard</h1>
+        
+        <!-- System Status -->
+        <div class="status-box">
+            <h2>System Status</h2>
+            <table>
+                <tr>
+                    <td>Redis</td>
+                    <td class="{% if status.redis.status %}status-ok{% else %}status-error{% endif %}">
+                        {% if status.redis.status %}✅ Connected{% else %}❌ Disconnected{% endif %}
+                    </td>
+                    <td>{% if status.redis.info %}Keys: {{ status.redis.info.db0.keys|default:"0" }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <td>ClickHouse</td>
+                    <td class="{% if status.clickhouse.status %}status-ok{% else %}status-error{% endif %}">
+                        {% if status.clickhouse.status %}✅ Connected{% else %}❌ Disconnected{% endif %}
+                    </td>
+                    <td>
+                        {% if status.clickhouse.tables %}
+                        Trades: {{ status.clickhouse.tables.trades|default:"0" }}, 
+                        Quotes: {{ status.clickhouse.tables.quotes|default:"0" }}, 
+                        L2: {{ status.clickhouse.tables.order_book_updates|default:"0" }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kafka</td>
+                    <td class="{% if status.kafka.status %}status-ok{% else %}status-error{% endif %}">
+                        {% if status.kafka.status %}✅ Connected{% else %}❌ Disconnected{% endif %}
+                    </td>
+                    <td>{% if status.kafka.topics %}Topics: {{ status.kafka.topics|length }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <td>Recording</td>
+                    <td class="{% if status.recording.running %}status-ok{% else %}status-error{% endif %}">
+                        {% if status.recording.running %}✅ Running (PID: {{ status.recording.pid }}){% else %}⏹️ Stopped{% endif %}
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Controls -->
+        <div class="status-box controls">
+            <div class="control-section">
+                <h3>📼 Recording Control</h3>
+                <button onclick="controlRecording('start')" {% if status.recording.running %}disabled{% endif %}>
+                    ▶️ Start Recording
+                </button>
+                <button onclick="controlRecording('stop')" {% if not status.recording.running %}disabled{% endif %}>
+                    ⏹️ Stop Recording
+                </button>
+                <div class="info">Records 495 stocks with L1, L2, and tick data</div>
+            </div>
+            
+            <div class="control-section">
+                <h3>🎮 Simulation Control</h3>
+                <button onclick="startSimulation('synthetic')">▶️ Synthetic Data</button>
+                <button onclick="startSimulation('replay')">▶️ Replay Historical</button>
+                <button onclick="stopSimulation()">⏹️ Stop Simulation</button>
+                <div class="info">Streams to 'simulation' Kafka topic</div>
+            </div>
+        </div>
+        
+        <!-- Kafka Topics -->
+        <div class="status-box">
+            <h2>Kafka Topics Status</h2>
+            <div id="kafka-topics">Loading...</div>
+            <button onclick="checkKafka()">🔄 Refresh</button>
+        </div>
+        
+        <!-- Lag Graph -->
+        <div class="status-box">
+            <h2>📈 Lag Statistics (Last 30 minutes)</h2>
+            <canvas id="lag-chart" width="1000" height="300" style="width: 100%; border: 1px solid #ddd;"></canvas>
+            <div style="margin-top: 10px;">
+                <span style="color: blue;">— Network Lag</span> | 
+                <span style="color: green;">— Processing Lag</span> | 
+                <span style="color: red;">— Total Lag</span> | 
+                <span style="color: orange;">— Max Lag</span>
+            </div>
+        </div>
+        
+        <!-- Auto-refresh status -->
+        <div class="status-box">
+            <label>
+                <input type="checkbox" id="auto-refresh" checked> Auto-refresh (5s)
+            </label>
+            <div style="float: right">Last update: {{ status.timestamp }}</div>
+        </div>
+    </div>
+    
+    <script>
+        // Simple AJAX helpers
+        function post(url, data, callback) {
+            fetch(url, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(callback)
+            .catch(err => alert('Error: ' + err));
+        }
+        
+        function get(url, callback) {
+            fetch(url)
+            .then(response => response.json())
+            .then(callback)
+            .catch(err => console.error('Error:', err));
+        }
+        
+        // Control functions
+        function controlRecording(action) {
+            post('/api/recording/', {action: action}, function(data) {
+                alert('Recording ' + data.status);
+                setTimeout(() => location.reload(), 1000);
+            });
+        }
+        
+        function startSimulation(type) {
+            post('/api/simulation/', {action: 'start', type: type}, function(data) {
+                alert('Simulation ' + type + ' started');
+            });
+        }
+        
+        function stopSimulation() {
+            post('/api/simulation/', {action: 'stop'}, function(data) {
+                alert('Simulation stopped');
+            });
+        }
+        
+        function checkKafka() {
+            get('/api/kafka-check/', function(data) {
+                let html = '<table>';
+                if (data.status === 'ok' && data.topics) {
+                    for (let topic in data.topics) {
+                        html += '<tr><td>' + topic + '</td><td>Partitions: ' + 
+                                data.topics[topic].partitions + ', Latest: ' + 
+                                data.topics[topic].latest_offset + '</td></tr>';
+                    }
+                } else {
+                    html += '<tr><td>Error checking Kafka</td></tr>';
+                }
+                html += '</table>';
+                document.getElementById('kafka-topics').innerHTML = html;
+            });
+        }
+        
+        // Auto-refresh
+        let refreshInterval;
+        function startAutoRefresh() {
+            refreshInterval = setInterval(function() {
+                if (document.getElementById('auto-refresh').checked) {
+                    location.reload();
+                }
+            }, 5000);
+        }
+        
+        // Simple lag chart
+        function drawLagChart(data) {
+            const canvas = document.getElementById('lag-chart');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            if (!data || data.length === 0) {
+                ctx.fillText('No lag data available', width/2 - 50, height/2);
+                return;
+            }
+            
+            // Find max values for scaling
+            let maxLag = 0;
+            data.forEach(d => {
+                maxLag = Math.max(maxLag, d.max_lag || 0, d.total_lag || 0);
+            });
+            maxLag = Math.max(maxLag, 100); // Minimum 100ms scale
+            
+            // Draw axes
+            ctx.strokeStyle = '#ccc';
+            ctx.beginPath();
+            ctx.moveTo(50, 20);
+            ctx.lineTo(50, height - 30);
+            ctx.lineTo(width - 20, height - 30);
+            ctx.stroke();
+            
+            // Y-axis labels
+            ctx.fillStyle = '#666';
+            ctx.font = '10px monospace';
+            for (let i = 0; i <= 5; i++) {
+                const y = 20 + (height - 50) * i / 5;
+                const value = Math.round(maxLag * (1 - i/5));
+                ctx.fillText(value + 'ms', 5, y + 3);
+            }
+            
+            // Draw data
+            const xStep = (width - 70) / Math.max(data.length - 1, 1);
+            
+            // Draw lines for each metric
+            const metrics = [
+                {key: 'network_lag', color: 'blue'},
+                {key: 'processing_lag', color: 'green'},
+                {key: 'total_lag', color: 'red'},
+                {key: 'max_lag', color: 'orange'}
+            ];
+            
+            metrics.forEach(metric => {
+                ctx.strokeStyle = metric.color;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                
+                data.forEach((d, i) => {
+                    const x = 50 + i * xStep;
+                    const y = 20 + (height - 50) * (1 - (d[metric.key] || 0) / maxLag);
+                    
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                });
+                
+                ctx.stroke();
+            });
+            
+            // X-axis labels (show every 5th)
+            ctx.fillStyle = '#666';
+            data.forEach((d, i) => {
+                if (i % 5 === 0) {
+                    const x = 50 + i * xStep;
+                    const time = new Date(d.time).toLocaleTimeString().substring(0, 5);
+                    ctx.fillText(time, x - 15, height - 10);
+                }
+            });
+        }
+        
+        function updateLagChart() {
+            get('/api/lag-stats/', function(data) {
+                if (data.status === 'ok') {
+                    drawLagChart(data.data);
+                }
+            });
+        }
+        
+        // Initial load
+        checkKafka();
+        updateLagChart();
+        startAutoRefresh();
+        
+        // Update lag chart periodically
+        setInterval(updateLagChart, 5000);
+    </script>
+</body>
+</html>

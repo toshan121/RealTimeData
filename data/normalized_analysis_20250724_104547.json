@@ -1,0 +1,1083 @@
+{
+  "timestamp": "20250724_104547",
+  "gapper_results": [
+    {
+      "symbol": "ABVX",
+      "daily_metrics": {
+        "20250720": {
+          "tick_count": 24406,
+          "l2_count": 244060,
+          "total_volume": 11417237,
+          "avg_trade_size": 467.8045152831271,
+          "median_trade_size": 309.0,
+          "large_trades": 1382,
+          "huge_trades": 1,
+          "bid_hit_ratio": 0.5019257559616488,
+          "price_range": 18.011,
+          "price_change": 0.27070010379348436,
+          "avg_spread": 0.019999999999999997,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.0278818772002368,
+          "early_volume_pct": 0.32585204283663377,
+          "mid_volume_pct": 0.3335772043621412,
+          "late_volume_pct": 0.340570752801225
+        },
+        "20250721": {
+          "tick_count": 20461,
+          "l2_count": 204610,
+          "total_volume": 9556264,
+          "avg_trade_size": 467.0477493768633,
+          "median_trade_size": 309.0,
+          "large_trades": 1157,
+          "huge_trades": 1,
+          "bid_hit_ratio": 0.4991935878011827,
+          "price_range": 9.079,
+          "price_change": -0.1670362158167036,
+          "avg_spread": 0.01999999999999998,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.029971859295641057,
+          "early_volume_pct": 0.3296342587437936,
+          "mid_volume_pct": 0.3360675259704001,
+          "late_volume_pct": 0.3342982152858063
+        },
+        "20250722": {
+          "tick_count": 31739,
+          "l2_count": 476085,
+          "total_volume": 43681101,
+          "avg_trade_size": 1376.259522984341,
+          "median_trade_size": 548.0,
+          "large_trades": 5963,
+          "huge_trades": 3035,
+          "bid_hit_ratio": 0.6464286839534957,
+          "price_range": 280.03799999999995,
+          "price_change": 8.833739824522503,
+          "avg_spread": 0.015000000000000008,
+          "min_spread": 0.014999999999986358,
+          "volume_concentration": 0.006151951160754854,
+          "early_volume_pct": 0.3359832894321963,
+          "mid_volume_pct": 0.33278792583547745,
+          "late_volume_pct": 0.33122878473232625
+        },
+        "20250723": {
+          "tick_count": 15432,
+          "l2_count": 154320,
+          "total_volume": 7310298,
+          "avg_trade_size": 473.71034214618976,
+          "median_trade_size": 309.0,
+          "large_trades": 885,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.49708398133748055,
+          "price_range": 141.13400000000001,
+          "price_change": -0.3712772955333996,
+          "avg_spread": 0.02000000000000014,
+          "min_spread": 0.01999999999998181,
+          "volume_concentration": 0.0036303581605018017,
+          "early_volume_pct": 0.3434492000189322,
+          "mid_volume_pct": 0.33246756835357466,
+          "late_volume_pct": 0.32408323162749314
+        }
+      },
+      "normalized": {
+        "tick_count": {
+          "baseline_avg": 22433.5,
+          "pre_gap_value": 31739,
+          "ratio": 1.4148037533153544,
+          "pct_change": 41.480375331535434
+        },
+        "l2_count": {
+          "baseline_avg": 224335.0,
+          "pre_gap_value": 476085,
+          "ratio": 2.122205629973031,
+          "pct_change": 112.22056299730312
+        },
+        "total_volume": {
+          "baseline_avg": 10486750.5,
+          "pre_gap_value": 43681101,
+          "ratio": 4.165360947607174,
+          "pct_change": 316.5360947607174
+        },
+        "avg_trade_size": {
+          "baseline_avg": 467.4261323299952,
+          "pre_gap_value": 1376.259522984341,
+          "ratio": 2.9443358592812356,
+          "pct_change": 194.43358592812356
+        },
+        "median_trade_size": {
+          "baseline_avg": 309.0,
+          "pre_gap_value": 548.0,
+          "ratio": 1.773462783171521,
+          "pct_change": 77.34627831715211
+        },
+        "large_trades": {
+          "baseline_avg": 1269.5,
+          "pre_gap_value": 5963,
+          "ratio": 4.697124852304056,
+          "pct_change": 369.7124852304056
+        },
+        "huge_trades": {
+          "baseline_avg": 1.0,
+          "pre_gap_value": 3035,
+          "ratio": 3035.0,
+          "pct_change": 303400.0
+        },
+        "bid_hit_ratio": {
+          "baseline_avg": 0.5005596718814158,
+          "pre_gap_value": 0.6464286839534957,
+          "ratio": 1.2914118341252165,
+          "pct_change": 29.141183412521656
+        },
+        "price_range": {
+          "baseline_avg": 13.545,
+          "pre_gap_value": 280.03799999999995,
+          "ratio": 20.674640088593573,
+          "pct_change": 1967.4640088593574
+        },
+        "price_change": {
+          "baseline_avg": 0.051831943988390375,
+          "pre_gap_value": 8.833739824522503,
+          "ratio": 170.4304169355704,
+          "pct_change": 16943.04169355704
+        },
+        "avg_spread": {
+          "baseline_avg": 0.01999999999999999,
+          "pre_gap_value": 0.015000000000000008,
+          "ratio": 0.7500000000000008,
+          "pct_change": -24.999999999999922
+        },
+        "min_spread": {
+          "baseline_avg": 0.01999999999999602,
+          "pre_gap_value": 0.014999999999986358,
+          "ratio": 0.7499999999994671,
+          "pct_change": -25.00000000005329
+        },
+        "volume_concentration": {
+          "baseline_avg": 0.028926868247938928,
+          "pre_gap_value": 0.006151951160754854,
+          "ratio": 0.2126725613026978,
+          "pct_change": -78.73274386973021
+        },
+        "early_volume_pct": {
+          "baseline_avg": 0.32774315079021366,
+          "pre_gap_value": 0.3359832894321963,
+          "ratio": 1.0251420620754852,
+          "pct_change": 2.5142062075485194
+        },
+        "mid_volume_pct": {
+          "baseline_avg": 0.3348223651662707,
+          "pre_gap_value": 0.33278792583547745,
+          "ratio": 0.9939238248622283,
+          "pct_change": -0.60761751377717
+        },
+        "late_volume_pct": {
+          "baseline_avg": 0.3374344840435156,
+          "pre_gap_value": 0.33122878473232625,
+          "ratio": 0.981609172729397,
+          "pct_change": -1.8390827270603038
+        }
+      }
+    },
+    {
+      "symbol": "PAPL",
+      "daily_metrics": {
+        "20250720": {
+          "tick_count": 17282,
+          "l2_count": 172820,
+          "total_volume": 8219518,
+          "avg_trade_size": 475.61150329822937,
+          "median_trade_size": 308.0,
+          "large_trades": 1020,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.49849554449716466,
+          "price_range": 18.036,
+          "price_change": 0.3381589410168856,
+          "avg_spread": 0.019999999999999997,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.020771899276818908,
+          "early_volume_pct": 0.3373301208173034,
+          "mid_volume_pct": 0.33509860310543754,
+          "late_volume_pct": 0.32757127607725905
+        },
+        "20250721": {
+          "tick_count": 16975,
+          "l2_count": 169750,
+          "total_volume": 7857579,
+          "avg_trade_size": 462.8912518409426,
+          "median_trade_size": 310.0,
+          "large_trades": 909,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.4981443298969072,
+          "price_range": 22.479999999999997,
+          "price_change": -0.1132250336614964,
+          "avg_spread": 0.02000000000000002,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.015480722497349374,
+          "early_volume_pct": 0.33264355344056995,
+          "mid_volume_pct": 0.33808403326266273,
+          "late_volume_pct": 0.3292724132967674
+        },
+        "20250722": {
+          "tick_count": 34584,
+          "l2_count": 518760,
+          "total_volume": 47178745,
+          "avg_trade_size": 1364.1783772842932,
+          "median_trade_size": 548.0,
+          "large_trades": 6450,
+          "huge_trades": 3247,
+          "bid_hit_ratio": 0.6509657645153828,
+          "price_range": 543.047,
+          "price_change": 10.675215360050464,
+          "avg_spread": 0.01499999999999996,
+          "min_spread": 0.014999999999986358,
+          "volume_concentration": 0.003937769010176086,
+          "early_volume_pct": 0.33036506163951584,
+          "mid_volume_pct": 0.335431432099349,
+          "late_volume_pct": 0.33420350626113515
+        },
+        "20250723": {
+          "tick_count": 16188,
+          "l2_count": 161880,
+          "total_volume": 7530095,
+          "avg_trade_size": 465.1652458611317,
+          "median_trade_size": 309.0,
+          "large_trades": 864,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.4977761304670126,
+          "price_range": 320.43600000000004,
+          "price_change": -0.2692962116676925,
+          "avg_spread": 0.020000000000000042,
+          "min_spread": 0.01999999999998181,
+          "volume_concentration": 0.0021477816680931646,
+          "early_volume_pct": 0.3321543752104057,
+          "mid_volume_pct": 0.3436238188230029,
+          "late_volume_pct": 0.3242218059665914
+        }
+      },
+      "normalized": {
+        "tick_count": {
+          "baseline_avg": 17128.5,
+          "pre_gap_value": 34584,
+          "ratio": 2.019090988703039,
+          "pct_change": 101.90909887030388
+        },
+        "l2_count": {
+          "baseline_avg": 171285.0,
+          "pre_gap_value": 518760,
+          "ratio": 3.0286364830545582,
+          "pct_change": 202.86364830545583
+        },
+        "total_volume": {
+          "baseline_avg": 8038548.5,
+          "pre_gap_value": 47178745,
+          "ratio": 5.869062679661633,
+          "pct_change": 486.90626796616334
+        },
+        "avg_trade_size": {
+          "baseline_avg": 469.251377569586,
+          "pre_gap_value": 1364.1783772842932,
+          "ratio": 2.9071377144374972,
+          "pct_change": 190.71377144374972
+        },
+        "median_trade_size": {
+          "baseline_avg": 309.0,
+          "pre_gap_value": 548.0,
+          "ratio": 1.773462783171521,
+          "pct_change": 77.34627831715211
+        },
+        "large_trades": {
+          "baseline_avg": 964.5,
+          "pre_gap_value": 6450,
+          "ratio": 6.687402799377916,
+          "pct_change": 568.7402799377917
+        },
+        "bid_hit_ratio": {
+          "baseline_avg": 0.49831993719703593,
+          "pre_gap_value": 0.6509657645153828,
+          "ratio": 1.3063209314420638,
+          "pct_change": 30.632093144206387
+        },
+        "price_range": {
+          "baseline_avg": 20.258,
+          "pre_gap_value": 543.047,
+          "ratio": 26.806545562247017,
+          "pct_change": 2580.6545562247015
+        },
+        "price_change": {
+          "baseline_avg": 0.1124669536776946,
+          "pre_gap_value": 10.675215360050464,
+          "ratio": 94.91868509787567,
+          "pct_change": 9391.868509787566
+        },
+        "avg_spread": {
+          "baseline_avg": 0.02000000000000001,
+          "pre_gap_value": 0.01499999999999996,
+          "ratio": 0.7499999999999976,
+          "pct_change": -25.000000000000245
+        },
+        "min_spread": {
+          "baseline_avg": 0.01999999999999602,
+          "pre_gap_value": 0.014999999999986358,
+          "ratio": 0.7499999999994671,
+          "pct_change": -25.00000000005329
+        },
+        "volume_concentration": {
+          "baseline_avg": 0.018126310887084142,
+          "pre_gap_value": 0.003937769010176086,
+          "ratio": 0.21724050937369357,
+          "pct_change": -78.27594906263064
+        },
+        "early_volume_pct": {
+          "baseline_avg": 0.3349868371289367,
+          "pre_gap_value": 0.33036506163951584,
+          "ratio": 0.9862031131460789,
+          "pct_change": -1.3796886853921109
+        },
+        "mid_volume_pct": {
+          "baseline_avg": 0.33659131818405014,
+          "pre_gap_value": 0.335431432099349,
+          "ratio": 0.9965540225726591,
+          "pct_change": -0.3445977427340874
+        },
+        "late_volume_pct": {
+          "baseline_avg": 0.3284218446870132,
+          "pre_gap_value": 0.33420350626113515,
+          "ratio": 1.0176043757979372,
+          "pct_change": 1.7604375797937166
+        }
+      }
+    },
+    {
+      "symbol": "ANEB",
+      "daily_metrics": {
+        "20250720": {
+          "tick_count": 20125,
+          "l2_count": 201250,
+          "total_volume": 9457111,
+          "avg_trade_size": 469.9185590062112,
+          "median_trade_size": 309.0,
+          "large_trades": 1114,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.5038509316770187,
+          "price_range": 5.32,
+          "price_change": 0.13441890166028095,
+          "avg_spread": 0.020000000000000007,
+          "min_spread": 0.019999999999999574,
+          "volume_concentration": 0.05304019377587933,
+          "early_volume_pct": 0.3392581518816899,
+          "mid_volume_pct": 0.33112596436691927,
+          "late_volume_pct": 0.3296158837513909
+        },
+        "20250721": {
+          "tick_count": 18679,
+          "l2_count": 186790,
+          "total_volume": 8662111,
+          "avg_trade_size": 463.735264200439,
+          "median_trade_size": 310.0,
+          "large_trades": 1020,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.5014722415546871,
+          "price_range": 9.445999999999998,
+          "price_change": 0.228312857544781,
+          "avg_spread": 0.019999999999999993,
+          "min_spread": 0.019999999999999574,
+          "volume_concentration": 0.029484729530711393,
+          "early_volume_pct": 0.332806517949262,
+          "mid_volume_pct": 0.3337921899176771,
+          "late_volume_pct": 0.33340129213306086
+        },
+        "20250722": {
+          "tick_count": 33849,
+          "l2_count": 507735,
+          "total_volume": 46186455,
+          "avg_trade_size": 1364.4850660285385,
+          "median_trade_size": 549.0,
+          "large_trades": 6365,
+          "huge_trades": 3179,
+          "bid_hit_ratio": 0.6454548140270022,
+          "price_range": 198.888,
+          "price_change": 7.5570981768250824,
+          "avg_spread": 0.014999999999999953,
+          "min_spread": 0.014999999999986358,
+          "volume_concentration": 0.006143532773840296,
+          "early_volume_pct": 0.3283685660655272,
+          "mid_volume_pct": 0.33620374198452774,
+          "late_volume_pct": 0.33542769194994504
+        },
+        "20250723": {
+          "tick_count": 24097,
+          "l2_count": 240970,
+          "total_volume": 11354808,
+          "avg_trade_size": 471.2125160808399,
+          "median_trade_size": 311.0,
+          "large_trades": 1364,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.49636884259451386,
+          "price_range": 101.72800000000001,
+          "price_change": -0.30619682454612446,
+          "avg_spread": 0.02000000000000009,
+          "min_spread": 0.01999999999998181,
+          "volume_concentration": 0.004893609825899302,
+          "early_volume_pct": 0.3328036017870139,
+          "mid_volume_pct": 0.33099009688230746,
+          "late_volume_pct": 0.3362063013306786
+        }
+      },
+      "normalized": {
+        "tick_count": {
+          "baseline_avg": 19402.0,
+          "pre_gap_value": 33849,
+          "ratio": 1.7446139573239872,
+          "pct_change": 74.46139573239871
+        },
+        "l2_count": {
+          "baseline_avg": 194020.0,
+          "pre_gap_value": 507735,
+          "ratio": 2.6169209359859806,
+          "pct_change": 161.69209359859806
+        },
+        "total_volume": {
+          "baseline_avg": 9059611.0,
+          "pre_gap_value": 46186455,
+          "ratio": 5.09806160551485,
+          "pct_change": 409.80616055148505
+        },
+        "avg_trade_size": {
+          "baseline_avg": 466.82691160332513,
+          "pre_gap_value": 1364.4850660285385,
+          "ratio": 2.9228929012301172,
+          "pct_change": 192.2892901230117
+        },
+        "median_trade_size": {
+          "baseline_avg": 309.5,
+          "pre_gap_value": 549.0,
+          "ratio": 1.7738287560581583,
+          "pct_change": 77.38287560581583
+        },
+        "large_trades": {
+          "baseline_avg": 1067.0,
+          "pre_gap_value": 6365,
+          "ratio": 5.965323336457357,
+          "pct_change": 496.53233364573566
+        },
+        "bid_hit_ratio": {
+          "baseline_avg": 0.5026615866158528,
+          "pre_gap_value": 0.6454548140270022,
+          "ratio": 1.284074278228616,
+          "pct_change": 28.407427822861607
+        },
+        "price_range": {
+          "baseline_avg": 7.382999999999999,
+          "pre_gap_value": 198.888,
+          "ratio": 26.938642828118656,
+          "pct_change": 2593.8642828118655
+        },
+        "price_change": {
+          "baseline_avg": 0.18136587960253098,
+          "pre_gap_value": 7.5570981768250824,
+          "ratio": 41.667695122074235,
+          "pct_change": 4066.7695122074238
+        },
+        "avg_spread": {
+          "baseline_avg": 0.02,
+          "pre_gap_value": 0.014999999999999953,
+          "ratio": 0.7499999999999977,
+          "pct_change": -25.000000000000234
+        },
+        "min_spread": {
+          "baseline_avg": 0.019999999999999574,
+          "pre_gap_value": 0.014999999999986358,
+          "ratio": 0.7499999999993339,
+          "pct_change": -25.000000000066613
+        },
+        "volume_concentration": {
+          "baseline_avg": 0.04126246165329536,
+          "pre_gap_value": 0.006143532773840296,
+          "ratio": 0.14888914833683103,
+          "pct_change": -85.1110851663169
+        },
+        "early_volume_pct": {
+          "baseline_avg": 0.33603233491547596,
+          "pre_gap_value": 0.3283685660655272,
+          "ratio": 0.9771933589311385,
+          "pct_change": -2.2806641068861544
+        },
+        "mid_volume_pct": {
+          "baseline_avg": 0.33245907714229816,
+          "pre_gap_value": 0.33620374198452774,
+          "ratio": 1.0112635361753917,
+          "pct_change": 1.1263536175391664
+        },
+        "late_volume_pct": {
+          "baseline_avg": 0.3315085879422259,
+          "pre_gap_value": 0.33542769194994504,
+          "ratio": 1.0118220285997603,
+          "pct_change": 1.1822028599760337
+        }
+      }
+    }
+  ],
+  "non_gapper_results": [
+    {
+      "symbol": "AAPL",
+      "daily_metrics": {
+        "20250720": {
+          "tick_count": 18369,
+          "l2_count": 183690,
+          "total_volume": 8671844,
+          "avg_trade_size": 472.0912406772279,
+          "median_trade_size": 310.0,
+          "large_trades": 1056,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.5001905384070989,
+          "price_range": 45.53099999999999,
+          "price_change": -0.01195160770605298,
+          "avg_spread": 0.020000000000000056,
+          "min_spread": 0.01999999999998181,
+          "volume_concentration": 0.007950212204001824,
+          "early_volume_pct": 0.33039962434748593,
+          "mid_volume_pct": 0.32977149957955887,
+          "late_volume_pct": 0.3398288760729552
+        },
+        "20250721": {
+          "tick_count": 24321,
+          "l2_count": 243210,
+          "total_volume": 11426155,
+          "avg_trade_size": 469.8061346161753,
+          "median_trade_size": 310.0,
+          "large_trades": 1358,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.5035977139097899,
+          "price_range": 73.90200000000002,
+          "price_change": -0.3320396594971461,
+          "avg_spread": 0.019999999999999973,
+          "min_spread": 0.01999999999998181,
+          "volume_concentration": 0.005464655433083132,
+          "early_volume_pct": 0.33432558896671716,
+          "mid_volume_pct": 0.33203645495794515,
+          "late_volume_pct": 0.3336379560753377
+        },
+        "20250722": {
+          "tick_count": 21368,
+          "l2_count": 213680,
+          "total_volume": 10151131,
+          "avg_trade_size": 475.0622894047173,
+          "median_trade_size": 309.0,
+          "large_trades": 1251,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.49957880943466865,
+          "price_range": 32.144000000000005,
+          "price_change": -0.2914788930096485,
+          "avg_spread": 0.02000000000000001,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.012538898374969252,
+          "early_volume_pct": 0.3357607147420322,
+          "mid_volume_pct": 0.33361120056474497,
+          "late_volume_pct": 0.33062808469322286
+        },
+        "20250723": {
+          "tick_count": 24878,
+          "l2_count": 248780,
+          "total_volume": 11748390,
+          "avg_trade_size": 472.2401318433958,
+          "median_trade_size": 310.0,
+          "large_trades": 1439,
+          "huge_trades": 1,
+          "bid_hit_ratio": 0.5030549079507999,
+          "price_range": 20.610999999999997,
+          "price_change": -0.3815742807669038,
+          "avg_spread": 0.020000000000000018,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.01841001192503824,
+          "early_volume_pct": 0.3324949205806072,
+          "mid_volume_pct": 0.3357283849106133,
+          "late_volume_pct": 0.3317766945087795
+        }
+      },
+      "normalized": {
+        "tick_count": {
+          "baseline_avg": 21345.0,
+          "pre_gap_value": 21368,
+          "ratio": 1.0010775357226516,
+          "pct_change": 0.1077535722651568
+        },
+        "l2_count": {
+          "baseline_avg": 213450.0,
+          "pre_gap_value": 213680,
+          "ratio": 1.0010775357226516,
+          "pct_change": 0.1077535722651568
+        },
+        "total_volume": {
+          "baseline_avg": 10048999.5,
+          "pre_gap_value": 10151131,
+          "ratio": 1.0101633500927132,
+          "pct_change": 1.0163350092713186
+        },
+        "avg_trade_size": {
+          "baseline_avg": 470.9486876467016,
+          "pre_gap_value": 475.0622894047173,
+          "ratio": 1.0087347132838846,
+          "pct_change": 0.8734713283884643
+        },
+        "median_trade_size": {
+          "baseline_avg": 310.0,
+          "pre_gap_value": 309.0,
+          "ratio": 0.9967741935483871,
+          "pct_change": -0.3225806451612856
+        },
+        "large_trades": {
+          "baseline_avg": 1207.0,
+          "pre_gap_value": 1251,
+          "ratio": 1.0364540182270092,
+          "pct_change": 3.645401822700922
+        },
+        "bid_hit_ratio": {
+          "baseline_avg": 0.5018941261584444,
+          "pre_gap_value": 0.49957880943466865,
+          "ratio": 0.9953868423575756,
+          "pct_change": -0.4613157642424426
+        },
+        "price_range": {
+          "baseline_avg": 59.7165,
+          "pre_gap_value": 32.144000000000005,
+          "ratio": 0.5382766906968761,
+          "pct_change": -46.17233093031239
+        },
+        "avg_spread": {
+          "baseline_avg": 0.020000000000000014,
+          "pre_gap_value": 0.02000000000000001,
+          "ratio": 0.9999999999999998,
+          "pct_change": -2.220446049250313e-14
+        },
+        "min_spread": {
+          "baseline_avg": 0.01999999999998181,
+          "pre_gap_value": 0.01999999999999602,
+          "ratio": 1.0000000000007105,
+          "pct_change": 7.105427357601002e-11
+        },
+        "volume_concentration": {
+          "baseline_avg": 0.006707433818542478,
+          "pre_gap_value": 0.012538898374969252,
+          "ratio": 1.869403219500412,
+          "pct_change": 86.9403219500412
+        },
+        "early_volume_pct": {
+          "baseline_avg": 0.33236260665710154,
+          "pre_gap_value": 0.3357607147420322,
+          "ratio": 1.0102240986707522,
+          "pct_change": 1.0224098670752246
+        },
+        "mid_volume_pct": {
+          "baseline_avg": 0.330903977268752,
+          "pre_gap_value": 0.33361120056474497,
+          "ratio": 1.0081812957291663,
+          "pct_change": 0.818129572916626
+        },
+        "late_volume_pct": {
+          "baseline_avg": 0.3367334160741464,
+          "pre_gap_value": 0.33062808469322286,
+          "ratio": 0.9818689470973703,
+          "pct_change": -1.813105290262973
+        }
+      }
+    },
+    {
+      "symbol": "MSFT",
+      "daily_metrics": {
+        "20250720": {
+          "tick_count": 22550,
+          "l2_count": 225500,
+          "total_volume": 10416920,
+          "avg_trade_size": 461.94767184035476,
+          "median_trade_size": 309.0,
+          "large_trades": 1240,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.5005321507760532,
+          "price_range": 50.398,
+          "price_change": -0.4508641590853482,
+          "avg_spread": 0.020000000000000028,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.008977317671634226,
+          "early_volume_pct": 0.3361472488989068,
+          "mid_volume_pct": 0.33029743916627946,
+          "late_volume_pct": 0.33355531193481375
+        },
+        "20250721": {
+          "tick_count": 19293,
+          "l2_count": 192930,
+          "total_volume": 9052695,
+          "avg_trade_size": 469.2217384543617,
+          "median_trade_size": 311.0,
+          "large_trades": 1094,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.4960866635567304,
+          "price_range": 16.502000000000002,
+          "price_change": -0.10074059044333969,
+          "avg_spread": 0.01999999999999996,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.01741558729196112,
+          "early_volume_pct": 0.33144361982812853,
+          "mid_volume_pct": 0.33201626697905984,
+          "late_volume_pct": 0.33654011319281163
+        },
+        "20250722": {
+          "tick_count": 23339,
+          "l2_count": 233390,
+          "total_volume": 11044437,
+          "avg_trade_size": 473.2180898924547,
+          "median_trade_size": 309.0,
+          "large_trades": 1373,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.507176828484511,
+          "price_range": 21.618000000000002,
+          "price_change": -0.11604141758216965,
+          "avg_spread": 0.020000000000000014,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.013479546309150933,
+          "early_volume_pct": 0.32458060107545544,
+          "mid_volume_pct": 0.339364876634273,
+          "late_volume_pct": 0.33605452229027155
+        },
+        "20250723": {
+          "tick_count": 16949,
+          "l2_count": 169490,
+          "total_volume": 8004029,
+          "avg_trade_size": 472.2419611776506,
+          "median_trade_size": 309.0,
+          "large_trades": 974,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.49471945247507226,
+          "price_range": 16.663,
+          "price_change": -0.30476555512967934,
+          "avg_spread": 0.020000000000000007,
+          "min_spread": 0.01999999999999602,
+          "volume_concentration": 0.02589908157504177,
+          "early_volume_pct": 0.33559123786283135,
+          "mid_volume_pct": 0.33128153333777277,
+          "late_volume_pct": 0.3331272287993959
+        }
+      },
+      "normalized": {
+        "tick_count": {
+          "baseline_avg": 20921.5,
+          "pre_gap_value": 23339,
+          "ratio": 1.115550988217862,
+          "pct_change": 11.555098821786203
+        },
+        "l2_count": {
+          "baseline_avg": 209215.0,
+          "pre_gap_value": 233390,
+          "ratio": 1.115550988217862,
+          "pct_change": 11.555098821786203
+        },
+        "total_volume": {
+          "baseline_avg": 9734807.5,
+          "pre_gap_value": 11044437,
+          "ratio": 1.1345306006307778,
+          "pct_change": 13.453060063077782
+        },
+        "avg_trade_size": {
+          "baseline_avg": 465.58470514735825,
+          "pre_gap_value": 473.2180898924547,
+          "ratio": 1.0163952652668873,
+          "pct_change": 1.6395265266887282
+        },
+        "median_trade_size": {
+          "baseline_avg": 310.0,
+          "pre_gap_value": 309.0,
+          "ratio": 0.9967741935483871,
+          "pct_change": -0.3225806451612856
+        },
+        "large_trades": {
+          "baseline_avg": 1167.0,
+          "pre_gap_value": 1373,
+          "ratio": 1.1765209940017138,
+          "pct_change": 17.652099400171384
+        },
+        "bid_hit_ratio": {
+          "baseline_avg": 0.4983094071663918,
+          "pre_gap_value": 0.507176828484511,
+          "ratio": 1.0177950108719465,
+          "pct_change": 1.779501087194646
+        },
+        "price_range": {
+          "baseline_avg": 33.45,
+          "pre_gap_value": 21.618000000000002,
+          "ratio": 0.6462780269058296,
+          "pct_change": -35.37219730941704
+        },
+        "avg_spread": {
+          "baseline_avg": 0.019999999999999993,
+          "pre_gap_value": 0.020000000000000014,
+          "ratio": 1.000000000000001,
+          "pct_change": 1.1102230246251565e-13
+        },
+        "min_spread": {
+          "baseline_avg": 0.01999999999999602,
+          "pre_gap_value": 0.01999999999999602,
+          "ratio": 1.0,
+          "pct_change": 0.0
+        },
+        "volume_concentration": {
+          "baseline_avg": 0.013196452481797674,
+          "pre_gap_value": 0.013479546309150933,
+          "ratio": 1.021452267398662,
+          "pct_change": 2.1452267398661906
+        },
+        "early_volume_pct": {
+          "baseline_avg": 0.33379543436351766,
+          "pre_gap_value": 0.32458060107545544,
+          "ratio": 0.9723937707367595,
+          "pct_change": -2.7606229263240523
+        },
+        "mid_volume_pct": {
+          "baseline_avg": 0.3311568530726696,
+          "pre_gap_value": 0.339364876634273,
+          "ratio": 1.0247859088086038,
+          "pct_change": 2.4785908808603763
+        },
+        "late_volume_pct": {
+          "baseline_avg": 0.3350477125638127,
+          "pre_gap_value": 0.33605452229027155,
+          "ratio": 1.0030049741833922,
+          "pct_change": 0.3004974183392184
+        }
+      }
+    },
+    {
+      "symbol": "GOOGL",
+      "daily_metrics": {
+        "20250720": {
+          "tick_count": 16982,
+          "l2_count": 169820,
+          "total_volume": 7969411,
+          "avg_trade_size": 469.28577317159346,
+          "median_trade_size": 312.0,
+          "large_trades": 959,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.5004710870333294,
+          "price_range": 70.006,
+          "price_change": -0.1847020226808917,
+          "avg_spread": 0.02000000000000014,
+          "min_spread": 0.01999999999998181,
+          "volume_concentration": 0.006159928255676611,
+          "early_volume_pct": 0.3257257029409074,
+          "mid_volume_pct": 0.3402021805626539,
+          "late_volume_pct": 0.3340721164964387
+        },
+        "20250721": {
+          "tick_count": 17309,
+          "l2_count": 173090,
+          "total_volume": 8240205,
+          "avg_trade_size": 476.0647639956092,
+          "median_trade_size": 307.0,
+          "large_trades": 1044,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.4963313882951066,
+          "price_range": 31.210000000000008,
+          "price_change": 0.10726772239009039,
+          "avg_spread": 0.01999999999999997,
+          "min_spread": 0.01999999999998181,
+          "volume_concentration": 0.012315834375479737,
+          "early_volume_pct": 0.33238590544774066,
+          "mid_volume_pct": 0.3286915798818112,
+          "late_volume_pct": 0.33892251467044815
+        },
+        "20250722": {
+          "tick_count": 23409,
+          "l2_count": 234090,
+          "total_volume": 11277148,
+          "avg_trade_size": 481.7441155111282,
+          "median_trade_size": 313.0,
+          "large_trades": 1400,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.5041223461061984,
+          "price_range": 63.80599999999998,
+          "price_change": 0.3513911106032906,
+          "avg_spread": 0.020000000000000104,
+          "min_spread": 0.01999999999998181,
+          "volume_concentration": 0.0072694798365686075,
+          "early_volume_pct": 0.33801799887702105,
+          "mid_volume_pct": 0.3270278974790435,
+          "late_volume_pct": 0.3349541036439355
+        },
+        "20250723": {
+          "tick_count": 24551,
+          "l2_count": 245510,
+          "total_volume": 11572748,
+          "avg_trade_size": 471.37582990509554,
+          "median_trade_size": 308.0,
+          "large_trades": 1418,
+          "huge_trades": 0,
+          "bid_hit_ratio": 0.5004684126919474,
+          "price_range": 71.531,
+          "price_change": -0.15332885359181786,
+          "avg_spread": 0.019999999999999973,
+          "min_spread": 0.01999999999998181,
+          "volume_concentration": 0.0044499370417466965,
+          "early_volume_pct": 0.3396954638604418,
+          "mid_volume_pct": 0.331630568642815,
+          "late_volume_pct": 0.3286739674967432
+        }
+      },
+      "normalized": {
+        "tick_count": {
+          "baseline_avg": 17145.5,
+          "pre_gap_value": 23409,
+          "ratio": 1.365314514012423,
+          "pct_change": 36.5314514012423
+        },
+        "l2_count": {
+          "baseline_avg": 171455.0,
+          "pre_gap_value": 234090,
+          "ratio": 1.365314514012423,
+          "pct_change": 36.5314514012423
+        },
+        "total_volume": {
+          "baseline_avg": 8104808.0,
+          "pre_gap_value": 11277148,
+          "ratio": 1.3914145776186184,
+          "pct_change": 39.141457761861844
+        },
+        "avg_trade_size": {
+          "baseline_avg": 472.67526858360134,
+          "pre_gap_value": 481.7441155111282,
+          "ratio": 1.0191862099210356,
+          "pct_change": 1.918620992103559
+        },
+        "median_trade_size": {
+          "baseline_avg": 309.5,
+          "pre_gap_value": 313.0,
+          "ratio": 1.011308562197092,
+          "pct_change": 1.1308562197092087
+        },
+        "large_trades": {
+          "baseline_avg": 1001.5,
+          "pre_gap_value": 1400,
+          "ratio": 1.397903145282077,
+          "pct_change": 39.790314528207695
+        },
+        "bid_hit_ratio": {
+          "baseline_avg": 0.498401237664218,
+          "pre_gap_value": 0.5041223461061984,
+          "ratio": 1.011478921017116,
+          "pct_change": 1.1478921017116006
+        },
+        "price_range": {
+          "baseline_avg": 50.608000000000004,
+          "pre_gap_value": 63.80599999999998,
+          "ratio": 1.2607888080935816,
+          "pct_change": 26.07888080935816
+        },
+        "avg_spread": {
+          "baseline_avg": 0.020000000000000052,
+          "pre_gap_value": 0.020000000000000104,
+          "ratio": 1.0000000000000027,
+          "pct_change": 2.6645352591003757e-13
+        },
+        "min_spread": {
+          "baseline_avg": 0.01999999999998181,
+          "pre_gap_value": 0.01999999999998181,
+          "ratio": 1.0,
+          "pct_change": 0.0
+        },
+        "volume_concentration": {
+          "baseline_avg": 0.009237881315578175,
+          "pre_gap_value": 0.0072694798365686075,
+          "ratio": 0.7869206789125792,
+          "pct_change": -21.30793210874208
+        },
+        "early_volume_pct": {
+          "baseline_avg": 0.329055804194324,
+          "pre_gap_value": 0.33801799887702105,
+          "ratio": 1.027236093600113,
+          "pct_change": 2.723609360011303
+        },
+        "mid_volume_pct": {
+          "baseline_avg": 0.33444688022223257,
+          "pre_gap_value": 0.3270278974790435,
+          "ratio": 0.9778171566789341,
+          "pct_change": -2.2182843321065904
+        },
+        "late_volume_pct": {
+          "baseline_avg": 0.3364973155834434,
+          "pre_gap_value": 0.3349541036439355,
+          "ratio": 0.9954138952436153,
+          "pct_change": -0.4586104756384657
+        }
+      }
+    }
+  ],
+  "significant_metrics": [
+    {
+      "metric": "avg_trade_size",
+      "gapper_change": 192.47888249829498,
+      "gapper_std": 1.5245138899801312,
+      "non_gapper_change": 1.4772062823935839,
+      "non_gapper_std": 0.44184865521425654,
+      "difference": 191.0016762159014,
+      "significance": 64.38918820807352
+    },
+    {
+      "metric": "median_trade_size",
+      "gapper_change": 77.35847741337335,
+      "gapper_std": 0.017252127324769065,
+      "non_gapper_change": 0.16189830979554584,
+      "non_gapper_std": 0.6851567087842948,
+      "difference": 77.1965791035778,
+      "significance": 45.345499545229245
+    },
+    {
+      "metric": "bid_hit_ratio",
+      "gapper_change": 29.393568126529885,
+      "gapper_std": 0.925583592802321,
+      "non_gapper_change": 0.822025808221268,
+      "non_gapper_std": 0.9433828036542933,
+      "difference": 28.571542318308616,
+      "significance": 9.958827804186408
+    },
+    {
+      "metric": "price_range",
+      "gapper_change": 2380.6609492986413,
+      "gapper_std": 292.2241239304926,
+      "non_gapper_change": -18.48854914345709,
+      "non_gapper_std": 31.82087973858903,
+      "difference": 2399.1494984420983,
+      "significance": 7.380976392070923
+    },
+    {
+      "metric": "large_trades",
+      "gapper_change": 478.3283662713109,
+      "gapper_std": 82.26604843493332,
+      "non_gapper_change": 20.36260525036,
+      "non_gapper_std": 14.880049509216612,
+      "difference": 457.96576102095094,
+      "significance": 4.666163715255969
+    },
+    {
+      "metric": "total_volume",
+      "gapper_change": 404.41617442612187,
+      "gapper_std": 69.65767697503325,
+      "non_gapper_change": 17.870284278070315,
+      "non_gapper_std": 15.87482595283407,
+      "difference": 386.54589014805157,
+      "significance": 4.4670600880489095
+    },
+    {
+      "metric": "l2_count",
+      "gapper_change": 158.925434967119,
+      "gapper_std": 37.056560629508105,
+      "non_gapper_change": 16.064767931764553,
+      "non_gapper_std": 15.207986443428954,
+      "difference": 142.86066703535445,
+      "significance": 2.6820967207273947
+    },
+    {
+      "metric": "tick_count",
+      "gapper_change": 72.616956644746,
+      "gapper_std": 24.70437375300539,
+      "non_gapper_change": 16.064767931764553,
+      "non_gapper_std": 15.207986443428954,
+      "difference": 56.55218871298145,
+      "significance": 1.3822763693283615
+    }
+  ]
+}

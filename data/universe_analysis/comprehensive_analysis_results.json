@@ -1,0 +1,440 @@
+{
+  "analysis_date": "2025-07-23T19:49:16.786585",
+  "gappers": {
+    "ABVX": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.7050518340813361,
+        "avg_volume_trend": 39.71036811596573,
+        "price_volatility": 4.945614991055983,
+        "avg_range_trend": -0.030842911877394553,
+        "volume_price_correlation": 0.10218097180277923,
+        "recent_vs_historical_volume": 828.061374279965,
+        "recent_vs_historical_price": 46.64575044679178,
+        "final_price": 10.0,
+        "final_volume": 5448894,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.37603225048986705,
+      "bars_count": 88
+    },
+    "ANEB": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.3520632266360425,
+        "avg_volume_trend": 244.02111837359683,
+        "price_volatility": 5.905367308682412,
+        "avg_range_trend": 0.14216830214569046,
+        "volume_price_correlation": 0.09216656899893236,
+        "recent_vs_historical_volume": -22.789402210501613,
+        "recent_vs_historical_price": 37.58138709188973,
+        "final_price": 1.83,
+        "final_volume": 28713,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.25813080289467877,
+      "bars_count": 88
+    },
+    "PAPL": {
+      "metrics": {
+        "data_points": 46,
+        "avg_momentum": 50.11687787821533,
+        "avg_volume_trend": 225.53735111300767,
+        "price_volatility": 298.5935165227933,
+        "avg_range_trend": -0.29050806400204016,
+        "volume_price_correlation": -0.047862661517795314,
+        "recent_vs_historical_volume": 23.054616640215613,
+        "recent_vs_historical_price": 1708.3343953103097,
+        "final_price": 3.5,
+        "final_volume": 992540,
+        "date_range": "2025-05-15 to 2025-07-22"
+      },
+      "accumulation_score": 0.2940065713610155,
+      "bars_count": 46
+    },
+    "RNAZ": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": -0.3754342095776591,
+        "avg_volume_trend": 231.37373555578694,
+        "price_volatility": 10.939699042426891,
+        "avg_range_trend": 0.09136808348800025,
+        "volume_price_correlation": 0.6098541723572275,
+        "recent_vs_historical_volume": -99.60875711772364,
+        "recent_vs_historical_price": -8.08656345296792,
+        "final_price": 9.44,
+        "final_volume": 24884,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.3019708344714455,
+      "bars_count": 88
+    },
+    "OFAL": {
+      "metrics": {
+        "data_points": 42,
+        "avg_momentum": -1.3727001108345438,
+        "avg_volume_trend": 108.09282754606706,
+        "price_volatility": 14.11326247190646,
+        "avg_range_trend": 0.130289764436106,
+        "volume_price_correlation": 0.15591548896407487,
+        "recent_vs_historical_volume": 72.31255739841532,
+        "recent_vs_historical_price": -34.66667793913058,
+        "final_price": 1.73,
+        "final_volume": 5582965,
+        "date_range": "2025-05-21 to 2025-07-22"
+      },
+      "accumulation_score": 0.411183097792815,
+      "bars_count": 42
+    },
+    "UAVS": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 1.0692706301713633,
+        "avg_volume_trend": 260.81742068705086,
+        "price_volatility": 11.270456325580733,
+        "avg_range_trend": -0.10981203287401635,
+        "volume_price_correlation": 0.6473582960930487,
+        "recent_vs_historical_volume": 2655.777244598467,
+        "recent_vs_historical_price": 81.96484712382521,
+        "final_price": 2.12,
+        "final_volume": 18067845,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.5497856805893019,
+      "bars_count": 88
+    },
+    "BNR": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.19027239501025753,
+        "avg_volume_trend": 229.21477445892427,
+        "price_volatility": 6.29488843085836,
+        "avg_range_trend": 0.05958042483661399,
+        "volume_price_correlation": -0.21600379149326768,
+        "recent_vs_historical_volume": -25.69623032944723,
+        "recent_vs_historical_price": 47.937448343689816,
+        "final_price": 5.8267,
+        "final_volume": 42508,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.2301695106800074,
+      "bars_count": 88
+    }
+  },
+  "controls": {
+    "CLSD": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": -0.867937644639867,
+        "avg_volume_trend": 120.17659980943208,
+        "price_volatility": 5.8102132390426195,
+        "avg_range_trend": 0.0004461775047006239,
+        "volume_price_correlation": -0.4820265443479059,
+        "recent_vs_historical_volume": 1347.8737134878606,
+        "recent_vs_historical_price": -56.69760191579829,
+        "final_price": 0.3514,
+        "final_volume": 1738616,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.4302774411314886,
+      "bars_count": 88,
+      "sector": "Health Care",
+      "market_cap": 44550304.0
+    },
+    "AMOD": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": -0.10292773520066432,
+        "avg_volume_trend": 168.16906102336915,
+        "price_volatility": 6.652519979614354,
+        "avg_range_trend": 0.11126395332872227,
+        "volume_price_correlation": 0.02286484154448682,
+        "recent_vs_historical_volume": -66.54632810985991,
+        "recent_vs_historical_price": -6.476416469686448,
+        "final_price": 1.16,
+        "final_volume": 142313,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.2247427285535251,
+      "bars_count": 88,
+      "sector": "Miscellaneous",
+      "market_cap": 24615275.0
+    },
+    "FFAI": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 1.3598418816882845,
+        "avg_volume_trend": 25.47063568671052,
+        "price_volatility": 9.13854863524497,
+        "avg_range_trend": 0.0338832851148121,
+        "volume_price_correlation": 0.5471323015171667,
+        "recent_vs_historical_volume": 510.3781716908726,
+        "recent_vs_historical_price": 73.35577646475816,
+        "final_price": 2.94,
+        "final_volume": 117878896,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.4064062773672212,
+      "bars_count": 88,
+      "sector": "Consumer Discretionary",
+      "market_cap": 258690536.0
+    },
+    "SDST": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.3420199679697545,
+        "avg_volume_trend": 90.97214585248145,
+        "price_volatility": 13.373548608544164,
+        "avg_range_trend": -0.007978816779412288,
+        "volume_price_correlation": 0.013822475086655654,
+        "recent_vs_historical_volume": -56.9724231002545,
+        "recent_vs_historical_price": -20.437728057359756,
+        "final_price": 0.398,
+        "final_volume": 3224106,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.17737336784934626,
+      "bars_count": 88,
+      "sector": "Industrials",
+      "market_cap": 32414652.0
+    },
+    "ZOOZ": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.458918526304735,
+        "avg_volume_trend": 489.29471026946754,
+        "price_volatility": 7.989628450851471,
+        "avg_range_trend": 0.012700831904489743,
+        "volume_price_correlation": 0.6545464572748342,
+        "recent_vs_historical_volume": 23567.840109716763,
+        "recent_vs_historical_price": 20.130269140961026,
+        "final_price": 2.13,
+        "final_volume": 28907044,
+        "date_range": "2025-03-13 to 2025-07-22"
+      },
+      "accumulation_score": 0.5488013058338913,
+      "bars_count": 88,
+      "sector": "Technology",
+      "market_cap": 32079564.0
+    },
+    "ABAT": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 1.3315619260762734,
+        "avg_volume_trend": 44.49596929417804,
+        "price_volatility": 6.876618975624428,
+        "avg_range_trend": -0.16363346104725418,
+        "volume_price_correlation": 0.5762396628689951,
+        "recent_vs_historical_volume": 533.8007290282529,
+        "recent_vs_historical_price": 93.90079576723642,
+        "final_price": 2.88,
+        "final_volume": 12192251,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.4850406169566586,
+      "bars_count": 88,
+      "sector": "Basic Materials",
+      "market_cap": 288063902.0
+    },
+    "OPTT": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.5801409176501082,
+        "avg_volume_trend": 24.42855144645128,
+        "price_volatility": 6.693364974688403,
+        "avg_range_trend": -0.152432744201376,
+        "volume_price_correlation": 0.42499813569691747,
+        "recent_vs_historical_volume": 142.03736117984704,
+        "recent_vs_historical_price": 60.82550859777688,
+        "final_price": 0.837,
+        "final_volume": 12014253,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.39748732339134146,
+      "bars_count": 88,
+      "sector": "Utilities",
+      "market_cap": 71020981.0
+    },
+    "BLNE": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.32785600144281773,
+        "avg_volume_trend": 126.1370522030182,
+        "price_volatility": 10.793917966772733,
+        "avg_range_trend": 0.2663631466876905,
+        "volume_price_correlation": 0.23308392208507026,
+        "recent_vs_historical_volume": 275.2331428296419,
+        "recent_vs_historical_price": 41.94114321469024,
+        "final_price": 2.59,
+        "final_volume": 19158525,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.4364524644602986,
+      "bars_count": 88,
+      "sector": "Consumer Staples",
+      "market_cap": 90987273.0
+    },
+    "BTCS": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 2.320799691934847,
+        "avg_volume_trend": 76.346350903131,
+        "price_volatility": 15.955594063671585,
+        "avg_range_trend": -0.13904291932816942,
+        "volume_price_correlation": 0.8306926844645995,
+        "recent_vs_historical_volume": 502.66147803814965,
+        "recent_vs_historical_price": 169.08121042923375,
+        "final_price": 6.3,
+        "final_volume": 12255701,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.5836141782262138,
+      "bars_count": 88,
+      "sector": "Finance",
+      "market_cap": 120138246.0
+    },
+    "CHGG": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 1.1589907351342323,
+        "avg_volume_trend": 30.041427823877953,
+        "price_volatility": 7.275950079123549,
+        "avg_range_trend": 0.0043904709219110575,
+        "volume_price_correlation": 0.3934582322453693,
+        "recent_vs_historical_volume": 30.737100781102388,
+        "recent_vs_historical_price": 55.48195108057807,
+        "final_price": 1.7,
+        "final_volume": 9311450,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.3231729407610081,
+      "bars_count": 88,
+      "sector": "Real Estate",
+      "market_cap": 167869776.0
+    },
+    "FCEL": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.1321667555936365,
+        "avg_volume_trend": 23.37324438443595,
+        "price_volatility": 6.62720872513488,
+        "avg_range_trend": -0.0011504872756107267,
+        "volume_price_correlation": 0.45002318378136846,
+        "recent_vs_historical_volume": 41.15783605161202,
+        "recent_vs_historical_price": 10.377373430250062,
+        "final_price": 5.73,
+        "final_volume": 2321246,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.34123260536656785,
+      "bars_count": 88,
+      "sector": "Energy",
+      "market_cap": 130705989.0
+    },
+    "KSCP": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.8111398495303428,
+        "avg_volume_trend": 29.373290935760945,
+        "price_volatility": 8.533625452062074,
+        "avg_range_trend": -0.23567963022483415,
+        "volume_price_correlation": 0.459271999969617,
+        "recent_vs_historical_volume": 438.4072678919626,
+        "recent_vs_historical_price": 70.0505293001349,
+        "final_price": 7.51,
+        "final_volume": 1349125,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.40433298600632106,
+      "bars_count": 88,
+      "sector": "Telecommunications",
+      "market_cap": 51915845.0
+    },
+    "ELVA": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.4885300846967424,
+        "avg_volume_trend": 41.58628753310274,
+        "price_volatility": 3.6151782854276946,
+        "avg_range_trend": -0.02470999943467888,
+        "volume_price_correlation": 0.2537490293602254,
+        "recent_vs_historical_volume": 142.90747444607945,
+        "recent_vs_historical_price": 25.77078011100441,
+        "final_price": 3.82,
+        "final_volume": 309690,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.41873213650500085,
+      "bars_count": 88,
+      "sector": "",
+      "market_cap": 180080048.0
+    },
+    "IXHL": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 7.980639641676697,
+        "avg_volume_trend": 1584.5890560815162,
+        "price_volatility": 79.31778005434491,
+        "avg_range_trend": -0.07486427314013501,
+        "volume_price_correlation": 0.9759626736241803,
+        "recent_vs_historical_volume": 469.96899337925083,
+        "recent_vs_historical_price": 101.55835581865908,
+        "final_price": 0.84,
+        "final_volume": 154337912,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.6860977605851958,
+      "bars_count": 88,
+      "sector": "Health Care",
+      "market_cap": 28862782.0
+    },
+    "SHOT": {
+      "metrics": {
+        "data_points": 88,
+        "avg_momentum": 0.8579720903198489,
+        "avg_volume_trend": 92.03625267743006,
+        "price_volatility": 9.526176894816468,
+        "avg_range_trend": -0.013719506913563438,
+        "volume_price_correlation": 0.12470011081173257,
+        "recent_vs_historical_volume": 259.69108975249077,
+        "recent_vs_historical_price": 60.86439454274903,
+        "final_price": 0.7386,
+        "final_volume": 13646259,
+        "date_range": "2025-03-17 to 2025-07-22"
+      },
+      "accumulation_score": 0.4230592799720357,
+      "bars_count": 88,
+      "sector": "Consumer Discretionary",
+      "market_cap": 72349964.0
+    }
+  },
+  "summary": {
+    "avg_gapper_score": 0.34589696403987585,
+    "avg_control_score": 0.4191215608644076,
+    "signal_separation": -0.07322459682453175,
+    "gapper_count": 7,
+    "control_count": 15,
+    "top_false_positives": [
+      [
+        "IXHL",
+        0.6860977605851958
+      ],
+      [
+        "BTCS",
+        0.5836141782262138
+      ],
+      [
+        "ZOOZ",
+        0.5488013058338913
+      ],
+      [
+        "ABAT",
+        0.4850406169566586
+      ],
+      [
+        "BLNE",
+        0.4364524644602986
+      ]
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "session_id": "31b68fe0-6fd8-4e05-b33a-b7cfdc43040b",
+  "transcript_path": "/Users/toshan/.claude/projects/-Users-toshan-PycharmProjects-stk-v5/31b68fe0-6fd8-4e05-b33a-b7cfdc43040b.jsonl",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "TodoWrite",
+  "tool_input": {
+    "todos": [
+      {
+        "content": "Generate a medium-length response to test custom token counting",
+        "status": "in_progress",
+        "priority": "medium",
+        "id": "token-test-1"
+      }
+    ]
+  },
+  "tool_response": {
+    "oldTodos": [],
+    "newTodos": [
+      {
+        "content": "Generate a medium-length response to test custom token counting",
+        "status": "in_progress",
+        "priority": "medium",
+        "id": "token-test-1"
+      }
+    ]
+  }
+}

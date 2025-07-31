@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Trading System Monitor</title>
+    
+    <!-- Professional Trading Dashboard Styling -->
+    <style>
+        :root {
+            --primary-bg: #0a0e1a;
+            --secondary-bg: #1a1f2e;
+            --tertiary-bg: #2a2f3e;
+            --primary-text: #ffffff;
+            --secondary-text: #b0b8c8;
+            --success-color: #00ff88;
+            --warning-color: #ffb800;
+            --danger-color: #ff4757;
+            --critical-color: #ff0033;
+            --info-color: #3498db;
+            --border-color: #3a3f4e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+            background: var(--primary-bg);
+            color: var(--primary-text);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .header {
+            background: var(--secondary-bg);
+            padding: 15px 20px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            color: var(--success-color);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .money-status {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .money-safe {
+            background: var(--success-color);
+            color: #000;
+        }
+
+        .money-unsafe {
+            background: var(--danger-color);
+            color: #fff;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .health-score {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 20px;
+            padding: 20px;
+            height: calc(100vh - 80px);
+        }
+
+        .panel {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .panel-title {
+            color: var(--primary-text);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .panel-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .status-healthy { background: var(--success-color); color: #000; }
+        .status-warning { background: var(--warning-color); color: #000; }
+        .status-critical { background: var(--danger-color); color: #fff; }
+        .status-error { background: var(--critical-color); color: #fff; }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--tertiary-bg);
+        }
+
+        .metric-label {
+            color: var(--secondary-text);
+        }
+
+        .metric-value {
+            color: var(--primary-text);
+            font-weight: bold;
+        }
+
+        .metric-critical { color: var(--danger-color); }
+        .metric-warning { color: var(--warning-color); }
+        .metric-good { color: var(--success-color); }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .component-item {
+            background: var(--tertiary-bg);
+            padding: 12px;
+            border-radius: 4px;
+            border-left: 4px solid var(--border-color);
+        }
+
+        .component-healthy { border-left-color: var(--success-color); }
+        .component-warning { border-left-color: var(--warning-color); }
+        .component-critical { border-left-color: var(--danger-color); }
+
+        .alert-item {
+            background: var(--tertiary-bg);
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            border-left: 4px solid var(--border-color);
+        }
+
+        .alert-critical { border-left-color: var(--danger-color); }
+        .alert-warning { border-left-color: var(--warning-color); }
+        .alert-info { border-left-color: var(--info-color); }
+
+        .alert-title {
+            color: var(--primary-text);
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .alert-message {
+            color: var(--secondary-text);
+            font-size: 12px;
+        }
+
+        .chart-container {
+            height: 200px;
+            background: var(--tertiary-bg);
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--tertiary-bg);
+            color: var(--secondary-text);
+            font-weight: bold;
+        }
+
+        .refresh-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background: var(--info-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            display: none;
+        }
+
+        .timestamp {
+            color: var(--secondary-text);
+            font-size: 11px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .scrollable {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .scrollable::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable::-webkit-scrollbar-track {
+            background: var(--tertiary-bg);
+        }
+
+        .scrollable::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .blink {
+            animation: blink 0.5s;
+        }
+
+        @keyframes blink {
+            0%, 100% { background-color: var(--secondary-bg); }
+            50% { background-color: var(--tertiary-bg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ title }}</h1>
+        <div class="status-indicator">
+            <div class="money-status {% if comprehensive_status.money_safe %}money-safe{% else %}money-unsafe{% endif %}">
+                {% if comprehensive_status.money_safe %}💰 MONEY SAFE{% else %}⚠️ MONEY UNSAFE{% endif %}
+            </div>
+            <div class="health-score">
+                Health: {{ comprehensive_status.health_score|floatformat:1 }}/100
+            </div>
+            <div class="panel-status status-{{ comprehensive_status.overall_status|lower }}">
+                {{ comprehensive_status.overall_status }}
+            </div>
+        </div>
+    </div>
+
+    <div class="main-grid">
+        <!-- System Performance Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">System Performance</div>
+                <div class="timestamp" id="system-timestamp">{{ comprehensive_status.timestamp }}</div>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">CPU Usage:</span>
+                <span class="metric-value {% if comprehensive_status.system.cpu_percent > 80 %}metric-critical{% elif comprehensive_status.system.cpu_percent > 60 %}metric-warning{% else %}metric-good{% endif %}">
+                    {{ comprehensive_status.system.cpu_percent|floatformat:1 }}%
+                </span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Memory Usage:</span>
+                <span class="metric-value {% if comprehensive_status.system.memory_percent > 85 %}metric-critical{% elif comprehensive_status.system.memory_percent > 75 %}metric-warning{% else %}metric-good{% endif %}">
+                    {{ comprehensive_status.system.memory_percent|floatformat:1 }}%
+                </span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Disk Usage:</span>
+                <span class="metric-value {% if comprehensive_status.system.disk_percent > 90 %}metric-critical{% elif comprehensive_status.system.disk_percent > 80 %}metric-warning{% else %}metric-good{% endif %}">
+                    {{ comprehensive_status.system.disk_percent|floatformat:1 }}%
+                </span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Network Status:</span>
+                <span class="metric-value metric-good">{{ comprehensive_status.system.network_status.status }}</span>
+            </div>
+        </div>
+
+        <!-- Data Flow Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Data Pipeline</div>
+                <div class="panel-status status-{% if comprehensive_status.data_flow.total_messages_per_minute > 50 %}healthy{% elif comprehensive_status.data_flow.total_messages_per_minute > 10 %}warning{% else %}critical{% endif %}">
+                    {% if comprehensive_status.data_flow.total_messages_per_minute > 50 %}ACTIVE{% elif comprehensive_status.data_flow.total_messages_per_minute > 10 %}SLOW{% else %}STALLED{% endif %}
+                </div>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Messages/Min:</span>
+                <span class="metric-value {% if comprehensive_status.data_flow.total_messages_per_minute > 50 %}metric-good{% elif comprehensive_status.data_flow.total_messages_per_minute > 10 %}metric-warning{% else %}metric-critical{% endif %}">
+                    {{ comprehensive_status.data_flow.total_messages_per_minute|floatformat:0 }}
+                </span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Avg Latency:</span>
+                <span class="metric-value {% if comprehensive_status.data_flow.avg_latency_ms < 10 %}metric-good{% elif comprehensive_status.data_flow.avg_latency_ms < 50 %}metric-warning{% else %}metric-critical{% endif %}">
+                    {{ comprehensive_status.data_flow.avg_latency_ms|floatformat:1 }}ms
+                </span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Error Rate:</span>
+                <span class="metric-value {% if comprehensive_status.data_flow.error_rate < 0.01 %}metric-good{% elif comprehensive_status.data_flow.error_rate < 0.05 %}metric-warning{% else %}metric-critical{% endif %}">
+                    {{ comprehensive_status.data_flow.error_rate|floatformat:3 }}%
+                </span>
+            </div>
+        </div>
+
+        <!-- Service Health Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Service Health</div>
+            </div>
+            <div class="component-grid">
+                {% for service_name, service_data in comprehensive_status.services.items %}
+                <div class="component-item component-{{ service_data.status|lower }}">
+                    <div style="font-weight: bold;">{{ service_name|upper }}</div>
+                    <div style="font-size: 11px; color: var(--secondary-text);">
+                        {{ service_data.message|default:"Unknown status" }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Alerts Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Active Alerts</div>
+                <div class="panel-status {% if comprehensive_status.has_critical %}status-critical{% elif comprehensive_status.alert_count > 0 %}status-warning{% else %}status-healthy{% endif %}">
+                    {{ comprehensive_status.alert_count }} Alert{% if comprehensive_status.alert_count != 1 %}s{% endif %}
+                </div>
+            </div>
+            <div class="scrollable">
+                {% for alert in comprehensive_status.alerts %}
+                <div class="alert-item alert-{{ alert.level|lower }}">
+                    <div class="alert-title">{{ alert.message }}</div>
+                    <div class="alert-message">
+                        Component: {{ alert.component|upper }} | {{ alert.timestamp }}
+                    </div>
+                </div>
+                {% empty %}
+                <div style="text-align: center; color: var(--secondary-text); padding: 20px;">
+                    No active alerts
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Component Details Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Component Details</div>
+            </div>
+            <div class="scrollable">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Status</th>
+                            <th>Latency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for component_name, component in component_statuses.items %}
+                        <tr>
+                            <td>{{ component_name|upper }}</td>
+                            <td class="status-{{ component.status|lower }}">{{ component.status }}</td>
+                            <td>
+                                {% if component.latency_ms %}
+                                    {{ component.latency_ms|floatformat:1 }}ms
+                                {% else %}
+                                    N/A
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Health Trend Chart Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Health Trend (24h)</div>
+            </div>
+            <div class="chart-container">
+                <canvas id="healthChart" width="400" height="180"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="refresh-indicator" id="refreshIndicator">
+        Updating...
+    </div>
+
+    <script>
+        // Global variables
+        let healthChart;
+        let refreshInterval;
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeHealthChart();
+            startAutoRefresh();
+        });
+
+        // Initialize health trend chart
+        function initializeHealthChart() {
+            const canvas = document.getElementById('healthChart');
+            const ctx = canvas.getContext('2d');
+            
+            // Simple chart rendering (would use Chart.js in production)
+            const healthData = {{ health_trend|safe }};
+            
+            if (healthData.length > 0) {
+                drawSimpleChart(ctx, healthData, canvas.width, canvas.height);
+            } else {
+                // Show "No data" message
+                ctx.fillStyle = '#b0b8c8';
+                ctx.font = '14px Monaco';
+                ctx.textAlign = 'center';
+                ctx.fillText('No trend data available', canvas.width/2, canvas.height/2);
+            }
+        }
+
+        // Simple chart drawing function
+        function drawSimpleChart(ctx, data, width, height) {
+            const padding = 20;
+            const chartWidth = width - (padding * 2);
+            const chartHeight = height - (padding * 2);
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw grid
+            ctx.strokeStyle = '#3a3f4e';
+            ctx.lineWidth = 1;
+            
+            // Vertical grid lines
+            for (let i = 0; i <= 4; i++) {
+                const x = padding + (chartWidth / 4) * i;
+                ctx.beginPath();
+                ctx.moveTo(x, padding);
+                ctx.lineTo(x, height - padding);
+                ctx.stroke();
+            }
+            
+            // Horizontal grid lines
+            for (let i = 0; i <= 4; i++) {
+                const y = padding + (chartHeight / 4) * i;
+                ctx.beginPath();
+                ctx.moveTo(padding, y);
+                ctx.lineTo(width - padding, y);
+                ctx.stroke();
+            }
+            
+            // Draw health score line
+            if (data.length > 1) {
+                const maxScore = Math.max(...data.map(d => d.health_score));
+                const minScore = Math.min(...data.map(d => d.health_score));
+                const scoreRange = maxScore - minScore || 1;
+                
+                ctx.strokeStyle = '#00ff88';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                
+                data.forEach((point, index) => {
+                    const x = padding + (chartWidth / (data.length - 1)) * index;
+                    const y = height - padding - ((point.health_score - minScore) / scoreRange) * chartHeight;
+                    
+                    if (index === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                });
+                
+                ctx.stroke();
+            }
+        }
+
+        // Redis-based auto-refresh functionality (no WebSockets)
+        function startAutoRefresh() {
+            // Refresh every 5 seconds for real-time feel using Redis cache
+            refreshInterval = setInterval(refreshDashboard, 5000);
+        }
+
+        async function refreshDashboard() {
+            const indicator = document.getElementById('refreshIndicator');
+            indicator.style.display = 'block';
+            
+            try {
+                // Use Redis-cached data endpoint for fast updates
+                const response = await fetch('/api/monitor/realtime-metrics/');
+                const data = await response.json();
+                
+                if (data.status) {
+                    updateDashboardElements(data.status);
+                }
+                
+                // Update alerts from Redis
+                await updateAlertsFromRedis();
+                
+                // Update metrics from Redis cache
+                await updateMetricsFromRedis();
+                
+                // Update timestamp
+                document.getElementById('system-timestamp').textContent = new Date().toISOString();
+                
+            } catch (error) {
+                console.error('Redis refresh failed:', error);
+                // Show error indicator
+                showConnectionError();
+            } finally {
+                indicator.style.display = 'none';
+            }
+        }
+
+        async function updateAlertsFromRedis() {
+            try {
+                const response = await fetch('/api/alerts/');
+                const alertData = await response.json();
+                
+                if (alertData.alerts) {
+                    updateAlertDisplay(alertData.alerts);
+                    updateAlertCounts(alertData.alert_count, alertData.has_critical);
+                }
+            } catch (error) {
+                console.error('Failed to update alerts from Redis:', error);
+            }
+        }
+
+        async function updateMetricsFromRedis() {
+            try {
+                const response = await fetch('/api/metrics/system/');
+                const metricsData = await response.json();
+                
+                if (metricsData) {
+                    updateSystemMetrics(metricsData);
+                }
+            } catch (error) {
+                console.error('Failed to update metrics from Redis:', error);
+            }
+        }
+
+        function updateAlertDisplay(alerts) {
+            // Update alert panel with new data
+            const alertContainer = document.querySelector('.scrollable');
+            if (alertContainer && alerts.length > 0) {
+                alertContainer.innerHTML = '';
+                
+                alerts.forEach(alert => {
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = `alert-item alert-${alert.level.toLowerCase()}`;
+                    alertDiv.innerHTML = `
+                        <div class="alert-title">${alert.message}</div>
+                        <div class="alert-message">
+                            Component: ${alert.component.toUpperCase()} | ${alert.timestamp}
+                        </div>
+                    `;
+                    alertContainer.appendChild(alertDiv);
+                });
+            }
+        }
+
+        function updateAlertCounts(count, hasCritical) {
+            const alertStatus = document.querySelector('.panel-status');
+            if (alertStatus) {
+                alertStatus.textContent = `${count} Alert${count !== 1 ? 's' : ''}`;
+                alertStatus.className = `panel-status ${hasCritical ? 'status-critical' : count > 0 ? 'status-warning' : 'status-healthy'}`;
+            }
+        }
+
+        function updateSystemMetrics(metrics) {
+            // Update CPU usage
+            const cpuElement = document.querySelector('.metric-value');
+            if (cpuElement && metrics.cpu_percent !== undefined) {
+                cpuElement.textContent = `${metrics.cpu_percent.toFixed(1)}%`;
+                
+                // Update CSS class based on value
+                cpuElement.className = 'metric-value ' + 
+                    (metrics.cpu_percent > 80 ? 'metric-critical' : 
+                     metrics.cpu_percent > 60 ? 'metric-warning' : 'metric-good');
+            }
+        }
+
+        function showConnectionError() {
+            const indicator = document.getElementById('refreshIndicator');
+            indicator.textContent = 'Connection Error';
+            indicator.style.backgroundColor = 'var(--danger-color)';
+            indicator.style.display = 'block';
+            
+            setTimeout(() => {
+                indicator.textContent = 'Updating...';
+                indicator.style.backgroundColor = 'var(--info-color)';
+                indicator.style.display = 'none';
+            }, 3000);
+        }
+
+        function updateDashboardElements(status) {
+            // Update health score
+            const healthScore = document.querySelector('.health-score');
+            if (healthScore) {
+                healthScore.textContent = `Health: ${status.health_score.toFixed(1)}/100`;
+            }
+            
+            // Update money safety indicator
+            const moneyStatus = document.querySelector('.money-status');
+            if (moneyStatus) {
+                if (status.money_safe) {
+                    moneyStatus.className = 'money-status money-safe';
+                    moneyStatus.innerHTML = '💰 MONEY SAFE';
+                } else {
+                    moneyStatus.className = 'money-status money-unsafe';
+                    moneyStatus.innerHTML = '⚠️ MONEY UNSAFE';
+                }
+            }
+            
+            // Add blink effect to updated elements
+            document.querySelectorAll('.metric-value').forEach(el => {
+                el.classList.add('blink');
+                setTimeout(() => el.classList.remove('blink'), 500);
+            });
+        }
+
+        // Trading readiness check
+        function checkTradingReadiness() {
+            fetch('/api/monitor/trading-health/')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Trading Readiness:', data.trading_ready);
+                    console.log('Risk Factors:', data.risk_factors);
+                })
+                .catch(error => console.error('Trading health check failed:', error));
+        }
+
+        // Check trading readiness every minute
+        setInterval(checkTradingReadiness, 60000);
+        checkTradingReadiness(); // Initial check
+    </script>
+</body>
+</html>

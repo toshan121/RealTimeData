@@ -1,0 +1,38 @@
+{
+  "ABVX": {
+    "updates_processed": 122524,
+    "measurements": 1225,
+    "avg_spread": -0.2981841432225059,
+    "min_spread": -0.7199999999999989,
+    "avg_depth_imbalance": 0.2059470879259526,
+    "tight_spread_rate": 0.9575510204081633,
+    "bid_support_rate": 0.28816326530612246,
+    "price_stability_rate": 0.9313725490196079,
+    "price_range": 0.33500000000000085,
+    "stealth_score": 0.7462633053221288
+  },
+  "PAPL": {
+    "updates_processed": 82499,
+    "measurements": 824,
+    "avg_spread": -1.5425166656553404,
+    "min_spread": -2.24,
+    "avg_depth_imbalance": 0.15160477405488332,
+    "tight_spread_rate": 0.9963592233009708,
+    "bid_support_rate": 0.6055825242718447,
+    "price_stability_rate": 0.9404617253948967,
+    "price_range": 0.6050000000000004,
+    "stealth_score": 0.8567672144298033
+  },
+  "ANEB": {
+    "updates_processed": 11516,
+    "measurements": 115,
+    "avg_spread": 0.007222222222222249,
+    "min_spread": -0.10999999999999988,
+    "avg_depth_imbalance": 0.6301910120194382,
+    "tight_spread_rate": 0.808695652173913,
+    "bid_support_rate": 0.9043478260869565,
+    "price_stability_rate": 0.8508771929824561,
+    "price_range": 0.08499999999999996,
+    "stealth_score": 0.8542639206712432
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "ABVX": {
+    "symbol": "ABVX",
+    "actual_gap_pct": 554.3,
+    "signals_generated": false,
+    "signal_count": 0,
+    "max_signal_strength": 0.8265435412723326,
+    "first_signal_time": null,
+    "minutes_before_gap": 0,
+    "potential_profit_pct": 0,
+    "accumulation_intensity": 0.95,
+    "signals": []
+  },
+  "ANEB": {
+    "symbol": "ANEB",
+    "actual_gap_pct": 77.3,
+    "signals_generated": false,
+    "signal_count": 0,
+    "max_signal_strength": 0.7879524869763841,
+    "first_signal_time": null,
+    "minutes_before_gap": 0,
+    "potential_profit_pct": 0,
+    "accumulation_intensity": 0.85,
+    "signals": []
+  },
+  "PAPL": {
+    "symbol": "PAPL",
+    "actual_gap_pct": 62.9,
+    "signals_generated": false,
+    "signal_count": 0,
+    "max_signal_strength": 0.728095111452028,
+    "first_signal_time": null,
+    "minutes_before_gap": 0,
+    "potential_profit_pct": 0,
+    "accumulation_intensity": 0.8,
+    "signals": []
+  },
+  "RNAZ": {
+    "symbol": "RNAZ",
+    "actual_gap_pct": 40.5,
+    "signals_generated": false,
+    "signal_count": 0,
+    "max_signal_strength": 0.6600471814815222,
+    "first_signal_time": null,
+    "minutes_before_gap": 0,
+    "potential_profit_pct": 0,
+    "accumulation_intensity": 0.75,
+    "signals": []
+  },
+  "OFAL": {
+    "symbol": "OFAL",
+    "actual_gap_pct": 35.8,
+    "signals_generated": false,
+    "signal_count": 0,
+    "max_signal_strength": 0.6029932411886939,
+    "first_signal_time": null,
+    "minutes_before_gap": 0,
+    "potential_profit_pct": 0,
+    "accumulation_intensity": 0.7,
+    "signals": []
+  },
+  "UAVS": {
+    "symbol": "UAVS",
+    "actual_gap_pct": 34.4,
+    "signals_generated": false,
+    "signal_count": 0,
+    "max_signal_strength": 0.6061423183995202,
+    "first_signal_time": null,
+    "minutes_before_gap": 0,
+    "potential_profit_pct": 0,
+    "accumulation_intensity": 0.65,
+    "signals": []
+  },
+  "BNR": {
+    "symbol": "BNR",
+    "actual_gap_pct": 33.8,
+    "signals_generated": false,
+    "signal_count": 0,
+    "max_signal_strength": 0.5733497512678636,
+    "first_signal_time": null,
+    "minutes_before_gap": 0,
+    "potential_profit_pct": 0,
+    "accumulation_intensity": 0.65,
+    "signals": []
+  }
+}

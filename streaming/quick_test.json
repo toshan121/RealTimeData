@@ -1,0 +1,163 @@
+{
+  "summary": {
+    "symbols_analyzed": [
+      "ANEB",
+      "ABVX"
+    ],
+    "date_range": {
+      "start": "20250721",
+      "end": "20250721"
+    },
+    "total_days": 1,
+    "temporal_sync": {
+      "aligned": true,
+      "issues": [],
+      "timestamp_ranges": {
+        "20250721": [
+          {
+            "symbol": "ANEB",
+            "start": "2025-07-21 09:30:01",
+            "end": "2025-07-21 16:00:00"
+          },
+          {
+            "symbol": "ABVX",
+            "start": "2025-07-21 09:30:01",
+            "end": "2025-07-21 16:00:00"
+          }
+        ]
+      }
+    }
+  },
+  "by_symbol": {
+    "ANEB": {
+      "days_analyzed": 1,
+      "daily_avg": {
+        "avg_dollar_trade_size": 71.27591617739637,
+        "volume": 11285.0,
+        "avg_price": 1.7495284697508897,
+        "trades": 281.0,
+        "open": 1.62,
+        "daily_return": 0.11111111111111106,
+        "close": 1.8,
+        "avg_trade_size": 40.74007220216607,
+        "open_close_vol_ratio": 0.2546272271233351,
+        "close_strength": 0.6666666666666669,
+        "high": 1.92,
+        "low": 1.56,
+        "dollar_volume": 19743.42878113879,
+        "volatility": 0.6385860497635414
+      },
+      "microstructure_avg": {
+        "buy_volume": 7564.0,
+        "volume_variance": 34019.333159561575,
+        "suspicious_size_pct": 0.0,
+        "recent_blocks": 0.0,
+        "block_pct": 0.0,
+        "total_depth": 0.0,
+        "odd_lot_pct": 0.82,
+        "hidden_ask_ratio": 0.0,
+        "avg_trade_size": 40.74007220216607,
+        "depth_imbalance": 0.0,
+        "extreme_spread_pct": 0.6903914590747331,
+        "avg_spread": 0.1663440860215054,
+        "sell_volume": 3720.0,
+        "tick_count": 281.0,
+        "hidden_bid_ratio": 0.0,
+        "trade_velocity": 0.0,
+        "ofi_ratio": 0.34065934065934067,
+        "spread_std": 0.0798850196960287,
+        "crossed_market_pct": 0.0,
+        "bid_absorption_count": 0.0,
+        "ask_absorption_count": 0.0
+      },
+      "signal_frequency": {},
+      "l2_confidence_avg": 0.6,
+      "data_quality": {
+        "valid_days": 1,
+        "total_issues": 0
+      }
+    },
+    "ABVX": {
+      "days_analyzed": 1,
+      "daily_avg": {
+        "avg_dollar_trade_size": 1464.849425791609,
+        "volume": 1472814.0,
+        "avg_price": 10.305965145668532,
+        "trades": 10366.0,
+        "open": 10.14,
+        "daily_return": -0.0009861932938855806,
+        "close": 10.13,
+        "avg_trade_size": 142.13607411696583,
+        "open_close_vol_ratio": 0.34111068184425347,
+        "close_strength": 0.13559322033898322,
+        "high": 10.64,
+        "low": 10.05,
+        "dollar_volume": 15178769.750052653,
+        "volatility": 0.025255638028820474
+      },
+      "microstructure_avg": {
+        "buy_volume": 951335.0,
+        "volume_variance": 1781912.4420126898,
+        "suspicious_size_pct": 0.0,
+        "recent_blocks": 0.0,
+        "block_pct": 0.0,
+        "total_depth": 0.0,
+        "odd_lot_pct": 0.55,
+        "hidden_ask_ratio": 0.0,
+        "avg_trade_size": 142.13607411696583,
+        "depth_imbalance": 0.0,
+        "extreme_spread_pct": 0.0,
+        "avg_spread": 0.058433037437282995,
+        "sell_volume": 520592.0,
+        "tick_count": 10366.0,
+        "hidden_bid_ratio": 0.0,
+        "trade_velocity": 0.0,
+        "ofi_ratio": 0.29263883331170637,
+        "spread_std": 0.039883021404731524,
+        "crossed_market_pct": 0.0,
+        "bid_absorption_count": 0.0,
+        "ask_absorption_count": 0.0
+      },
+      "signal_frequency": {},
+      "l2_confidence_avg": 0.8,
+      "data_quality": {
+        "valid_days": 1,
+        "total_issues": 0
+      }
+    }
+  },
+  "portfolio": {
+    "total_volume": 1484099.0,
+    "total_dollar_volume": 15198513.178833792,
+    "avg_spread": 0.11238856172939421,
+    "avg_odd_lot_pct": 0.685,
+    "symbols_count": 2
+  },
+  "comparison": {
+    "metric_variances": {
+      "daily_avg.volume": {
+        "variance": 534016754460.25,
+        "coefficient_of_variation": 0.9847921196631761
+      },
+      "daily_avg.volatility": {
+        "variance": 0.09404354848967057,
+        "coefficient_of_variation": 0.9239106597453699
+      },
+      "microstructure_avg.avg_spread": {
+        "variance": 0.0029111986016366028,
+        "coefficient_of_variation": 0.48008020978170085
+      },
+      "microstructure_avg.odd_lot_pct": {
+        "variance": 0.018224999999999988,
+        "coefficient_of_variation": 0.19708029197080285
+      }
+    },
+    "outliers": {
+      "ANEB": [
+        "high_odd_lots"
+      ]
+    },
+    "highest_spread_symbol": "ANEB"
+  },
+  "timestamp": "2025-07-24T22:31:41.464660"
+}

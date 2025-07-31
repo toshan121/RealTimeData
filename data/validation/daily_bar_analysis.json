@@ -1,0 +1,120 @@
+{
+  "analysis_date": "2025-07-23T21:09:47.922138",
+  "data_type": "daily_bars",
+  "limitations": [
+    "No intraday microstructure",
+    "No Level 2 depth",
+    "Aggregated volume",
+    "No bid/ask spreads",
+    "Cannot detect intraday patterns"
+  ],
+  "results": [
+    {
+      "symbol": "ABVX",
+      "gap_date": "2025-07-23",
+      "baseline_volume": 249381.06666666668,
+      "baseline_volatility": -4.427754518018425,
+      "stealth_days": [],
+      "stealth_count": 0,
+      "avg_volume_ratio": 6.996033456085488,
+      "min_volume_ratio": 2.4861710966563617,
+      "last_close": 10.0,
+      "pre_gap_days": 7,
+      "total_bars": 92,
+      "has_pattern": false
+    },
+    {
+      "symbol": "PAPL",
+      "gap_date": "2025-07-23",
+      "baseline_volume": 93946.73333333334,
+      "baseline_volatility": -14.345098636809617,
+      "stealth_days": [],
+      "stealth_count": 0,
+      "avg_volume_ratio": 2.3419365198536517,
+      "min_volume_ratio": 0.08287675072612069,
+      "last_close": 3.5,
+      "pre_gap_days": 7,
+      "total_bars": 46,
+      "has_pattern": true
+    },
+    {
+      "symbol": "ANEB",
+      "gap_date": "2025-07-23",
+      "baseline_volume": 8320.266666666666,
+      "baseline_volatility": -3.0276356686200985,
+      "stealth_days": [],
+      "stealth_count": 0,
+      "avg_volume_ratio": 2.449509402171176,
+      "min_volume_ratio": 0.8437229575975129,
+      "last_close": 1.83,
+      "pre_gap_days": 7,
+      "total_bars": 92,
+      "has_pattern": false
+    },
+    {
+      "symbol": "BNR",
+      "gap_date": "2025-07-23",
+      "baseline_volume": 45539.26666666667,
+      "baseline_volatility": -4.711677911011439,
+      "stealth_days": [],
+      "stealth_count": 0,
+      "avg_volume_ratio": 0.535183346742309,
+      "min_volume_ratio": 0.2615105791485443,
+      "last_close": 5.8267,
+      "pre_gap_days": 7,
+      "total_bars": 92,
+      "has_pattern": true
+    },
+    {
+      "symbol": "OFAL",
+      "gap_date": "2025-07-23",
+      "baseline_volume": 495805.4,
+      "baseline_volatility": -9.2091999876961,
+      "stealth_days": [],
+      "stealth_count": 0,
+      "avg_volume_ratio": 2.841522673440599,
+      "min_volume_ratio": 0.26134245411607054,
+      "last_close": 1.73,
+      "pre_gap_days": 7,
+      "total_bars": 42,
+      "has_pattern": true
+    },
+    {
+      "symbol": "RNAZ",
+      "gap_date": "2025-07-23",
+      "baseline_volume": 27058.733333333334,
+      "baseline_volatility": -2.5187887357649696,
+      "stealth_days": [
+        {
+          "date": "2025-07-14",
+          "volume": 14213,
+          "volume_ratio": 0.5252647943609088,
+          "range_pct": -2.963776070252485,
+          "close": 9.11
+        }
+      ],
+      "stealth_count": 1,
+      "avg_volume_ratio": 0.8655087856504036,
+      "min_volume_ratio": 0.4260362027293714,
+      "last_close": 9.44,
+      "pre_gap_days": 7,
+      "total_bars": 92,
+      "has_pattern": true
+    },
+    {
+      "symbol": "UAVS",
+      "gap_date": "2025-07-23",
+      "baseline_volume": 4799446.466666667,
+      "baseline_volatility": -10.729364172110987,
+      "stealth_days": [],
+      "stealth_count": 0,
+      "avg_volume_ratio": 6.782141993799248,
+      "min_volume_ratio": 1.1746129557134901,
+      "last_close": 2.12,
+      "pre_gap_days": 7,
+      "total_bars": 92,
+      "has_pattern": false
+    }
+  ],
+  "detection_rate": 0.5714285714285714
+}

@@ -1,0 +1,398 @@
+{
+  "gappers": {
+    "ABVX": {
+      "symbol": "ABVX",
+      "score": 0.03773230096440263,
+      "signals": {
+        "volume_suppression": 0.0007743365480087694,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.25,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 201638.07142857142,
+        "volume_stdev": 145607.26703729943,
+        "avg_range": -4.694161987884246,
+        "range_stdev": 3.29331245367935,
+        "avg_price_change": 3.9014688549065832,
+        "price_change_stdev": 3.378661058633098
+      },
+      "recent_avg_volume": 1744678.2857142857,
+      "volume_ratio": 8.652524165469035,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "ANEB": {
+      "symbol": "ANEB",
+      "score": 0.2868333947054523,
+      "signals": {
+        "volume_suppression": 0.8311113156848411,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.25,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 40237.5,
+        "volume_stdev": 59174.680124253246,
+        "avg_range": -8.862653473258312,
+        "range_stdev": 4.842864612803417,
+        "avg_price_change": 7.041160606758743,
+        "price_change_stdev": 5.65437176247011
+      },
+      "recent_avg_volume": 20380.571428571428,
+      "volume_ratio": 0.5065069009896596,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "PAPL": {
+      "symbol": "PAPL",
+      "score": 0.26,
+      "signals": {
+        "volume_suppression": 0.7,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.3333333333333333,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 673537.5714285715,
+        "volume_stdev": 676506.8557860256,
+        "avg_range": -13.707669239090272,
+        "range_stdev": 15.41740035706518,
+        "avg_price_change": 20.60560014932378,
+        "price_change_stdev": 18.01233476455251
+      },
+      "recent_avg_volume": 220017.2857142857,
+      "volume_ratio": 0.32665926155779196,
+      "data_points": 46,
+      "date_range": "2025-05-15 to 2025-07-22"
+    },
+    "RNAZ": {
+      "symbol": "RNAZ",
+      "score": 0.33373325237369966,
+      "signals": {
+        "volume_suppression": 0.8610773848282283,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.5027335795015414,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 21425010.5,
+        "volume_stdev": 56412830.47138256,
+        "avg_range": -9.237552459812385,
+        "range_stdev": 6.343254916139736,
+        "avg_price_change": 11.833320625230211,
+        "price_change_stdev": 14.18192559763298
+      },
+      "recent_avg_volume": 23419.571428571428,
+      "volume_ratio": 0.0010930949802134952,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "OFAL": {
+      "symbol": "OFAL",
+      "score": 0.18102181655144753,
+      "signals": {
+        "volume_suppression": 0.4367393885048252,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.3333333333333333,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 2371701.9285714286,
+        "volume_stdev": 2177656.5358398273,
+        "avg_range": -13.11655588954058,
+        "range_stdev": 17.142938719946198,
+        "avg_price_change": 9.144638999458717,
+        "price_change_stdev": 10.081825250129103
+      },
+      "recent_avg_volume": 1408842.2857142857,
+      "volume_ratio": 0.5940216469625624,
+      "data_points": 42,
+      "date_range": "2025-05-21 to 2025-07-22"
+    },
+    "UAVS": {
+      "symbol": "UAVS",
+      "score": 0.024999999999999998,
+      "signals": {
+        "volume_suppression": 0.0,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.16666666666666666,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 317163.9285714286,
+        "volume_stdev": 181778.75153707905,
+        "avg_range": -4.33347164482141,
+        "range_stdev": 2.926179202135252,
+        "avg_price_change": 2.796707267203145,
+        "price_change_stdev": 2.701068302610439
+      },
+      "recent_avg_volume": 32550527.42857143,
+      "volume_ratio": 102.62997931443743,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "BNR": {
+      "symbol": "BNR",
+      "score": 0.13277372319709227,
+      "signals": {
+        "volume_suppression": 0.17596816796141207,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.5332218187244577,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 21230.214285714286,
+        "volume_stdev": 30993.899214022927,
+        "avg_range": -4.691324222665902,
+        "range_stdev": 5.831766532806609,
+        "avg_price_change": 3.7177165672167387,
+        "price_change_stdev": 3.388909117074846
+      },
+      "recent_avg_volume": 24371.85714285714,
+      "volume_ratio": 1.1479797996790289,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    }
+  },
+  "controls": {
+    "CLSD": {
+      "symbol": "CLSD",
+      "score": 0.0375,
+      "signals": {
+        "volume_suppression": 0.0,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.25,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 163018.07142857142,
+        "volume_stdev": 85150.0332494305,
+        "avg_range": -1.959421995852558,
+        "range_stdev": 1.538737571180889,
+        "avg_price_change": 2.8467557255446096,
+        "price_change_stdev": 2.7665748604333595
+      },
+      "recent_avg_volume": 2224195.1428571427,
+      "volume_ratio": 13.643856312161711,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "AMOD": {
+      "symbol": "AMOD",
+      "score": 0.0970199993983707,
+      "signals": {
+        "volume_suppression": 0.16340109719875104,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.31999780159163593,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 168816.92857142858,
+        "volume_stdev": 241093.87078399543,
+        "avg_range": -6.576768915089809,
+        "range_stdev": 6.041327474835769,
+        "avg_price_change": 5.7326017951619965,
+        "price_change_stdev": 3.3780878348997296
+      },
+      "recent_avg_volume": 171121.7142857143,
+      "volume_ratio": 1.0136525746190823,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "FFAI": {
+      "symbol": "FFAI",
+      "score": 0.049999999999999996,
+      "signals": {
+        "volume_suppression": 0.0,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.3333333333333333,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 7043431.928571428,
+        "volume_stdev": 6397433.137956064,
+        "avg_range": -5.0329852718332795,
+        "range_stdev": 4.838065731809528,
+        "avg_price_change": 4.0108399475036505,
+        "price_change_stdev": 2.6170456113027623
+      },
+      "recent_avg_volume": 35717177,
+      "volume_ratio": 5.070990585585779,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "SDST": {
+      "symbol": "SDST",
+      "score": 0.061606984890536814,
+      "signals": {
+        "volume_suppression": 0.0,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.4107132326035788,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 348004.4285714286,
+        "volume_stdev": 239470.77624202092,
+        "avg_range": -8.460008874413099,
+        "range_stdev": 9.932713648204007,
+        "avg_price_change": 5.212903384259659,
+        "price_change_stdev": 7.400050873260385
+      },
+      "recent_avg_volume": 60185607.85714286,
+      "volume_ratio": 172.94494815542166,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "ZOOZ": {
+      "symbol": "ZOOZ",
+      "score": 0.0375,
+      "signals": {
+        "volume_suppression": 0.0,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.25,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 37725.92857142857,
+        "volume_stdev": 78626.20083707102,
+        "avg_range": -2.422281854147065,
+        "range_stdev": 3.8988713830736006,
+        "avg_price_change": 2.2789893867162467,
+        "price_change_stdev": 2.157709513204487
+      },
+      "recent_avg_volume": 4282947.714285715,
+      "volume_ratio": 113.52796011837255,
+      "data_points": 88,
+      "date_range": "2025-03-13 to 2025-07-22"
+    },
+    "ABAT": {
+      "symbol": "ABAT",
+      "score": 0.08389739562304949,
+      "signals": {
+        "volume_suppression": 0.11299131874349831,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.3333333333333333,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 1023491.4285714285,
+        "volume_stdev": 774638.1347838104,
+        "avg_range": -3.6082810778779986,
+        "range_stdev": 3.6711225345541525,
+        "avg_price_change": 4.53192072768015,
+        "price_change_stdev": 5.0428420538217225
+      },
+      "recent_avg_volume": 9013671,
+      "volume_ratio": 8.806786992423692,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "OPTT": {
+      "symbol": "OPTT",
+      "score": 0.05190216089852344,
+      "signals": {
+        "volume_suppression": 0.04800720299507814,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.25,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 5762096.714285715,
+        "volume_stdev": 3936064.809193166,
+        "avg_range": -5.200056768651253,
+        "range_stdev": 4.449202467859541,
+        "avg_price_change": 5.839327215588064,
+        "price_change_stdev": 5.267502115958303
+      },
+      "recent_avg_volume": 10182210.714285715,
+      "volume_ratio": 1.767101667877494,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "BLNE": {
+      "symbol": "BLNE",
+      "score": 0.049999999999999996,
+      "signals": {
+        "volume_suppression": 0.0,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.3333333333333333,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 3425897.785714286,
+        "volume_stdev": 10743255.66716055,
+        "avg_range": -20.426276704797957,
+        "range_stdev": 16.572052569025214,
+        "avg_price_change": 10.429509153539861,
+        "price_change_stdev": 5.493587818988136
+      },
+      "recent_avg_volume": 5038355.428571428,
+      "volume_ratio": 1.4706671779820633,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "BTCS": {
+      "symbol": "BTCS",
+      "score": 0.10216225807645438,
+      "signals": {
+        "volume_suppression": 0.1402536204684904,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.4005744795727151,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 212433.2857142857,
+        "volume_stdev": 90652.05481690679,
+        "avg_range": -4.613742139289808,
+        "range_stdev": 3.0972351548265458,
+        "avg_price_change": 4.894689330493697,
+        "price_change_stdev": 2.5672324288294126
+      },
+      "recent_avg_volume": 26640973.57142857,
+      "volume_ratio": 125.40865939088104,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    },
+    "CHGG": {
+      "symbol": "CHGG",
+      "score": 0.061423591527898995,
+      "signals": {
+        "volume_suppression": 0.02851494722956813,
+        "price_pinning": 0.0,
+        "bid_support": 0.0,
+        "accumulation_timing": 0.35246071572685705,
+        "spread_tightening": 0.0
+      },
+      "baseline": {
+        "avg_volume": 2572458.285714286,
+        "volume_stdev": 1238329.9470767025,
+        "avg_range": -5.086548782656477,
+        "range_stdev": 4.433675366700425,
+        "avg_price_change": 4.9606077507189585,
+        "price_change_stdev": 4.7483161154040685
+      },
+      "recent_avg_volume": 3055000,
+      "volume_ratio": 1.1875799957439264,
+      "data_points": 88,
+      "date_range": "2025-03-17 to 2025-07-22"
+    }
+  },
+  "analysis_date": "2025-07-23T20:01:29.078048"
+}

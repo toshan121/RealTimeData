@@ -1,0 +1,7 @@
+# Simple Dashboard Requirements
+Django==4.2.13
+redis==5.0.7
+clickhouse-connect==0.7.0
+kafka-python==2.0.2
+psutil==5.9.8
+coverage==7.5.4
