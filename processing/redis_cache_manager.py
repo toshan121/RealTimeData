@@ -59,7 +59,7 @@ class CacheConfig:
     """Redis cache configuration."""
     # Connection settings
     host: str = 'localhost'
-    port: int = 6380
+    port: int = 6379
     db: int = 0
     password: Optional[str] = None
     
@@ -899,7 +899,7 @@ if __name__ == "__main__":
     # Initialize cache manager
     config = CacheConfig(
         host='localhost',
-        port=6380,
+        port=6379,
         max_connections=20,
         use_compression=True
     )

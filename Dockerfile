@@ -46,6 +46,10 @@ COPY processing/ ./processing/
 COPY storage/ ./storage/
 COPY tests/ ./tests/
 COPY config/ ./config/
+COPY scripts/ ./scripts/
+
+# Copy data files (universe, etc)
+COPY data/ ./data/
 
 # Copy infrastructure setup
 COPY infrastructure/ ./infrastructure/
@@ -191,6 +195,19 @@ echo "🚀 Starting Market Data System"
 # Services are already running externally, don't start them here
 echo "⏳ Using external services..."
 
+# Start recording in background (synthetic mode if IQFeed not available)
+echo "📊 Starting recording service..."
+# Try IQFeed first, fall back to synthetic
+if python -c "import socket; s=socket.socket(); s.settimeout(2); s.connect(('${IQFEED_HOST:-localhost}', 9200)); s.close()" 2>/dev/null; then
+    echo "   Using IQFeed real data"
+    python scripts/auto_record.py &
+else
+    echo "   Using synthetic data (IQFeed not available)"
+    python scripts/synthetic_record.py &
+fi
+RECORD_PID=$!
+echo "   Recording PID: $RECORD_PID"
+
 # Start TUI options
 echo "🖥️ Starting TUI interfaces..."
 echo "Available interfaces:"
@@ -198,7 +215,10 @@ echo "  - CLI: python monitor.py status"
 echo "  - Web TUI: http://localhost:8080"
 echo "  - Terminal TUI: ttyd -p 8081 python monitor.py watch"
 
-# Start web TUI with production flag
+# Trap to ensure recording stops on container stop
+trap "kill $RECORD_PID 2>/dev/null" EXIT
+
+# Start web TUI with production flag (will block)
 FLASK_ENV=production python web_tui.py
 EOF
 

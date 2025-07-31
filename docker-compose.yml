@@ -4,9 +4,7 @@ services:
   market-data-system:
     build: .
     container_name: market-data-tui
-    ports:
-      - "8080:8080"  # Web TUI interface
-      - "8081:8081"  # Terminal TUI interface
+    network_mode: host
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # For Docker-in-Docker
       - ./data:/app/data
@@ -14,6 +12,7 @@ services:
     environment:
       - PYTHONPATH=/app
       - PYTHONUNBUFFERED=1
+      - IQFEED_HOST=192.168.0.48  # Host IP for IQFeed access
     healthcheck:
       test: ["CMD", "python", "monitor.py", "test"]
       interval: 30s
@@ -21,22 +20,17 @@ services:
       retries: 3
       start_period: 60s
     restart: unless-stopped
-    depends_on:
-      - redis
-      - clickhouse
-      - kafka
 
   # Infrastructure services (matching existing setup)
   redis:
     image: redis:7-alpine
     container_name: market-redis
-    ports:
-      - "6380:6379"
-    command: redis-server --appendonly yes
+    network_mode: host
+    command: redis-server --appendonly yes --port 6380
     volumes:
       - redis_data:/data
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD", "redis-cli", "-p", "6380", "ping"]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -44,9 +38,7 @@ services:
   clickhouse:
     image: clickhouse/clickhouse-server:23.8
     container_name: market-clickhouse
-    ports:
-      - "8123:8123"
-      - "9000:9000"
+    network_mode: host
     environment:
       CLICKHOUSE_DB: l2_market_data
       CLICKHOUSE_USER: l2_user
@@ -63,18 +55,15 @@ services:
   kafka:
     image: confluentinc/cp-kafka:7.4.0
     container_name: market-kafka
-    ports:
-      - "9092:9092"
+    network_mode: host
     environment:
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092
+      KAFKA_ZOOKEEPER_CONNECT: localhost:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
-    depends_on:
-      - zookeeper
     healthcheck:
       test: ["CMD", "kafka-topics", "--bootstrap-server", "localhost:9092", "--list"]
       interval: 10s
@@ -84,11 +73,42 @@ services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.0
     container_name: market-zookeeper
-    ports:
-      - "2181:2181"
+    network_mode: host
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+
+  # IQFeed service for market data
+  # NOTE: IQFeed runs separately via iqfeed-docker/docker-compose.yml
+  # to avoid conflicts and allow independent management
+  # iqfeed:
+  #   image: jaikumarm/iqfeed:v62025-w10
+  #   container_name: market-iqfeed
+  #   ports:
+  #     - "5009:5009"   # Admin port
+  #     - "9100:9100"   # Level 1 port
+  #     - "9200:9200"   # Level 2 / Lookup port
+  #     - "9300:9300"   # History port
+  #     - "9400:9400"   # News port
+  #   environment:
+  #     IQFEED_PRODUCT_ID: "${DTN_PRODUCT_ID:-IQFEED_DIAGNOSTICS}"
+  #     IQFEED_LOGIN: "${IQFEED_USER}"
+  #     IQFEED_PASSWORD: "${IQFEED_PASS}"
+  #     DISPLAY: ":1"
+  #     TZ: "America/New_York"
+  #   volumes:
+  #     - ./iqfeed-docker/logs/iqfeed:/root/DTN/IQFeed
+  #     - ./iqfeed-docker/data/iqfeed:/root/.wine/drive_c/users/root/Application Data/DTN/IQFeed
+  #   healthcheck:
+  #     test: ["CMD", "python3", "/root/is_iqfeed_running.py"]
+  #     interval: 60s
+  #     timeout: 30s
+  #     retries: 3
+  #     start_period: 5m
+  #   restart: unless-stopped
+  #   shm_size: '2gb'
+  #   security_opt:
+  #     - seccomp:unconfined
 
 volumes:
   redis_data:
