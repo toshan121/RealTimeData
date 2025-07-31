@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  market-data-system:
+    build: .
+    container_name: market-data-tui
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "python", "monitor.py", "test"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+    network_mode: host  # Use host network to access services on localhost

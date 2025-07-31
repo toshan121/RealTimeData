@@ -14,10 +14,11 @@
     "PM", "QCOM", "LOW", "UNP", "AMT"
   ],
   "filters": {
-    "min_avg_volume": 1000000,
-    "min_price": 5.0,
-    "max_price": 1000.0,
-    "exchanges": ["NYSE", "NASDAQ"]
+    "min_avg_volume": 100000,
+    "min_price": 1.0,
+    "max_price": 20.0,
+    "exchanges": ["NYSE", "NASDAQ", "AMEX"]
   },
-  "notes": "Expand symbols array to 2000 stocks meeting filter criteria for production use"
+  "target_count": 495,
+  "notes": "Filter criteria: Price $1-$20, volume >100K, targeting 495 stocks for production recording"
 }

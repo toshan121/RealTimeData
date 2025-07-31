@@ -32,12 +32,13 @@ FROM deps as app
 
 # Copy application code
 COPY monitor.py .
-COPY test_monitor.py .
-COPY test_monitor_comprehensive.py .
-COPY test_system_integration.py .
-COPY start_495_stock_recording.py .
-COPY production_replay_example.py .
-COPY simple_synthetic_test.py .
+# COPY test_monitor.py . (moved to deprecated)
+# COPY test_monitor_comprehensive.py . (moved to deprecated)
+# COPY test_system_integration.py . (moved to deprecated)
+# COPY start_495_stock_recording.py . (moved to deprecated)
+# COPY production_replay_example.py . (moved to deprecated)
+# COPY simple_synthetic_test.py . (moved to deprecated)
+COPY test_fixed.py .
 
 # Copy essential modules
 COPY ingestion/ ./ingestion/
@@ -176,7 +177,7 @@ def live_monitor():
             break
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=8080, debug=False)
+    socketio.run(app, host='0.0.0.0', port=8080, debug=False, allow_unsafe_werkzeug=True)
 EOF
 
 # Make scripts executable
@@ -187,14 +188,8 @@ COPY <<EOF start.sh
 #!/bin/bash
 echo "🚀 Starting Market Data System"
 
-# Start infrastructure services in background
-cd infrastructure
-docker-compose up -d
-cd ..
-
-# Wait for services to be ready
-echo "⏳ Waiting for services..."
-sleep 10
+# Services are already running externally, don't start them here
+echo "⏳ Using external services..."
 
 # Start TUI options
 echo "🖥️ Starting TUI interfaces..."
@@ -203,8 +198,8 @@ echo "  - CLI: python monitor.py status"
 echo "  - Web TUI: http://localhost:8080"
 echo "  - Terminal TUI: ttyd -p 8081 python monitor.py watch"
 
-# Start web TUI by default
-python web_tui.py
+# Start web TUI with production flag
+FLASK_ENV=production python web_tui.py
 EOF
 
 RUN chmod +x start.sh

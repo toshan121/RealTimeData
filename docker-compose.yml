@@ -53,7 +53,7 @@ services:
       CLICKHOUSE_PASSWORD: l2_secure_pass
     volumes:
       - clickhouse_data:/var/lib/clickhouse
-      - ./infrastructure/clickhouse/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./infrastructure/clickhouse/init/01_create_market_data_schema.sql:/docker-entrypoint-initdb.d/01_create_market_data_schema.sql
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8123/ping"]
       interval: 10s
