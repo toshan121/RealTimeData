@@ -128,17 +128,36 @@ jobs:
       run: |
         docker build -t market-data-system:${{ github.sha }} .
     
-    - name: Test Docker image
+    - name: Test Docker image build and runtime
       run: |
-        # Test that image builds and runs
-        docker run --rm -d --name test-container -p 8080:8080 market-data-system:${{ github.sha }} &
-        sleep 30
+        # Test that image builds and contains required files
+        docker run --rm market-data-system:${{ github.sha }} ls -la | grep -E "(monitor.py|requirements.txt)"
         
-        # Test container health
-        docker exec test-container python monitor.py test || echo "Services not all up (expected in CI)"
+        # Test that .env file is included (should be present now)
+        docker run --rm market-data-system:${{ github.sha }} test -f .env && echo "✅ .env file found in container" || echo "❌ .env file missing from container"
         
-        # Cleanup
-        docker stop test-container || true
+        # Test Python imports work
+        docker run --rm market-data-system:${{ github.sha }} python -c "import monitor; print('✅ Monitor module loads')"
+        
+        # Test CLI help works
+        docker run --rm market-data-system:${{ github.sha }} python monitor.py --help
+        
+        # Test that required dependencies are installed
+        docker run --rm market-data-system:${{ github.sha }} python -c "import redis, clickhouse_connect, kafka; print('✅ All dependencies available')"
+        
+        # Test .env file loading in container
+        docker run --rm market-data-system:${{ github.sha }} python -c "
+        import os
+        from pathlib import Path
+        # Check .env exists
+        assert Path('.env').exists(), '.env file not found'
+        # Test loading env vars (this would fail if .env was missing)
+        with open('.env') as f:
+            content = f.read()
+            assert 'REDIS_HOST' in content, 'REDIS_HOST not in .env'
+            assert 'CLICKHOUSE_HOST' in content, 'CLICKHOUSE_HOST not in .env'
+        print('✅ .env file properly accessible in container')
+        "
     
     - name: Validate docker-compose
       run: |
